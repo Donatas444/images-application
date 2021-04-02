@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="First try">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gallery-parent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/src/test/java/com/gallery/gallerybl/GalleryBlApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/src/main/java/com/gallery/gallerymodule/GalleryModuleApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-module/src/test/java/com/gallery/gallerymodule/GalleryModuleApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/GalleryUiApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/test/java/com/gallery/galleryui/GalleryUiApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qbkeTU0xuIMmvu8BAi9ZglBKIO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="" />
+      <created>1617355773268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617355773268</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First try" />
+    <option name="LAST_COMMIT_MESSAGE" value="First try" />
+  </component>
+</project>
