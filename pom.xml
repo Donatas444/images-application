@@ -22,7 +22,7 @@
     <modules>
         <module>gallery-ui</module>
         <module>gallery-bl</module>
-        <module>gallery-module</module>
+        <module>gallery-model</module>
     </modules>
 
 </project>

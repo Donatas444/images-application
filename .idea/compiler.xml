@@ -6,14 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gallery-module" />
         <module name="gallery-ui" />
+        <module name="gallery-model" />
         <module name="gallery-bl" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="gallery-bl" target="1.8" />
-      <module name="gallery-module" target="1.8" />
+      <module name="gallery-model" target="1.8" />
       <module name="gallery-parent" target="1.8" />
       <module name="gallery-ui" target="1.8" />
     </bytecodeTargetLevel>
@@ -21,7 +21,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="gallery-bl" options="-parameters" />
-      <module name="gallery-module" options="-parameters" />
+      <module name="gallery-model" options="-parameters" />
       <module name="gallery-ui" options="-parameters" />
     </option>
   </component>
