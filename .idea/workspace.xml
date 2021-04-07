@@ -5,34 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="First try">
-      <change afterPath="$PROJECT_DIR$/gallery-model/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodule/GalleryModuleApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/src/test/java/com/gallery/gallerymodule/GalleryModuleApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/src/main/java/com/gallery/gallerymodule/GalleryModuleApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-module/src/test/java/com/gallery/gallerymodule/GalleryModuleApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-bl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodule/GalleryModuleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodel/GalleryModelApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-model/src/test/java/com/gallery/gallerymodule/GalleryModuleApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/test/java/com/gallery/gallerymodel/GalleryModuleApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,7 +38,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.GalleryUiApplication">
+    <configuration name="GalleryModelApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gallery.gallerymodel.GalleryModelApplication" />
+      <module name="gallery-model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gallery.gallerymodel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GalleryUiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gallery.galleryui.GalleryUiApplication" />
       <module name="gallery-ui" />
@@ -65,6 +68,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.GalleryUiApplication" />
+        <item itemvalue="Application.GalleryModelApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -89,6 +93,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First try" />
