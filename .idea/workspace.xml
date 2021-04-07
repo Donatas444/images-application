@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="First try">
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/Testas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/resources/static/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-bl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodule/GalleryModuleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodel/GalleryModelApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/test/java/com/gallery/gallerymodule/GalleryModuleApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/test/java/com/gallery/gallerymodel/GalleryModuleApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodel/GalleryModelApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodel/GalleryModelApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,12 +24,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1qbkeTU0xuIMmvu8BAi9ZglBKIO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,9 +43,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\resources\static" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.GalleryUiApplication">
     <configuration name="GalleryModelApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -65,6 +81,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Unnamed" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="jetty:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.GalleryModelApplication" />
+      <item itemvalue="Application.GalleryUiApplication" />
+      <item itemvalue="Maven.Unnamed" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GalleryUiApplication" />
@@ -81,6 +127,14 @@
       <option name="presentableId" value="Default" />
       <updated>1617355773268</updated>
     </task>
+    <task id="LOCAL-00001" summary="First try">
+      <created>1617790599431</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617790599431</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
