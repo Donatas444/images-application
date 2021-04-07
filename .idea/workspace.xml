@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="First try">
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/Testas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/WEB-INF/zk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/master-template.zul" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/page.zul" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-bl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-bl/src/test/java/com/gallery/gallerybl/GalleryBlApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodel/GalleryModelApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodel/GalleryModelApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-model/src/test/java/com/gallery/gallerymodel/GalleryModuleApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/Testas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/test/java/com/gallery/galleryui/GalleryUiApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -152,5 +157,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First try" />
     <option name="LAST_COMMIT_MESSAGE" value="First try" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

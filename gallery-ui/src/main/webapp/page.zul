@@ -1,0 +1,10 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="~./templates/master-template.zul" ?>
+<?page complete="true"?>
+
+<zk xmlns="native" xmlns:xh="xhtml" xmlns:sh="shadow" xmlns:zul="http://www.zkoss.org/2005/zul">
+  <xh:div self="@{define(pageContent)}" viewModel="@id('vm') @init('lt.insoft.app.vm.PageVm')">
+
+    <!-- Page content -->
+
+  </xh:div>
+</zk>
