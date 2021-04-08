@@ -5,6 +5,6 @@
   </system-config>
 
   <listener>
-    <listener-class>lt.insoft.app.ZkInit</listener-class>
+    <listener-class>com.gallery.galleryui.ZkInit</listener-class>
   </listener>
 </zk>
