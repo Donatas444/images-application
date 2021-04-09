@@ -7,6 +7,5 @@ public class ZkInit implements WebAppInit {
 
     @Override
     public void init(WebApp webApp) throws Exception {
-
     }
 }

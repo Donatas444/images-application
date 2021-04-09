@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="First try">
+    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="Neveikianti versija">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-bl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/gallerybl/GalleryBlApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/gallerymodel/GalleryModelApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/GalleryUiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/GalleryUiApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/webapp/WEB-INF/zk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/WEB-INF/zk.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/webapp/hello.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/WEB-INF/zkau/hello.zul" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/WEB-INF/zkau/hello.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/hello.zul" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +48,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp" />
       <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\WEB-INF\zkau" />
       <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\WEB-INF" />
-      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp" />
       <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\resources" />
       <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\zkau" />
     </key>
@@ -157,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617887435089</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Neveikianti versija">
+      <created>1617957417890</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617957417890</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,7 +171,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First try" />
-    <option name="LAST_COMMIT_MESSAGE" value="First try" />
+    <MESSAGE value="Neveikianti versija" />
+    <option name="LAST_COMMIT_MESSAGE" value="Neveikianti versija" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
