@@ -1,0 +1,29 @@
+<zk>
+  <style src="/widgets/menu/navbar/style.css"/>
+  <div id="container" sclass="vertical" apply="org.zkoss.bind.BindComposer"
+          viewModel="@id('vm') @init('com.gallery.galleryui.ViewModel')">
+    <navbar id="navbar" orient="vertical" collapsed="false"
+            onSelect="@command('navigatePage', target=self.selectedItem.attributes['navigationPage'])">
+
+      <nav label="ZK's Pizza" iconSclass="z-icon-home"
+              children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+
+      <nav label="Customers" iconSclass="z-icon-group" badgeText="3"
+              children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+
+      <nav label="Orders" iconSclass="z-icon-truck" badgeText="4"
+              children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+
+      <nav label="Fan Service" iconSclass="z-icon-star"
+              children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+
+      <template name="navitem" var="navigationPage">
+        <navitem label="@load(navigationPage.subTitle)" selected="@load(navigationPage.selected)"/>
+      </template>
+    </navbar>
+
+    <include id="contentInclude" mode="instant" sclass="content"
+            currentPage="@ref(vm.currentPage)"
+            src="@load(currentPage.includeUri)" />
+  </div>
+</zk>
