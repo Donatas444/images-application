@@ -1,5 +1,7 @@
+<?link rel="stylesheet" type="text/css"
+        href="/stylesheets/bootstrap.css"?>
 <zk>
-  <button label="Upload Image" upload="true,maxsize=300">
+  <button label="Upload Image" upload="true,maxsize=400">
     <attribute name="onUpload"><![CDATA[
             org.zkoss.util.media.Media media = event.getMedia();
             if (media instanceof org.zkoss.image.Image) {
@@ -12,6 +14,4 @@
             }
         ]]></attribute>
   </button>
-  <separator />
-  <vlayout id="pics" height="360px" style="overflow:auto" />
 </zk>

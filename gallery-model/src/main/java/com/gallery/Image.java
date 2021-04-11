@@ -10,12 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Image {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) private Long id;
 
     private String name;
     private String description;
@@ -27,43 +32,4 @@ public class Image {
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     Set<Tag> pictureTags;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
-    public Set<Tag> getPictureTags() {
-        return pictureTags;
-    }
-
-    public void setPictureTags(Set<Tag> pictureTags) {
-        this.pictureTags = pictureTags;
-    }
 }

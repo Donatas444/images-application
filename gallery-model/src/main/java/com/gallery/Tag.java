@@ -8,9 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Tag {
 
     @Id
@@ -19,30 +24,7 @@ public class Tag {
 
     private String tag;
 
-    @ManyToMany (mappedBy = "pictureTags")
+    @ManyToMany(mappedBy = "pictureTags")
     Set<Image> taggedPictures;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public Set<Image> getTaggedPictures() {
-        return taggedPictures;
-    }
-
-    public void setTaggedPictures(Set<Image> taggedPictures) {
-        this.taggedPictures = taggedPictures;
-    }
 }

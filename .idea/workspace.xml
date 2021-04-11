@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="Veikianti vesija">
-      <change afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Image.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Tag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/navbar.zul" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/upload.zul" afterDir="false" />
+    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="Sukurti modeliai, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-bl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/GalleryUiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/GalleryUiApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/hello.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/index.zul" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/index.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/index.zul" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/navbar.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/navbar.zul" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/upload.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/upload.zul" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +51,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -170,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617958370498</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Veikianti vesija">
+      <created>1618091219734</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618091219734</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,7 +194,8 @@
     <MESSAGE value="First try" />
     <MESSAGE value="Neveikianti versija" />
     <MESSAGE value="Veikianti vesija" />
-    <option name="LAST_COMMIT_MESSAGE" value="Veikianti vesija" />
+    <MESSAGE value="Sukurti modeliai, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sukurti modeliai, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
