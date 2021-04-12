@@ -26,5 +26,4 @@ public class Tag {
 
     @ManyToMany(mappedBy = "pictureTags")
     Set<Image> taggedPictures;
-
 }

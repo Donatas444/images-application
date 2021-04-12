@@ -1,13 +1,11 @@
-<navbar class="navbar-inverse">
+<navbar class="navbar-inverse" style="height: 110px">
   <navitem label="Show all images" selected="true" />
   <nav label="Dropdown">
     <navitem label="Action" />
     <navitem label="Another action" />
-    <navitem label="Something else here" />
-    <navitem label="Separated link" />
-    <navitem label="One more separated link" />
   </nav>
 </navbar>
+
 
 
 

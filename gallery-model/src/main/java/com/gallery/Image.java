@@ -20,7 +20,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Image {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String name;
     private String description;
@@ -31,5 +33,4 @@ public class Image {
             joinColumns = @JoinColumn(name = "picture_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     Set<Tag> pictureTags;
-
 }
