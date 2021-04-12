@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. Paleistas su Bootstrap'u.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener">
+    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. &#10;Neranda Bootstrap elementu (pvz. navbar)...">
+      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/picturerepository/ImageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/service/PictureService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/tagrepository/TagRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/tagservice/TagService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/viewmodel/FormViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/banner.zul" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/gallery.zul" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/search.zul" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/java/com/gallery/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-model/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-model/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/GalleryUiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/GalleryUiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/index.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/index.zul" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/navbar.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/navbar.zul" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/navbar.zul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/upload.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/upload.zul" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -42,23 +47,27 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\zkau" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\WEB-INF\i18n" />
+      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\resources" />
       <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\views" />
       <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp" />
       <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\WEB-INF\zkau" />
-      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\webapp\WEB-INF" />
-      <recent name="C:\Users\donatas.lunys\Desktop\gallery\gallery\gallery-ui\src\main\resources" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="com.gallery.galleryui" />
@@ -184,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618174711962</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. &#10;Neranda Bootstrap elementu (pvz. navbar)...">
+      <created>1618216813670</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618216813670</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,7 +221,8 @@
     <MESSAGE value="Veikianti vesija" />
     <MESSAGE value="Sukurti modeliai, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener" />
     <MESSAGE value="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. Paleistas su Bootstrap'u.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. Paleistas su Bootstrap'u.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener" />
+    <MESSAGE value="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. &#10;Neranda Bootstrap elementu (pvz. navbar)..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. &#10;Neranda Bootstrap elementu (pvz. navbar)..." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -89,6 +89,7 @@
       <groupId>org.webjars</groupId>
       <artifactId>webjars-locator</artifactId>
     </dependency>
+
   </dependencies>
   <build>
     <plugins>

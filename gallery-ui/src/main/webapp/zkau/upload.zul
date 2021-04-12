@@ -1,17 +1,20 @@
-<?link rel="stylesheet" type="text/css"
-        href="/stylesheets/bootstrap.css"?>
-<zk>
-  <button label="Upload Image" upload="true,maxsize=400">
-    <attribute name="onUpload"><![CDATA[
-            org.zkoss.util.media.Media media = event.getMedia();
-            if (media instanceof org.zkoss.image.Image) {
-                org.zkoss.zul.Image image = new org.zkoss.zul.Image();
-                image.setContent(media);
-                image.setParent(pics);
-            } else {
-                Messagebox.show("Not an image: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
-                break;
-            }
-        ]]></attribute>
-  </button>
-</zk>
+<groupbox >
+  <grid hflex="true" >
+    <columns>
+      <column width="120px"/>
+      <column/>
+    </columns>
+    <rows>
+
+      <row>
+        Name <textbox value="@bind()"/>
+      </row>
+      <row>
+        Description <textbox value="@bind()"/>
+      </row>
+      <row>
+        Tag <textbox value="@bind()" format="#" />
+      </row>
+    </rows>
+  </grid>
+</groupbox>
