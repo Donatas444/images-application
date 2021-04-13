@@ -1,30 +1,32 @@
-<groupbox id="imageBox">
-  <grid hflex="true">
+<div align="center">
+<groupbox id="imageBox" width="40%"  >
+  <grid>
     <columns>
-      <column width="25%" />
+      <column width="30%" />
       <column />
     </columns>
     <rows>
-
       <row>
         Name
-        <textbox id="nameBox" value="@bind(image.name)" />
+        <textbox id="nameBox" value="@save(image.name)" />
       </row>
       <row>
         Description
-        <textbox id="descriptionBox" value="@bind(image.description)" />
+        <textbox id="descriptionBox" value="@save(image.description)" />
       </row>
       <row>
         Tag
-        <textbox id="tagBox" value="@bind(tag.tad)" />
+        <textbox id="tagBox" value="@save(tag.tad)" />
       </row>
-
       <row>
         Upload your image
         <apply templateURI="/zkau/uploadbtn.zul" />
       </row>
+      <row align="right">
 
+      </row>
     </rows>
-
   </grid>
 </groupbox>
+  <button id="saveButton" label="Save"> </button>
+</div>

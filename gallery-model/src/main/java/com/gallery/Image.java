@@ -1,5 +1,6 @@
 package com.gallery;
 
+import java.sql.Blob;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ public class Image {
 
     private String name;
     private String description;
-    private String picture;
+    private Blob picture;
 
     @ManyToMany
     @JoinTable(name = "picture_tag",

@@ -22,12 +22,11 @@ public class PictureService {
     Tag tag;
 
 
-    public Image addImage(Image image, Long id) {
-        Tag tag = tagRepository.findById(id).orElse(new Tag());
-        image.setName(null);
-        image.setDescription(null);
+    public void addImage(Image image) {
+     //   Tag tag = tagRepository.findById(id).orElse(new Tag());
+
         imageRepository.save(image);
-        return image;
+
     }
 
     public Image updateImage(Image image, Long imageId, Long tagId) {
