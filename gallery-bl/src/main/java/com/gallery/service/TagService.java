@@ -1,4 +1,4 @@
-package com.gallery.tagservice;
+package com.gallery.service;
 
 import java.util.Optional;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.Tag;
-import com.gallery.tagrepository.TagRepository;
+import com.gallery.repository.TagRepository;
 
 @Service
 public class TagService {

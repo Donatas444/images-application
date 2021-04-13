@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. &#10;Neranda Bootstrap elementu (pvz. navbar)...">
-      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/picturerepository/ImageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/service/PictureService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/tagrepository/TagRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/tagservice/TagService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/viewmodel/FormViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/banner.zul" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/gallery.zul" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/search.zul" afterDir="false" />
+    <list default="true" id="4f80bc05-fdee-4e4e-8876-ad604bd7c7f4" name="Default Changelist" comment="Image Service, Repo. Tag Repo ir pradetas Service.&#10;index.zul su linkais i kitus .zul">
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/viewmodel/ViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/viewmodel/WindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/uploadbtn.zul" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/ZkInit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/index.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/index.zul" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/navbar.zul" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/picturerepository/ImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/repository/ImageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/service/PictureService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/service/PictureService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/tagrepository/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/repository/TagRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/tagservice/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-bl/src/main/java/com/gallery/service/TagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/java/com/gallery/galleryui/viewmodel/FormViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/search.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/search.zul" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/upload.zul" beforeDir="false" afterPath="$PROJECT_DIR$/gallery-ui/src/main/webapp/zkau/upload.zul" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618216813670</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Image Service, Repo. Tag Repo ir pradetas Service.&#10;index.zul su linkais i kitus .zul">
+      <created>1618257894551</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1618257894551</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,7 +226,8 @@
     <MESSAGE value="Sukurti modeliai, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener" />
     <MESSAGE value="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. Paleistas su Bootstrap'u.&#10;&#10;Meta klaida, bet pasileidzia:  Section 4.4 of the Servlet 3.0 specification does not permit this method to be called from a ServletContextListener that was not defined in web.xml, a web-fragment.xml file nor annotated with @WebListener" />
     <MESSAGE value="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. &#10;Neranda Bootstrap elementu (pvz. navbar)..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sukurti modeliai su Lomboku, H2 DB @ManyToMany, paleistas index.zul su viduje esanciu kitu .zul failu. &#10;Neranda Bootstrap elementu (pvz. navbar)..." />
+    <MESSAGE value="Image Service, Repo. Tag Repo ir pradetas Service.&#10;index.zul su linkais i kitus .zul" />
+    <option name="LAST_COMMIT_MESSAGE" value="Image Service, Repo. Tag Repo ir pradetas Service.&#10;index.zul su linkais i kitus .zul" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

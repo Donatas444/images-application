@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.gallery.Image;
 import com.gallery.Tag;
-import com.gallery.picturerepository.ImageRepository;
-import com.gallery.tagrepository.TagRepository;
+import com.gallery.repository.ImageRepository;
+import com.gallery.repository.TagRepository;
 
 @Service
 public class PictureService {
@@ -20,6 +20,7 @@ public class PictureService {
     ImageRepository imageRepository;
     @Autowired
     Tag tag;
+
 
     public Image addImage(Image image, Long id) {
         Tag tag = tagRepository.findById(id).orElse(new Tag());

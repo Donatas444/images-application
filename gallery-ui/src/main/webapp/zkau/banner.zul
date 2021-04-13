@@ -2,11 +2,11 @@
   <hbox hflex="1" align="center">
     <div width="800px">
 
-      <a sclass="banner-head" style="font-size:30px" label="Images" href="/zkau/gallery.zul"/>
-      <space bar="false"/>
-      <a sclass="banner-head" style="font-size:30px" label="Search" href="/zkau/search.zul"/>
-      <space bar="false"/>
-      <a sclass="banner-head" style="font-size:30px" label="Upload image" href="/zkau/upload.zul"/>
+      <a sclass="banner-head" style="font-size:30px" label="Images" href="/zkau/gallery.zul" />
+      <space bar="false" />
+      <a sclass="banner-head" style="font-size:30px" label="Search" href="/zkau/search.zul" />
+      <space bar="false" />
+      <a sclass="banner-head" style="font-size:30px" label="Upload image" href="/zkau/upload.zul" />
     </div>
   </hbox>
 </div>
