@@ -1,4 +1,4 @@
-package com.gallery;
+package com.gallery.gallerymodel;
 
 import java.util.Set;
 
@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
+import com.gallery.gallerymodel.Image;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

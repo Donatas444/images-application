@@ -1,5 +1,7 @@
+<window  >
+
 <div align="center">
-<groupbox id="imageBox" width="40%"  >
+<groupbox width="40%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageViewModel')">  <!-- -->
   <grid>
     <columns>
       <column width="30%" />
@@ -8,25 +10,24 @@
     <rows>
       <row>
         Name
-        <textbox id="nameBox" value="@save(image.name)" />
+        <textbox value="@bind(vm.name)" />
       </row>
       <row>
         Description
-        <textbox id="descriptionBox" value="@save(image.description)" />
+        <textbox value="@bind(vm.description)" />
       </row>
-      <row>
-        Tag
-        <textbox id="tagBox" value="@save(tag.tad)" />
-      </row>
-      <row>
+
+  <!--    <row>
         Upload your image
         <apply templateURI="/zkau/uploadbtn.zul" />
       </row>
       <row align="right">
 
-      </row>
+      </row> -->
     </rows>
   </grid>
+  <button onClick="@command('doAddImage')" label="Save"> </button>
 </groupbox>
-  <button id="saveButton" label="Save"> </button>
+
 </div>
+</window>

@@ -6,24 +6,22 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gallery.Image;
-import com.gallery.Tag;
+import com.gallery.gallerymodel.Image;
+import com.gallery.gallerymodel.Tag;
 import com.gallery.repository.ImageRepository;
 import com.gallery.repository.TagRepository;
 
 @Service
-public class PictureService {
+public class ImageService {
 
-    @Autowired
-    TagRepository tagRepository;
     @Autowired
     ImageRepository imageRepository;
     @Autowired
-    Tag tag;
-
+    TagRepository tagRepository;
+    @Autowired
+    Image image;
 
     public void addImage(Image image) {
-     //   Tag tag = tagRepository.findById(id).orElse(new Tag());
 
         imageRepository.save(image);
 

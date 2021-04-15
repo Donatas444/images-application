@@ -1,4 +1,4 @@
-package com.gallery;
+package com.gallery.gallerymodel;
 
 import java.sql.Blob;
 import java.util.Set;
@@ -30,8 +30,7 @@ public class Image {
     private Blob picture;
 
     @ManyToMany
-    @JoinTable(name = "picture_tag",
-            joinColumns = @JoinColumn(name = "picture_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @JoinTable(name = "picture_tag", joinColumns = @JoinColumn(name = "picture_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     Set<Tag> pictureTags;
+
 }

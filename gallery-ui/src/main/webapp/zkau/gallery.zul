@@ -1,0 +1,22 @@
+<zk>
+  <window  xmlns:h="http://www.w3.org/1999/xhtml">
+
+    <h:form>
+      <grid>
+
+        <columns>
+          <column width="250px" />
+          <column />
+        </columns>
+        <rows>
+          <row>*First Name:
+            <textbox value="@bind(vm.name)" />
+          </row>
+          <row>
+            <button label="Save" onClick="@command('doAddImage')" />
+          </row>
+        </rows>
+      </grid>
+    </h:form>
+  </window>
+</zk>

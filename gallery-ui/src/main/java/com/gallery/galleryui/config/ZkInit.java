@@ -1,4 +1,4 @@
-package com.gallery.galleryui;
+package com.gallery.galleryui.config;
 
 import org.zkoss.zk.ui.WebApp;
 import org.zkoss.zk.ui.util.WebAppInit;
