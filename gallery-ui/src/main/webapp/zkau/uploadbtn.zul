@@ -1,4 +1,4 @@
-<vlayout>
+<zk>
   <button label="Upload Image" upload="true">
     <attribute name="onUpload"><![CDATA[
             org.zkoss.util.media.Media media = event.getMedia();
@@ -10,7 +10,7 @@
   </button>
   <image id="image" />
   <label id="txt" />
-</vlayout>
+</zk>
 
 
 

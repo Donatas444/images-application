@@ -18,8 +18,8 @@ import org.zkoss.zk.ui.http.HttpSessionListener;
 
 
 @EntityScan("com.gallery.gallerymodel")
-@ComponentScan(basePackages={"com.gallery.gallerybl.service"})
-@EnableJpaRepositories(basePackages={"com.gallery.gallerybl.repository"})
+@ComponentScan(basePackages={"com.gallery.service"})
+@EnableJpaRepositories(basePackages={"com.gallery.repository"})
 @EnableAutoConfiguration
 @SpringBootApplication
 public class GalleryUiApplication {

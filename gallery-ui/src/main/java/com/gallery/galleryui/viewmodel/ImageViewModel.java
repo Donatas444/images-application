@@ -3,36 +3,31 @@ package com.gallery.galleryui.viewmodel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.service.ImageService;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ImageViewModel {
 
-    @Autowired
+    @WireVariable
     ImageService imageService;
-
+    @Getter
+    @Setter
+    @WireVariable
     private String name;
+    @Getter
+    @Setter
+    @WireVariable
     private String description;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Command
-    public void doAddImage(@BindingParam("name") String name, @BindingParam("description") String description) {
+    public void doAddImage() {
         Image image = new Image();
         image.setName(name);
         image.setDescription(description);

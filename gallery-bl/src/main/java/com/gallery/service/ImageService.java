@@ -18,8 +18,6 @@ public class ImageService {
     ImageRepository imageRepository;
     @Autowired
     TagRepository tagRepository;
-    @Autowired
-    Image image;
 
     public void addImage(Image image) {
 
