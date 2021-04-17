@@ -20,9 +20,7 @@ public class ImageService {
     TagRepository tagRepository;
 
     public void addImage(Image image) {
-
         imageRepository.save(image);
-
     }
 
     public Image updateImage(Image image, Long imageId, Long tagId) {

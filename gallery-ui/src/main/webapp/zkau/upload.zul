@@ -26,6 +26,9 @@
       </row> -->
     </rows>
   </grid>
+  <button upload="true,maxsize=801192"
+          onUpload="@command('doUpload',upload=event)"
+          autodisable="self" label="Upload"></button>
   <button onClick="@command('doAddImage')" label="Save"> </button>
 </groupbox>
 

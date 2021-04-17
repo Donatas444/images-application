@@ -1,22 +1,18 @@
 <zk>
-  <window  xmlns:h="http://www.w3.org/1999/xhtml">
+  <window
+          apply="org.zkoss.bind.BindComposer"
+          viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageViewModel')"
+          title="win"
+          position="center"
+          mode="overlapped"
+          border="normal"
+          width="300px"
+          height="200px">
+    <button
+            label="upload"
+            upload="true,maxsize=801192"
+            onUpload="@command('uploadFile',upload=event)"
+            autodisable="self" />
 
-    <h:form>
-      <grid>
-
-        <columns>
-          <column width="250px" />
-          <column />
-        </columns>
-        <rows>
-          <row>*First Name:
-            <textbox value="@bind(vm.name)" />
-          </row>
-          <row>
-            <button label="Save" onClick="@command('doAddImage')" />
-          </row>
-        </rows>
-      </grid>
-    </h:form>
   </window>
 </zk>
