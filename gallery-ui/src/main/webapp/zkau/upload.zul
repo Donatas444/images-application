@@ -1,36 +1,29 @@
-<window  >
+<window xmlns="http://www.zkoss.org/2005/zul"
+        apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.FileUpload')">
 
-<div align="center">
-<groupbox width="40%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageViewModel')">  <!-- -->
-  <grid>
-    <columns>
-      <column width="30%" />
-      <column />
-    </columns>
-    <rows>
-      <row>
-        Name
-        <textbox value="@bind(vm.name)" />
-      </row>
-      <row>
-        Description
-        <textbox value="@bind(vm.description)" />
-      </row>
+  <div align="center">
+    <groupbox width="40%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.FileUpload')">
+      <grid>
+        <columns>
+          <column width="30%" />
+          <column />
+        </columns>
+        <rows>
 
-  <!--    <row>
-        Upload your image
-        <apply templateURI="/zkau/uploadbtn.zul" />
-      </row>
-      <row align="right">
+          <row>
+            Description
+            <textbox value="@bind(vm.description)" />
+          </row>
 
-      </row> -->
-    </rows>
-  </grid>
-  <button upload="true,maxsize=801192"
-          onUpload="@command('doUpload',upload=event)"
-          autodisable="self" label="Upload"></button>
-  <button onClick="@command('doAddImage')" label="Save"> </button>
-</groupbox>
+        </rows>
+      </grid>
+      <button
+              upload="true"
+              onUpload="@command('onFileUpload',upload=event)"
+              autodisable="self" label="Upload"></button>
+      <button onClick="@command('doAddImage')" label="Save"></button>
+    </groupbox>
 
-</div>
+  </div>
 </window>

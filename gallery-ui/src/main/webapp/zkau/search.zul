@@ -1,14 +1,8 @@
 <zk>
-  <button label="Upload Image" upload="true">
-    <attribute name="onUpload"><![CDATA[
-            org.zkoss.util.media.Media media = event.getMedia();
-            if (media instanceof org.zkoss.image.AImage) {
-                image.setContent(media);
-            }
-            txt.setValue(media.getName());
-        ]]></attribute>
-  </button>
-  <separator />
-  <image id="image" />
-  <textbox id="txt" />
+  <window xmlns="http://www.zkoss.org/2005/zul"
+          apply="org.zkoss.bind.BindComposer"
+          viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.FileUpload')">
+
+    <button upload="true,maxsize=-1,native" onUpload="@command('onFileUpload')" label="Select File"/>
+  </window>
 </zk>

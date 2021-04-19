@@ -2,22 +2,14 @@ package com.gallery.galleryui.viewmodel;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Blob;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
-import org.zkoss.bind.annotation.ContextParam;
-import org.zkoss.bind.annotation.ContextType;
-import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.util.media.Media;
-import org.zkoss.zk.ui.event.UploadEvent;
+
+import org.zkoss.zhtml.Fileupload;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
@@ -43,30 +35,42 @@ public class ImageViewModel {
     @Getter
     @Setter
     @WireVariable
-    private Media picture;
-
-    private Media uploadedPicture;
+    private byte[] data;
 
     @Command
     public void doAddImage() {
+        FileUpload fileUpload = new FileUpload();
+
         Image image = new Image();
         image.setName(name);
         image.setDescription(description);
-
+        //image.setData(fileUpload.bFile);
         imageService.addImage(image);
 
     }
 
-    @NotifyChange("picture")
+  /*  @NotifyChange("picture")
     @Command
     public void doUpload(@ContextParam(ContextType.TRIGGER_EVENT) UploadEvent event) {
-        picture = event.getMedia();
-        if (picture.isBinary()) {
-            InputStream inputStream = picture.getStreamData();
+        media = event.getMedia();
+        if (media.isBinary()) {
+            InputStream inputStream = media.getStreamData();
         } else {
-            String inoutString = picture.getStringData();
+            String inputString = media.getStringData();
         }
 
-    }
+    }*/
 
+    @Command
+    public void doUpload2(@BindingParam("data") Media data) throws IOException {
+
+        // Media data = Fileupload.get(true);
+        // InputStream inputStream= data.getStreamData();
+        // return null;
+        Image image = new Image();
+
+        image.setData(data.getByteData());
+        imageService.addImage(image);
+
+    }
 }

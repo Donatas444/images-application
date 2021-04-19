@@ -29,7 +29,8 @@ public class Image {
 
     private String name;
     private String description;
-    private Media picture;
+    @Lob
+    private byte[] data;
 
     @ManyToMany
     @JoinTable(name = "picture_tag", joinColumns = @JoinColumn(name = "picture_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
