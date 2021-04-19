@@ -44,9 +44,9 @@ public class FileUpload implements Serializable {
     }
 
     @Command
-    public void onFileUpload(@ContextParam(ContextType.BIND_CONTEXT) BindContext ctx) {
+    public void onFileUpload(@ContextParam(ContextType.BIND_CONTEXT) BindContext picture) {
         UploadEvent uploadEvent = null;
-        Object objUploadEvent = ctx.getTriggerEvent();
+        Object objUploadEvent = picture.getTriggerEvent();
 
         if (objUploadEvent != null && (objUploadEvent instanceof UploadEvent)) {
             uploadEvent = (UploadEvent) objUploadEvent;
@@ -54,11 +54,8 @@ public class FileUpload implements Serializable {
             Media media = uploadEvent.getMedia();
 
             name = media.getName();
-            String format = media.getFormat();
 
             data = media.getByteData();
-
-            System.out.println(String.format("File Name: %s, Format: %s", name, format));
         }
     }
 
