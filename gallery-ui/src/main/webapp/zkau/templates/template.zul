@@ -13,10 +13,15 @@
   <xh:body>
 
     <xh:nav class="navbar navbar-expand-md sticky-top" style="background-color: black;">
-      <label style="color: white;">Menu</label>
+      <a style="color: white;" href="/zkau/gallery.zul" >Gallery</a>
+      <space bar="true" />
+      <a style="color: white;" href="/zkau/search.zul">Search</a>
+      <space bar="true" />
+      <a style="color: white;" href="/zkau/upload.zul">Upload image</a>
     </xh:nav>
 
     <xh:div self="@{insert(pageContent)}" />
 
   </xh:body>
 </xh:html>
+

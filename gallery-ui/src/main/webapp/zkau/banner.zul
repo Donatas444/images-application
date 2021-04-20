@@ -1,6 +1,6 @@
 <div hflex="1" sclass="banner">
   <hbox hflex="1" align="center">
-    <div width="800px">
+    <div width="1400px">
 
       <a sclass="banner-head" style="font-size:30px" label="Images" href="/zkau/gallery.zul" />
       <space bar="false" />

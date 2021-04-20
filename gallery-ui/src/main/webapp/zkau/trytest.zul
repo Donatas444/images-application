@@ -1,12 +1,10 @@
-<listbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
-  <listhead>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
+<?page complete="true"?>
+<zk xmlns="native" xmlns:xh="xhtml" xmlns:sh="shadow" xmlns:zul="http://www.zkoss.org/2005/zul">
+  <xh:div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+    <div class="row">
 
-  </listhead>
-
-    <listitem>
-      <listcell label="@load(vm.name)">
-
-      </listcell>
-    </listitem>
-
-</listbox>
+      <div class="col-sm-4">col-sm-4</div>
+    </div>
+  </xh:div>
+</zk>

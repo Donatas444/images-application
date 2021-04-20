@@ -2,20 +2,32 @@
 <?page complete="true"?>
 <zk>
   <div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
-  <grid apply="org.zkoss.bind.BindComposer"
-          viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')" width="100%" model="@bind(vm.images)">
-    <columns>
-      <column label="Name"/>
-      <column label="Description"/>
-      <column label="Picture"/>
-    </columns>
-    <template name="model">
-      <row>
-        <label value="@bind(each.name)"/>
-        <label value="@bind(each.description)"/>
-        <image content="@load(each.data) @converter('com.gallery.galleryui.viewmodel.ImageToZkImageConverter')"/>
-      </row>
-    </template>
-  </grid>
+
+    <div class="row">
+      <div class="col-sm">
+
+        <grid apply="org.zkoss.bind.BindComposer"
+                viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')" width="100%" model="@bind(vm.images)">
+
+
+          <template name="model">
+
+            <row>
+
+              <label value="@bind(each.name)" />
+              <label value="@bind(each.description)" />
+              <image content="@load(each.data) @converter('com.gallery.galleryui.viewmodel.ImageToZkImageConverter')" />
+            </row>
+
+          </template>
+
+        </grid>
+
+      </div>
+    </div>
+
   </div>
 </zk>
+
+
+
