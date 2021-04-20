@@ -23,6 +23,10 @@ public class ImageService {
         imageRepository.save(image);
     }
 
+    public List<Image> getAllImages() {
+        return (List<Image>) imageRepository.findAll();
+    }
+
     public Image updateImage(Image image, Long imageId, Long tagId) {
         Tag tag = tagRepository.findById(tagId).orElse(new Tag());
         image.setPictureTags(image.getPictureTags());
@@ -33,10 +37,6 @@ public class ImageService {
 
     public void deleteImage(Image image) {
         imageRepository.delete(image);
-    }
-
-    public List<Image> getAllImages() {
-        return (List<Image>) imageRepository.findAll();
     }
 
     public Image getImageById(Long id) {

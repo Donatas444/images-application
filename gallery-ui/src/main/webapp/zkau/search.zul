@@ -1,8 +1,15 @@
-<zk>
-  <window xmlns="http://www.zkoss.org/2005/zul"
-          apply="org.zkoss.bind.BindComposer"
-          viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.FileUpload')">
-
-    <button upload="true,maxsize=-1,native" onUpload="@command('onFileUpload')" label="Select File"/>
-  </window>
-</zk>
+<window apply="org.zkoss.bind.BindComposer"
+        viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+  <grid width="400px" model="@bind(vm.images)">
+    <columns>
+      <column label="name"/>
+      <column label="description"/>
+    </columns>
+    <template name="model">
+      <row>
+        <label value="@bind(each.name)"/>
+        <label value="@bind(each.description)"/>
+      </row>
+    </template>
+  </grid>
+</window>

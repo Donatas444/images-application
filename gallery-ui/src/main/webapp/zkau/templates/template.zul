@@ -5,18 +5,17 @@
 <xh:html xmlns="native" xmlns:zul="http://www.zkoss.org/2005/zul" xmlns:xh="xhtml" xmlns:sh="shadow">
   <head>
     <meta charset="utf-8" />
-    <xh:zkhead stubonly="true" />
+    <xh:zkhead stubonly="false" />
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+
   </head>
 
   <xh:body>
 
+    <xh:nav class="navbar navbar-expand-md sticky-top" style="background-color: black;">
+      <label style="color: white;">Menu</label>
+    </xh:nav>
 
-
-    <nav class="navbar navbar-expand-md sticky-top" style="background-color: black;">
-      <label>sdsds</label>
-    </nav>
-    <!-- Page content -->
     <xh:div self="@{insert(pageContent)}" />
 
   </xh:body>

@@ -1,15 +1,11 @@
-<?init class="org.zkoss.zk.ui.util.Composition" arg0="~./zkau/templates/template.zul" ?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
-<window>
+
 
   <zk xmlns="native" xmlns:xh="xhtml" xmlns:sh="shadow" xmlns:zul="http://www.zkoss.org/2005/zul">
-    <xh:div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageViewModel)">
+    <xh:div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
 
 
-      <apply templateURI="~./zkau/templates/template.zul" />
 
-      <!-- Page content -->
-      dddddddd
     </xh:div>
   </zk>
-</window>

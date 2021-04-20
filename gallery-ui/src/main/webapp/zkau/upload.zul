@@ -1,9 +1,10 @@
+
 <window xmlns="http://www.zkoss.org/2005/zul"
         apply="org.zkoss.bind.BindComposer"
-        viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.FileUpload')">
+        viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
 
   <div align="center">
-    <groupbox width="40%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.FileUpload')">
+    <groupbox width="40%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
       <grid>
         <columns>
           <column width="30%" />

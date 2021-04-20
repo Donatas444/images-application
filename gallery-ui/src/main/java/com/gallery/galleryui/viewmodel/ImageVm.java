@@ -1,12 +1,20 @@
 package com.gallery.galleryui.viewmodel;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.zkoss.bind.BindContext;
 import org.zkoss.bind.annotation.AfterCompose;
+import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
+import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.image.AImage;
+import org.zkoss.image.Images;
 import org.zkoss.util.media.Media;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.UploadEvent;
@@ -21,7 +29,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-public class FileUpload implements Serializable {
+public class ImageVm implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @WireVariable
     ImageService imageService;
@@ -37,6 +46,9 @@ public class FileUpload implements Serializable {
     @Setter
     @WireVariable
     private byte[] data;
+    @Getter
+    @Setter
+    private List<Image> images;
 
     @AfterCompose
     public void afterCompose(@ContextParam(ContextType.VIEW) Component view) {
@@ -69,4 +81,40 @@ public class FileUpload implements Serializable {
         imageService.addImage(image);
 
     }
+
+  /*  @NotifyChange("images")
+    public List<Image> imageList() {
+
+        List<Image> images = imageService.getAllImages();
+
+        return images;
+    } */
+
+    @Init
+    public void init() {
+        images = imageService.getAllImages();
+    }
+
+
+ /*    @Command
+    public org.zkoss.image.Image create(String name, byte[] data) throws IOException {
+        AImage alImage = new AImage(name, data);
+        org.zkoss.zul.Image zkImage = new org.zkoss.zul.Image();
+        zkImage.setContent(alImage);
+
+        org.zkoss.image.Image newImageFromDB = zkImage.getContent();
+        return newImageFromDB;
+    }
+
+   @Command
+    public org.zkoss.image.Image show() {
+        AImage img = null;
+        try {
+            img = new AImage(nomeImmagineArticolo, artImg[0].getImmagine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return immagineArt.setContent(img);
+    }*/
+
 }

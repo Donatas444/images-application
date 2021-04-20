@@ -1,15 +1,12 @@
 package com.gallery.galleryui.viewmodel;
 
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.util.media.Media;
 
-import org.zkoss.zhtml.Fileupload;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
@@ -20,7 +17,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
-public class ImageViewModel {
+public class ImageViewModel2 {
 
     @WireVariable
     ImageService imageService;
@@ -36,10 +33,11 @@ public class ImageViewModel {
     @Setter
     @WireVariable
     private byte[] data;
-
+    @WireVariable
+    private List<Image> images = imageService.getAllImages();
     @Command
     public void doAddImage() {
-        FileUpload fileUpload = new FileUpload();
+        ImageVm fileUpload = new ImageVm();
 
         Image image = new Image();
         image.setName(name);
