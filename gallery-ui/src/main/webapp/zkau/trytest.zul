@@ -1,0 +1,12 @@
+<listbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+  <listhead>
+
+  </listhead>
+
+    <listitem>
+      <listcell label="@load(vm.name)">
+
+      </listcell>
+    </listitem>
+
+</listbox>
