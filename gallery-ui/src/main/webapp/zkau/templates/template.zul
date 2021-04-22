@@ -7,13 +7,12 @@
     <meta charset="utf-8" />
     <xh:zkhead stubonly="false" />
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-
   </head>
 
   <xh:body>
 
     <xh:nav class="navbar navbar-expand-md sticky-top" style="background-color: black;">
-      <a style="color: white;" href="/zkau/gallery.zul" >Gallery</a>
+      <a style="color: white;" href="/zkau/gallery.zul">Gallery</a>
       <space bar="true" />
       <a style="color: white;" href="/zkau/search.zul">Search</a>
       <space bar="true" />

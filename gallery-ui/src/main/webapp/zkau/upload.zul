@@ -1,9 +1,10 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
+<?page complete="true"?>
 
-<window xmlns="http://www.zkoss.org/2005/zul"
-        apply="org.zkoss.bind.BindComposer"
-      >
+<zk xmlns="http://www.zkoss.org/2005/zul"
+        apply="org.zkoss.bind.BindComposer">
+  <div align="center" self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
 
-  <div align="center">
     <groupbox width="40%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
       <grid>
         <columns>
@@ -13,7 +14,7 @@
         <rows>
 
           <row>
-            Description
+            Write some description here:
             <textbox value="@bind(vm.description)" />
           </row>
 
@@ -27,4 +28,4 @@
     </groupbox>
 
   </div>
-</window>
+</zk>
