@@ -1,20 +1,22 @@
 package com.gallery.galleryui.viewmodel;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
+import org.imgscalr.Scalr;
 import org.zkoss.bind.BindContext;
 import org.zkoss.bind.annotation.AfterCompose;
-import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.Init;
-import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.image.AImage;
-import org.zkoss.image.Images;
 import org.zkoss.util.media.Media;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.UploadEvent;
@@ -48,6 +50,10 @@ public class ImageVm implements Serializable {
     private byte[] data;
     @Getter
     @Setter
+    @WireVariable
+    private byte[] thumbnail;
+    @Getter
+    @Setter
     private List<Image> images;
 
     @AfterCompose
@@ -56,7 +62,7 @@ public class ImageVm implements Serializable {
     }
 
     @Command
-    public void onFileUpload(@ContextParam(ContextType.BIND_CONTEXT) BindContext picture) {
+    public void onFileUpload(@ContextParam(ContextType.BIND_CONTEXT) BindContext picture) throws SQLException, IOException {
         UploadEvent uploadEvent = null;
         Object objUploadEvent = picture.getTriggerEvent();
 
@@ -66,8 +72,9 @@ public class ImageVm implements Serializable {
             Media media = uploadEvent.getMedia();
 
             name = media.getName();
-
             data = media.getByteData();
+            BufferedImage thnl = createThumbnail(data);
+            thumbnail = bufferedImageToByteArray(thnl);
         }
     }
 
@@ -78,43 +85,35 @@ public class ImageVm implements Serializable {
         image.setName(name);
         image.setDescription(description);
         image.setData(data);
+        image.setThumbnail(thumbnail);
         imageService.addImage(image);
-
     }
-
-  /*  @NotifyChange("images")
-    public List<Image> imageList() {
-
-        List<Image> images = imageService.getAllImages();
-
-        return images;
-    } */
 
     @Init
     public void init() {
+
         images = imageService.getAllImages();
     }
 
+    public BufferedImage createThumbnail(byte[] input) {
 
- /*    @Command
-    public org.zkoss.image.Image create(String name, byte[] data) throws IOException {
-        AImage alImage = new AImage(name, data);
-        org.zkoss.zul.Image zkImage = new org.zkoss.zul.Image();
-        zkImage.setContent(alImage);
-
-        org.zkoss.image.Image newImageFromDB = zkImage.getContent();
-        return newImageFromDB;
+        BufferedImage scaledImage = Scalr.resize(createImageFromBytes(input), 150);
+        return scaledImage;
     }
 
-   @Command
-    public org.zkoss.image.Image show() {
-        AImage img = null;
+    public BufferedImage createImageFromBytes(byte[] input) {
+        ByteArrayInputStream bais = new ByteArrayInputStream(input);
         try {
-            img = new AImage(nomeImmagineArticolo, artImg[0].getImmagine());
+            return ImageIO.read(bais);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return immagineArt.setContent(img);
-    }*/
+    }
 
+    public byte[] bufferedImageToByteArray(BufferedImage bufferedImage) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "jpg", baos);
+        byte[] bytes = baos.toByteArray();
+        return bytes;
+    }
 }

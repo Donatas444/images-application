@@ -30,6 +30,8 @@ public class Image {
     private String name;
     private String description;
     @Lob
+    private byte[] thumbnail;
+    @Lob
     private byte[] data;
 
     @ManyToMany

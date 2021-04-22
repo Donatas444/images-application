@@ -1,6 +1,7 @@
-package com.gallery.galleryui.viewmodel;
+package com.gallery.galleryui.viewmodel.converter;
 
 import java.io.IOException;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -23,9 +24,9 @@ public class ImageToZkImageConverter implements Converter<AImage, byte[], Image>
     public AImage coerceToUi(byte[] beanProp, Image component, BindContext ctx) {
         try {
             if (beanProp != null && beanProp.length > 0) {
-                AImage im = new AImage("", beanProp);
-                component.setContent(im);
-                return im;
+                AImage image = new AImage("", beanProp);
+                component.setContent(image);
+                return image;
             }
             logger.debug("Return null => image is empty");
             return null;

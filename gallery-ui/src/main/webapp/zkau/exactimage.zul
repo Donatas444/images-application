@@ -8,11 +8,9 @@
                 viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')" width="100%" model="@bind(vm.images)">
           <template name="model">
             <row class="col-sm">
-              <label value="@bind(each.name)" />
-              <label value="@bind(each.description)" />
-              <a value="@bind(vm.data)" href="/zkau/exactimage.zul">
-                <image content="@load(each.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
-              </a>
+              <label value="@bind(vm.name)" />
+              <label value="@bind(vm.description)" />
+              <image content="@load(vm.data) @converter('com.gallery.galleryui.viewmodel.ImageToZkImageConverter')" />
             </row>
           </template>
         </grid>
@@ -20,6 +18,3 @@
     </div>
   </div>
 </zk>
-
-
-
