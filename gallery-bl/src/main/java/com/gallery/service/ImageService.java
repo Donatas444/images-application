@@ -27,6 +27,15 @@ public class ImageService {
         return (List<Image>) imageRepository.findAll();
     }
 
+    public Image getImageById(Long id) {
+        Optional<Image> image = imageRepository.findById(id);
+        if (image.isPresent()) {
+            return image.get();
+        } else {
+            throw new RuntimeException("Image not found: " + id);
+        }
+    }
+
     public Image updateImage(Image image, Long imageId, Long tagId) {
         Tag tag = tagRepository.findById(tagId).orElse(new Tag());
         image.setPictureTags(image.getPictureTags());
@@ -37,14 +46,5 @@ public class ImageService {
 
     public void deleteImage(Image image) {
         imageRepository.delete(image);
-    }
-
-    public Image getImageById(Long id) {
-        Optional<Image> image = imageRepository.findById(id);
-        if (image.isPresent()) {
-            return image.get();
-        } else {
-            throw new RuntimeException("Image not found: " + id);
-        }
     }
 }

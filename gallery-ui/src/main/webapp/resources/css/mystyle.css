@@ -1,0 +1,19 @@
+*{
+margin:0;
+padding:0;
+}
+body{
+background: #ececec;
+display:grid;
+place-items:center;
+}
+.box {
+position:relative;
+top:120%;
+height:150px;
+width:150px;
+background: #ececec;
+border-radius:25px;
+box-shadow: -6px -6px 6px rgb(255,255,255, .9),
+6px 6px 6px rgb(0,0,0 ,.15)
+}
