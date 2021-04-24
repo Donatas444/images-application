@@ -1,0 +1,20 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
+<?page complete="true"?>
+<zk>
+
+  <div self="@{define(pageContent)}" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a href="@bind(vm.currentImage)">
+            <image content="@bind(vm.currentImage)"  style="width:100%" />
+            <div class="caption">
+              <label>Lorem ipsum...</label>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</zk>

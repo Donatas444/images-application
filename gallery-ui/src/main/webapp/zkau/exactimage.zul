@@ -1,20 +1,28 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
-<zk>
-  <div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
-    <div class="row">
-      <div class="col-sm">
-        <grid apply="org.zkoss.bind.BindComposer"
-                viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')" width="100%" model="@bind(vm.images)">
-          <template name="model">
-            <row class="col-sm">
-              <label value="@bind(vm.name)" />
-              <label value="@bind(vm.description)" />
-              <image content="@load(vm.data) @converter('com.gallery.galleryui.viewmodel.ImageToZkImageConverter')" />
-            </row>
-          </template>
-        </grid>
-      </div>
-    </div>
-  </div>
+<zk  xmlns:n="native" xmlns:sh="shadow">
+  <sh:div self="@{define(pageContent)}">
+    <sh:ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <sh:li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+      </sh:li>
+      <sh:li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </sh:li>
+      <sh:li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </a>
+        <sh:ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <sh:li><a class="dropdown-item" href="#">Action</a></sh:li>
+          <sh:li><a class="dropdown-item" href="#">Another action</a></sh:li>
+
+          <sh:li><a class="dropdown-item" href="#">Something else here</a></sh:li>
+        </sh:ul>
+      </sh:li>
+      <sh:li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </sh:li>
+    </sh:ul>
+  </sh:div>
 </zk>
