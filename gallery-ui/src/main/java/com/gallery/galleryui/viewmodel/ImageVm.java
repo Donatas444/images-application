@@ -5,9 +5,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -21,14 +18,12 @@ import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.image.AImage;
 import org.zkoss.util.media.Media;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.UploadEvent;
 import org.zkoss.zk.ui.select.Selectors;
-import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zk.ui.util.Clients;
@@ -65,14 +60,7 @@ public class ImageVm implements Serializable {
     // @Getter
     // @Setter
     // private Image selectedImage;
-    // @Getter
-    // @Setter
-    // URL url = new URL("c:/Users/donatas.lunys/Downloads/FB_IMG_1617265776190.jpg");
-    // @Getter
-    // @Setter
-    // AImage currentImage = new AImage(url);
     //
-    // public ImageVm() throws IOException {}
 
     @AfterCompose
     public void afterCompose(@ContextParam(ContextType.VIEW) Component view) {
@@ -94,7 +82,6 @@ public class ImageVm implements Serializable {
             data = media.getByteData();
             BufferedImage newThumbnail = createThumbnail(data);
             thumbnail = bufferedImageToByteArray(newThumbnail);
-
         }
     }
 
@@ -115,10 +102,27 @@ public class ImageVm implements Serializable {
         }
     }
 
-    @NotifyChange("selectedImage")
+    // @Command
+    // public void doSelectImage(@BindingParam("image") Image image) {
+    //     selectedImage = imageService.getImageById(id);
+    //     Executions.sendRedirect("exactimage.zul");
+    //
+    // }
+
+    @NotifyChange({"images"})
     @Command
-    public void doSelectImage(@BindingParam("selectedImage") Image image) {
-        //  selectedImage = imageService.getImageById(image.getId());
+    public void doDeleteImage(@BindingParam("image") Image image) {
+
+        Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
+            if (event.getName().equals("onYes")) {
+                imageService.deleteImage(image);
+                //  images.remove(image);
+                Executions.sendRedirect("gallery.zul");
+
+            } else {
+                //TODO
+            }
+        });
     }
 
     @Init
