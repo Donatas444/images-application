@@ -1,28 +1,44 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
-<zk  xmlns:n="native" xmlns:sh="shadow">
-  <sh:div self="@{define(pageContent)}">
-    <sh:ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <sh:li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </sh:li>
-      <sh:li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </sh:li>
-      <sh:li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </a>
-        <sh:ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <sh:li><a class="dropdown-item" href="#">Action</a></sh:li>
-          <sh:li><a class="dropdown-item" href="#">Another action</a></sh:li>
+<zk>
+  <div self="@{define(pageContent)}" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
 
-          <sh:li><a class="dropdown-item" href="#">Something else here</a></sh:li>
-        </sh:ul>
-      </sh:li>
-      <sh:li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </sh:li>
-    </sh:ul>
-  </sh:div>
+    <grid width="100%">
+
+      <template name="model">
+
+        <row>
+
+          <div class="container">
+
+
+            <div class="row">
+
+              <div class="col-sm">
+
+                <box>
+
+                    <image content="@load(vm.data) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
+
+
+
+                </box>
+              </div>
+
+              <div class="col-sm">
+                <box>
+                  <button label="Update" width="150px"></button>
+                  <button label="Delete" width="150px"></button>
+                </box>
+              </div>
+
+            </div>
+
+          </div>
+
+        </row>
+      </template>
+    </grid>
+
+  </div>
 </zk>
