@@ -90,10 +90,10 @@ public class ImageVm implements Serializable {
         image.setDescription(description);
         image.setData(data);
         image.setThumbnail(thumbnail);
+
         if (data != null) {
             imageService.addImage(image);
             Executions.sendRedirect("gallery.zul");
-
         } else {
             Clients.showNotification("Upload image before saving!");
         }

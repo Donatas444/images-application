@@ -18,8 +18,7 @@ public class ImageService {
     ImageRepository imageRepository;
     @Autowired
     TagRepository tagRepository;
-    @Autowired
-    Tag tag;
+
 
     public void addImage(Image image) {
         imageRepository.save(image);
