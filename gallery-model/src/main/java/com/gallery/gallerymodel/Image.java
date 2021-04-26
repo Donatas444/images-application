@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+import org.hibernate.validator.constraints.Length;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,6 +31,8 @@ public class Image {
     private Long id;
 
     private String name;
+
+    @Length(max = 20)
     private String description;
     @Lob
     private byte[] thumbnail;
