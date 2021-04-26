@@ -23,7 +23,7 @@
               </div>
               <div class="col-sm">
                 <box>
-                  <button label="Update" width="150px" />
+                  <button label="Update" width="150px" onClick="@command('doSelectImage', id=image.id)" />
                   <button label="Delete" width="150px" onClick="@command('doDeleteImage', image=image))" />
                 </box>
               </div>

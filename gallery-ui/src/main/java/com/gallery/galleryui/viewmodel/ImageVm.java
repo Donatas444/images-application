@@ -18,6 +18,7 @@ import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.bind.annotation.QueryParam;
 import org.zkoss.util.media.Media;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Component;
@@ -57,10 +58,6 @@ public class ImageVm implements Serializable {
     @Getter
     @Setter
     private List<Image> images;
-    // @Getter
-    // @Setter
-    // private Image selectedImage;
-    //
 
     @AfterCompose
     public void afterCompose(@ContextParam(ContextType.VIEW) Component view) {
@@ -102,12 +99,10 @@ public class ImageVm implements Serializable {
         }
     }
 
-    // @Command
-    // public void doSelectImage(@BindingParam("image") Image image) {
-    //     selectedImage = imageService.getImageById(id);
-    //     Executions.sendRedirect("exactimage.zul");
-    //
-    // }
+    @Command
+    public void doSelectImage(@BindingParam("id") Long id) {
+        Executions.sendRedirect("exactimage.zul?id=" + id);
+    }
 
     @NotifyChange({"images"})
     @Command
@@ -116,18 +111,22 @@ public class ImageVm implements Serializable {
         Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
             if (event.getName().equals("onYes")) {
                 imageService.deleteImage(image);
-                //  images.remove(image);
+                //     getImages();
+                // showGalleryList();
                 Executions.sendRedirect("gallery.zul");
-
-            } else {
-                //TODO
             }
         });
     }
 
+    @NotifyChange({"images"})
+    public void showGalleryList() {
+        images = imageService.getAllImages();
+    }
+
     @Init
     public void init() {
-        images = imageService.getAllImages();
+        showGalleryList();
+
     }
 
     public BufferedImage createThumbnail(byte[] input) {

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
-import com.gallery.gallerymodel.Tag;
 import com.gallery.repository.ImageRepository;
 import com.gallery.repository.TagRepository;
 
@@ -36,12 +35,10 @@ public class ImageService {
         }
     }
 
-    public Image updateImage(Image image, Long imageId, Long tagId) {
-        Tag tag = tagRepository.findById(tagId).orElse(new Tag());
-        image.setPictureTags(image.getPictureTags());
+    public void updateImage(Image image) {
         image.setDescription(image.getDescription());
+        image.setName(image.getName());
         imageRepository.save(image);
-        return image;
     }
 
     public void deleteImage(Image image) {
