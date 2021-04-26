@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
+import com.gallery.gallerymodel.Tag;
 import com.gallery.repository.ImageRepository;
 import com.gallery.repository.TagRepository;
 
@@ -17,6 +18,8 @@ public class ImageService {
     ImageRepository imageRepository;
     @Autowired
     TagRepository tagRepository;
+    @Autowired
+    Tag tag;
 
     public void addImage(Image image) {
         imageRepository.save(image);
