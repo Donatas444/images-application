@@ -17,7 +17,7 @@ import org.zkoss.zk.ui.http.DHtmlLayoutServlet;
 import org.zkoss.zk.ui.http.HttpSessionListener;
 
 
-@EntityScan("com.gallery.gallerymodel")
+@EntityScan(basePackages = {"com.gallery.gallerymodel"})
 @ComponentScan(basePackages={"com.gallery.service"})
 @EnableJpaRepositories(basePackages={"com.gallery.repository"})
 @EnableAutoConfiguration

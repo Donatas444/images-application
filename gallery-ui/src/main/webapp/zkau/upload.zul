@@ -18,6 +18,12 @@
           <div>
             <textbox value="@bind(vm.description)" />
           </div>
+          <label>
+            Add hashtag below:
+          </label>
+          <div>
+            <textbox value="@bind(vm.tagName)" />
+          </div>
           <div>
             <label value="@bind(vm.name)" />
           </div>

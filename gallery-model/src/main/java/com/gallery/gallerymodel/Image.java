@@ -1,6 +1,9 @@
 package com.gallery.gallerymodel;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -24,7 +27,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Image {
+public class Image implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,8 +42,34 @@ public class Image {
     @Lob
     private byte[] data;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany
     @JoinTable(name = "picture_tag", joinColumns = @JoinColumn(name = "picture_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
-    Set<Tag> pictureTags = new HashSet<>();
+    private Set<Tag> tags = new HashSet<>();
+
+    public void addTag(Tag tag) {
+        tags.add(tag);
+        tag.getPictures().add(this);
+    }
+
+    public void removeTag(Tag tag) {
+        tags.remove(tag);
+        tag.getPictures().remove(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Image)) {
+            return false;
+        }
+        return id != null && id.equals(((Image) o).getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 
 }

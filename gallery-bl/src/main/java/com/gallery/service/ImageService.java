@@ -7,21 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
-import com.gallery.gallerymodel.Tag;
 import com.gallery.repository.ImageRepository;
-import com.gallery.repository.TagRepository;
 
 @Service
 public class ImageService {
 
     @Autowired
     ImageRepository imageRepository;
-    @Autowired
-    TagRepository tagRepository;
-
 
     public void addImage(Image image) {
         imageRepository.save(image);
+
     }
 
     public List<Image> getAllImages() {
@@ -46,4 +42,5 @@ public class ImageService {
     public void deleteImage(Image image) {
         imageRepository.delete(image);
     }
+
 }

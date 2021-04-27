@@ -30,7 +30,9 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zk.ui.util.Clients;
 
 import com.gallery.gallerymodel.Image;
+import com.gallery.gallerymodel.Tag;
 import com.gallery.service.ImageService;
+import com.gallery.service.TagService;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -39,8 +41,17 @@ import lombok.Setter;
 public class ImageVm implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    // @WireVariable
+    // Image image;
+    // @WireVariable
+    // Tag tag;
     @WireVariable
     ImageService imageService;
+    @WireVariable
+    TagService tagService;
+    @Getter
+    @Setter
+    private String tagName;
     @Getter
     private Long id;
     @Getter
@@ -86,13 +97,18 @@ public class ImageVm implements Serializable {
     public void doAddImage() {
 
         Image image = new Image();
+        Tag tag = new Tag();
         image.setName(name);
         image.setDescription(description);
         image.setData(data);
         image.setThumbnail(thumbnail);
+        tag.setName(tagName);
 
         if (data != null) {
+            tagService.addTag(tag);
+            image.addTag(tag);
             imageService.addImage(image);
+
             Executions.sendRedirect("gallery.zul");
         } else {
             Clients.showNotification("Upload image before saving!");
@@ -111,8 +127,7 @@ public class ImageVm implements Serializable {
         Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
             if (event.getName().equals("onYes")) {
                 imageService.deleteImage(image);
-                //     getImages();
-                // showGalleryList();
+                //   showGalleryList();
                 Executions.sendRedirect("gallery.zul");
             }
         });
