@@ -30,10 +30,10 @@ public class Tag implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long tagId;
-
+    @NaturalId
     private String name;
 
-    @ManyToMany(mappedBy = "tags")
+    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "tags")
     private Set<Image> pictures = new HashSet<>();
 
     public boolean equals(Object o) {

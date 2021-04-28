@@ -18,7 +18,6 @@ import org.zkoss.bind.annotation.ContextParam;
 import org.zkoss.bind.annotation.ContextType;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.bind.annotation.QueryParam;
 import org.zkoss.util.media.Media;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Component;
@@ -41,10 +40,7 @@ import lombok.Setter;
 public class ImageVm implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // @WireVariable
-    // Image image;
-    // @WireVariable
-    // Tag tag;
+
     @WireVariable
     ImageService imageService;
     @WireVariable
@@ -105,10 +101,7 @@ public class ImageVm implements Serializable {
         tag.setName(tagName);
 
         if (data != null) {
-            tagService.addTag(tag);
-            image.addTag(tag);
-            imageService.addImage(image);
-
+            tagService.ifTagExists(image, tagName);
             Executions.sendRedirect("gallery.zul");
         } else {
             Clients.showNotification("Upload image before saving!");

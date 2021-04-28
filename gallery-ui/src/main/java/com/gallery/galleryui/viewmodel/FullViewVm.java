@@ -1,6 +1,7 @@
 package com.gallery.galleryui.viewmodel;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -9,6 +10,7 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import com.gallery.gallerymodel.Image;
+import com.gallery.gallerymodel.Tag;
 import com.gallery.service.ImageService;
 
 import lombok.Getter;
@@ -19,6 +21,8 @@ public class FullViewVm implements Serializable {
 
     @WireVariable
     ImageService imageService;
+    @WireVariable
+    Tag tag;
     @Getter
     @Setter
     private Long id;
@@ -33,7 +37,11 @@ public class FullViewVm implements Serializable {
     private String description;
     @Getter
     @Setter
+    private Set<Tag> tagName;
+    @Getter
+    @Setter
     private Image fullView;
+
 
     @Init
     public void init(@QueryParam("id") Long id) {

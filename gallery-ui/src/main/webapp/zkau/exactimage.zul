@@ -11,6 +11,7 @@
               <image width="150%" height="auto" content="@load(fvm.data) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
               <textbox value="@bind(fvm.name)" style="font-weight:bold" width="150%" />
               <textbox value="@bind(fvm.description)" width="150%" />
+              <textbox value="@bind(fvm.tagName)" width="150%" />
             </box>
             <separator />
             <button label="Save changes" width="150px" onClick="@command('doSaveChanges')" />
