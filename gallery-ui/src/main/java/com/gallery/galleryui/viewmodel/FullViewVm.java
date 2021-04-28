@@ -37,7 +37,10 @@ public class FullViewVm implements Serializable {
     private String description;
     @Getter
     @Setter
-    private Set<Tag> tagName;
+    private Set<Tag> tagNames;
+    @Getter
+    @Setter
+    private String tagName;
     @Getter
     @Setter
     private Image fullView;
@@ -50,6 +53,7 @@ public class FullViewVm implements Serializable {
         this.name = fullView.getName();
         this.description = fullView.getDescription();
         this.data = fullView.getData();
+        this.tagNames = fullView.getTags();
     }
 
     @Command

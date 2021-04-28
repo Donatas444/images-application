@@ -1,0 +1,30 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
+<?page complete="true"?>
+
+<zk apply="org.zkoss.bind.BindComposer">
+  <div sclass="box" align="center" self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+    <separator />
+    <window width="30%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+
+      <image content="@bind(vm.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
+
+      <div>
+        <div>
+          <div>
+            <label>
+              Search for something...
+            </label>
+          </div>
+          <div>
+            <textbox value="" onChange="" />
+          </div>
+        </div>
+      </div>
+      <separator />
+      <div>
+        <button onClick="@command()" label="Go!" />
+      </div>
+    </window>
+  </div>
+</zk>
+
