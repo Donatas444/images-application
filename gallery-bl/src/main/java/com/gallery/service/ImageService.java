@@ -15,6 +15,8 @@ public class ImageService {
     @Autowired
     ImageRepository imageRepository;
 
+    Image image = new Image();
+
     public void addImage(Image image) {
         imageRepository.save(image);
 
@@ -42,5 +44,7 @@ public class ImageService {
     public void deleteImage(Image image) {
         imageRepository.delete(image);
     }
-
+    public List<Image> getImageNameAndDescription() {
+        return imageRepository.findImageByNameAndDescription(image.getName(), image.getDescription());
+    }
 }
