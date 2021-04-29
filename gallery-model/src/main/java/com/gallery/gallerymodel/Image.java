@@ -53,7 +53,7 @@ public class Image implements Serializable {
 
     public void removeTag(Tag tag) {
         tags.remove(tag);
-        tag.getPictures().remove(this);
+       tag.getPictures().remove(this);
     }
 
     @Override

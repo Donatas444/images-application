@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.gallery.gallerymodel.Image;
 
 @Repository
-public interface ImageRepository extends CrudRepository<Image, Long> {
+public interface ImageRepository extends CrudRepository<Image, Long>{
     EntityManager entityManager = null;
 
     // constructor

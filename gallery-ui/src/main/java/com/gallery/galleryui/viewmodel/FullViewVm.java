@@ -3,8 +3,10 @@ package com.gallery.galleryui.viewmodel;
 import java.io.Serializable;
 import java.util.Set;
 
+import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.bind.annotation.QueryParam;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
@@ -48,7 +50,6 @@ public class FullViewVm implements Serializable {
     @Setter
     private Image fullView;
 
-
     @Init
     public void init(@QueryParam("id") Long id) {
 
@@ -68,6 +69,15 @@ public class FullViewVm implements Serializable {
         tagService.ifTagExists(image, tagName);
         image.getTags().add(tag);
         Executions.sendRedirect("gallery.zul");
+    }
+
+    @Command
+    public void doRemoveTag(@QueryParam("id") Long id, @BindingParam("tag") Tag tag) {
+
+        Image image = this.fullView;
+        image.getTags().remove(tag);
+        imageService.updateImage(image);
+        Executions.sendRedirect("exactimage.zul?id=" + image.getId());
     }
 }
 

@@ -18,19 +18,17 @@
                 <row>
                   <div class="container">
                     <div class="row">
-                      <div class="col-4">
-                        <box>
-                          #
-                          <textbox value="@bind(tag.name)" />
-                        </box>
-
-                      </div>
+                      <box>
+                        #
+                        <label value="@bind(tag.name)" />
+                        <button label="Remove" width="150px" onClick="@command('doRemoveTag', tag=tag)" />
+                      </box>
                     </div>
                   </div>
                 </row>
               </template>
-
             </grid>
+            Enter new hashtag:
             <textbox value="@bind(fvm.tagName)" />
             <separator />
             <button label="Save changes" width="150px" onClick="@command('doSaveChanges')" />
