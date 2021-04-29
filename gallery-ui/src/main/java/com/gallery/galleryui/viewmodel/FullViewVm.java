@@ -65,9 +65,9 @@ public class FullViewVm implements Serializable {
         Image image = this.fullView;
         image.setName(name);
         image.setDescription(description);
-        imageService.updateImage(image);
+      //  imageService.updateImage(image);
         tagService.ifTagExists(image, tagName);
-        image.getTags().add(tag);
+       // image.getTags().add(tag);
         Executions.sendRedirect("gallery.zul");
     }
 
