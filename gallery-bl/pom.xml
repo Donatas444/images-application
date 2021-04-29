@@ -22,6 +22,10 @@
       <groupId>com.gallery</groupId>
       <artifactId>gallery-model</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+    </dependency>
   </dependencies>
    <build>
    <plugins>

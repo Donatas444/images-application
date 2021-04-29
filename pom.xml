@@ -23,6 +23,8 @@
     <jquery.version>3.1.1</jquery.version>
     <bootstrap.version>4.2.1</bootstrap.version>
     <webjars.locator.version>0.36</webjars.locator.version>
+    <hibernate.core.version>5.4.30.Final</hibernate.core.version>
+    <imgcalr.version>4.2</imgcalr.version>
   </properties>
 
   <modules>
@@ -100,6 +102,18 @@
         <groupId>org.webjars</groupId>
         <artifactId>webjars-locator</artifactId>
         <version>${webjars.locator.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.core.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.imgscalr</groupId>
+        <artifactId>imgscalr-lib</artifactId>
+        <version>${imgcalr.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

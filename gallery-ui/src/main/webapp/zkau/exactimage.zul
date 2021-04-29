@@ -13,22 +13,25 @@
               <textbox value="@bind(fvm.description)" width="150%" />
             </box>
             <separator />
-      <grid width="150%" model="@bind(fvm.tagNames)">
-      <template name="model" var="tag">
-      <row>
-      <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <box >
+            <grid width="150%" model="@bind(fvm.tagNames)">
+              <template name="model" var="tag">
+                <row>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-4">
+                        <box>
+                          #
+                          <textbox value="@bind(tag.name)" />
+                        </box>
 
-            <label value="@bind(tag.name)"  />
-            </box>
-          </div>
-        </div>
-      </div>
-      </row>
-      </template>
-      </grid>
+                      </div>
+                    </div>
+                  </div>
+                </row>
+              </template>
+
+            </grid>
+            <textbox value="@bind(fvm.tagName)" />
             <separator />
             <button label="Save changes" width="150px" onClick="@command('doSaveChanges')" />
           </div>

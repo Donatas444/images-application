@@ -94,16 +94,16 @@
       <artifactId>lombok</artifactId>
       <scope>compile</scope>
     </dependency>
-
     <dependency>
-      <groupId>net.coobird</groupId>
-      <artifactId>thumbnailator</artifactId>
-      <version>[0.4, 0.5)</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
     </dependency>
+
+
     <dependency>
       <groupId>org.imgscalr</groupId>
       <artifactId>imgscalr-lib</artifactId>
-      <version>4.2</version>
+
     </dependency>
 
   </dependencies>
