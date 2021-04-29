@@ -44,4 +44,7 @@ public class ImageService {
     public void deleteImage(Image image) {
         imageRepository.delete(image);
     }
+    public List<Image> findByNameAndDescription(String name, String description){
+        return imageRepository.findImageByNameAndDescription(name, description);
+    }
 }

@@ -2,29 +2,30 @@
 <?page complete="true"?>
 
 <zk apply="org.zkoss.bind.BindComposer">
-  <div sclass="box" align="center" self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+  <div sclass="box" align="center" self="@{define(pageContent)}" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
     <separator />
-    <window width="30%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+    <window width="30%" border="none">
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <box>
 
-      <image content="@bind(vm.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
+              <textbox value="@bind(svm.name)" width="350%" />
+              <button label="Go!" width="150px" onClick="@command('doFindImage')" />
+            </box>
+            <separator />
+            <grid  model="@bind(svm.images)">
 
-      <div>
-        <div>
-          <div>
-            <label>
-              Search for something...
-            </label>
-          </div>
-          <div>
-            <textbox value="" onChange="" />
+              <template name="model" var="image">
+                <label value="@bind(image.name)" />
+
+              </template>
+            </grid>
           </div>
         </div>
       </div>
-      <separator />
-      <div>
-        <button onClick="@command()" label="Go!" />
-      </div>
     </window>
+
   </div>
 </zk>
 
