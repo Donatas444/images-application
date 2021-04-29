@@ -1,6 +1,5 @@
 package com.gallery.repository;
 
-import java.awt.print.Book;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,13 +9,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.gallery.gallerymodel.Image;
+import com.gallery.gallerymodel.Image_;
 
 @Repository
-public interface ImageRepository extends CrudRepository<Image, Long>{
+public interface ImageRepository extends ImageRepoCustom {
     EntityManager entityManager = null;
 
     // constructor
@@ -27,12 +26,11 @@ public interface ImageRepository extends CrudRepository<Image, Long>{
         CriteriaQuery<Image> cq = criteriaBuilder.createQuery(Image.class);
 
         Root<Image> image = cq.from(Image.class);
-        Predicate imageNamePredicate = criteriaBuilder.equal(image.get("image"), name);
+        Predicate imageNamePredicate = criteriaBuilder.equal(image.get(Image_.name), name);
         Predicate descriptionPredicate = criteriaBuilder.like(image.get("description"), "%" + description + "%");
         cq.where(imageNamePredicate, descriptionPredicate);
 
         TypedQuery<Image> query = entityManager.createQuery(cq);
         return query.getResultList();
     }
-
 }

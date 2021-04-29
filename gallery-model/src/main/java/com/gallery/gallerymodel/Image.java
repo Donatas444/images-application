@@ -35,7 +35,7 @@ public class Image implements Serializable {
 
     private String name;
 
-    @Length(max = 20)
+    @Length(max = 30)
     private String description;
     @Lob
     private byte[] thumbnail;
