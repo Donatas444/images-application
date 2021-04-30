@@ -4,26 +4,51 @@
 <zk apply="org.zkoss.bind.BindComposer">
   <div sclass="box" align="center" self="@{define(pageContent)}" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
     <separator />
-    <window width="30%" border="none">
-      <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <box>
+    <window width="30%" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
 
-              <textbox value="@bind(svm.name)" width="350%" />
-              <button label="Go!" width="150px" onClick="@command('doFindImage')" />
-            </box>
-            <separator />
-            <grid  model="@bind(svm.images)">
-
-              <template name="model" var="image">
-                <label value="@bind(image.name)" />
-
-              </template>
-            </grid>
+      <div>
+        <div>
+          <label>
+            Search for something:
+          </label>
+          <div>
+            <textbox value="@bind(svm.name)" />
+            <button onClick="@command('doFindImage')" label="Go!" />
           </div>
+
+
+
+          <grid width="100%" model="@bind(svm.images)">
+            <template name="model" var="image">
+              <row>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm">
+
+                    </div>
+                    <div class="col-sm">
+                      <box>
+                        <image content="@load(image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
+                        <label value="@load(image.name)" style="font-weight:bold" />
+                        <label value="@load(image.description)" />
+                      </box>
+                    </div>
+                  </div>
+                </div>
+              </row>
+            </template>
+          </grid>
+
+
+
         </div>
       </div>
+      <separator />
+      <hbox>
+
+        <separator />
+
+      </hbox>
     </window>
 
   </div>

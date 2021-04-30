@@ -1,5 +1,6 @@
 package com.gallery.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +16,7 @@ public class ImageService {
     @Autowired
     ImageRepository imageRepository;
 
-  //  Image image = new Image();
+    //  Image image = new Image();
 
     public void addImage(Image image) {
         imageRepository.save(image);
@@ -44,7 +45,10 @@ public class ImageService {
     public void deleteImage(Image image) {
         imageRepository.delete(image);
     }
-    public List<Image> findByNameAndDescription(String name, String description){
-        return imageRepository.findImageByNameAndDescription(name, description);
+
+    public List<Image> findByName(String name) {
+
+        return imageRepository.findByName(name);
     }
+
 }

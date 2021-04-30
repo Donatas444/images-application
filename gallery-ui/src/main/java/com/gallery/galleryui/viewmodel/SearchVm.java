@@ -35,7 +35,7 @@ public class SearchVm {
     @NotifyChange({"images"})
     @Command
     public void doFindImage(@BindingParam("name") String name) {
-
-     images = imageService.findByNameAndDescription(name, description);
+        name = this.name;
+        images = imageService.findByName(name);
     }
 }
