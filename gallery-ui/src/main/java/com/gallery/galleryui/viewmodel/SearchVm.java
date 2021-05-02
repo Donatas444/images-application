@@ -2,7 +2,6 @@ package com.gallery.galleryui.viewmodel;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -35,16 +34,16 @@ public class SearchVm {
 
     @NotifyChange({"images"})
     @Command
-    public void doFindImage(@BindingParam("name") String name) {
-        name = this.name;
+    public void doFindImage() {
+        String name = this.name;
         images = imageService.findByName(name);
     }
 
     @NotifyChange({"images"})
     @Command
-    public void doFindByNameAndDescription(@BindingParam("name") String name, @BindingParam("description") String description) {
-        name = this.name;
-        description = this.description;
+    public void doFindByNameAndDescription() {
+        String name = this.name;
+        String description = this.description;
         images = imageService.findByNameAndDescription(name, description);
     }
 
@@ -52,6 +51,7 @@ public class SearchVm {
     public void doSelectImage(@BindingParam("id") Long id) {
         Executions.sendRedirect("exactimage.zul?id=" + id);
     }
+
     @NotifyChange({"images"})
     @Command
     public void doDeleteImage(@BindingParam("image") Image image) {
