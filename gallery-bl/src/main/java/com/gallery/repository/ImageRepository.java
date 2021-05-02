@@ -8,8 +8,5 @@ import com.gallery.gallerymodel.Image;
 
 @Repository
 public interface ImageRepository extends ImageRepoCustom {
-    // @Override
-    // List<Image> findImageByName(String name);
 
-    List<Image> findByName(String name);
 }

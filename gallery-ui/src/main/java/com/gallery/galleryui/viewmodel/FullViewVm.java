@@ -66,6 +66,7 @@ public class FullViewVm implements Serializable {
         tagService.ifTagExists(image, tagName);
         Executions.sendRedirect("gallery.zul");
     }
+
     @NotifyChange({"tagNames"})
     @Command
     public void doRemoveTag(@BindingParam("tag") Tag tag) {

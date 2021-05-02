@@ -25,6 +25,7 @@
     <webjars.locator.version>0.36</webjars.locator.version>
     <hibernate.core.version>5.4.30.Final</hibernate.core.version>
     <imgcalr.version>4.2</imgcalr.version>
+    <javax.cache.api.version>1.1.1</javax.cache.api.version>
   </properties>
 
   <modules>
@@ -124,7 +125,7 @@
       <dependency>
         <groupId>javax.cache</groupId>
         <artifactId>cache-api</artifactId>
-        <version>1.1.1</version>
+        <version>${javax.cache.api.version}</version>
       </dependency>
     </dependencies>
 

@@ -53,23 +53,6 @@ public class Image implements Serializable {
 
     public void removeTag(Tag tag) {
         tags.remove(tag);
-       tag.getPictures().remove(this);
+        tag.getPictures().remove(this);
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Image)) {
-            return false;
-        }
-        return id != null && id.equals(((Image) o).getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
-
 }

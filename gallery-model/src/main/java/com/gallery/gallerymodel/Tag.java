@@ -33,23 +33,7 @@ public class Tag implements Serializable {
     @NaturalId
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "tags")
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "tags")
     private Set<Image> pictures = new HashSet<>();
 
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Tag tag = (Tag) o;
-        return Objects.equals(name, tag.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-
-    }
 }

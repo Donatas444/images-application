@@ -16,8 +16,6 @@
             <button onClick="@command('doFindImage')" label="Go!" />
           </div>
 
-
-
           <grid width="100%" model="@bind(svm.images)">
             <template name="model" var="image">
               <row>
@@ -28,9 +26,10 @@
                     </div>
                     <div class="col-sm">
                       <box>
-                        <image content="@load(image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
+                        <image onClick="@command('doSelectImage', id=image.id)" content="@load(image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
                         <label value="@load(image.name)" style="font-weight:bold" />
                         <label value="@load(image.description)" />
+                        <button label="Delete" width="150px" onClick="@command('doDeleteImage', image=image))" />
                       </box>
                     </div>
                   </div>
@@ -38,16 +37,11 @@
               </row>
             </template>
           </grid>
-
-
-
         </div>
       </div>
       <separator />
       <hbox>
-
         <separator />
-
       </hbox>
     </window>
 
