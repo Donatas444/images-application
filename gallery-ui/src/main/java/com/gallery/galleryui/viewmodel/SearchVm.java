@@ -31,20 +31,22 @@ public class SearchVm {
     @Getter
     @Setter
     private List<Image> images;
+    @Getter
+    @Setter
+    String keyword;
+
+    // @NotifyChange({"images"})
+    // @Command
+    // public void doFindImage() {
+    //     String name = this.search;
+    //     images = imageService.findByName(name);
+    // }
 
     @NotifyChange({"images"})
     @Command
-    public void doFindImage() {
-        String name = this.name;
-        images = imageService.findByName(name);
-    }
-
-    @NotifyChange({"images"})
-    @Command
-    public void doFindByNameAndDescription() {
-        String name = this.name;
-        String description = this.description;
-        images = imageService.findByNameAndDescription(name, description);
+    public void doSearchByKeyword() {
+        String keyword = this.keyword;
+        images = imageService.searchByKeyword(keyword);
     }
 
     @Command

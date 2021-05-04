@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
-import com.gallery.repository.ImageRepository;
+import com.gallery.repository.InternalImageRepo;
 
 @Service
 public class ImageService {
 
     @Autowired
-    ImageRepository imageRepository;
+    InternalImageRepo imageRepository;
 
     public void addImage(Image image) {
         imageRepository.save(image);
@@ -42,14 +42,14 @@ public class ImageService {
     public void deleteImage(Image image) {
         imageRepository.delete(image);
     }
+    //
+    // public List<Image> findByName(String name) {
+    //
+    //     return imageRepository.findByName(name);
+    // }
 
-    public List<Image> findByName(String name) {
-
-        return imageRepository.findByName(name);
-    }
-
-    public List<Image> findByNameAndDescription(String name, String description) {
-        return imageRepository.findImageByNameAndDescription(name, description);
+    public List<Image> searchByKeyword(String keyword) {
+        return imageRepository.search(keyword);
     }
 
 }

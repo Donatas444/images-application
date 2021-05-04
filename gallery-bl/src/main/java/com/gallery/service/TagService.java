@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
-import com.gallery.repository.ImageRepository;
+import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.TagRepository;
 
 @Service
@@ -14,7 +14,7 @@ public class TagService {
     @Autowired
     TagRepository tagRepository;
     @Autowired
-    ImageRepository imageRepository;
+    InternalImageRepo imageRepository;
 
     public void addTag(Tag tag) {
         tagRepository.save(tag);

@@ -12,8 +12,8 @@
             Search for something:
           </label>
           <div>
-            <textbox value="@bind(svm.name)" />
-            <button onClick="@command('doFindImage')" label="Go!" />
+            <textbox value="@bind(svm.keyword)" />
+            <button onClick="@command('doSearchByKeyword')" label="Go!" />
           </div>
 
           <grid width="100%" model="@bind(svm.images)">

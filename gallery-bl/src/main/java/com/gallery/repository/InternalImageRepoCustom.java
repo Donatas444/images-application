@@ -8,8 +8,8 @@ import org.springframework.data.repository.NoRepositoryBean;
 import com.gallery.gallerymodel.Image;
 
 @NoRepositoryBean
-public interface ImageRepoCustom extends JpaRepository<Image, Long> {
-    List<Image> findImageByNameAndDescription(String name, String description);
-    List<Image> findByName(String name);
+public interface InternalImageRepoCustom extends JpaRepository<Image, Long>{
+    List<Image> search(String keyword);
+ //   List<Image> findByName(String name);
 
 }
