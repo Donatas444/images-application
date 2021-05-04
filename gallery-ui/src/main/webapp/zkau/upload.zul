@@ -2,43 +2,44 @@
 <?page complete="true"?>
 
 <zk apply="org.zkoss.bind.BindComposer">
-  <div sclass="box" align="center" self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
-    <separator />
-    <window width="30%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+    <div sclass="box" align="center" self="@{define(pageContent)}"
+         viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+        <separator/>
+        <window width="30%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
 
-      <image content="@bind(vm.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
+            <image content="@bind(vm.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
 
-      <div>
-        <div>
-          <div>
-            <label>
-              Write some description here:
-            </label>
-          </div>
-          <div>
-            <textbox value="@bind(vm.description)" />
-          </div>
-          <label>
-            Add hashtag below:
-          </label>
-          <div>
-            <textbox value="@bind(vm.tagName)" />
-          </div>
-          <div>
-            <label value="@bind(vm.name)" />
-          </div>
-        </div>
-      </div>
-      <separator />
-      <hbox>
-        <button id="uploadButton"
-                upload="true"
-                onUpload="@command('onFileUpload',upload=event)"
-                autodisable="self" label="Upload" />
-        <separator />
-        <button onClick="@command('doAddImage')" label="Save" />
-      </hbox>
-    </window>
-  </div>
+            <div>
+                <div>
+                    <div>
+                        <label>
+                            Write some description here:
+                        </label>
+                    </div>
+                    <div>
+                        <textbox value="@bind(vm.description)"/>
+                    </div>
+                    <label>
+                        Add hashtag below:
+                    </label>
+                    <div>
+                        <textbox value="@bind(vm.tagName)"/>
+                    </div>
+                    <div>
+                        <label value="@bind(vm.name)"/>
+                    </div>
+                </div>
+            </div>
+            <separator/>
+            <hbox>
+                <button id="uploadButton"
+                        upload="true"
+                        onUpload="@command('onFileUpload',upload=event)"
+                        autodisable="self" label="Upload"/>
+                <separator/>
+                <button onClick="@command('doAddImage')" label="Save"/>
+            </hbox>
+        </window>
+    </div>
 </zk>
 

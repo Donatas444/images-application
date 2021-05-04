@@ -22,18 +22,10 @@
       <groupId>com.gallery</groupId>
       <artifactId>gallery-model</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/javax.cache/cache-api -->
-    <dependency>
-      <groupId>javax.cache</groupId>
-      <artifactId>cache-api</artifactId>
-      <version>1.1.1</version>
-    </dependency>
-
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-jpamodelgen</artifactId>
+      </dependency>
   </dependencies>
    <build>
    <plugins>

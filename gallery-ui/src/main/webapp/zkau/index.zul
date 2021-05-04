@@ -1,23 +1,23 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
 <zk xmlns="native" xmlns:xh="xhtml" xmlns:sh="shadow" xmlns:zul="http://www.zkoss.org/2005/zul">
-  <div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
-    <div height="900px" width="50%" align="center">
-      <window>
-        <label>Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur
-          . Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.
-        </label>
-      </window>
+    <div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+        <div height="900px" width="50%" align="center">
+            <window>
+                <label>Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim
+                    veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur
+                    . Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </label>
+            </window>
+        </div>
     </div>
-  </div>
 </zk>

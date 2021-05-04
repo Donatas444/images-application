@@ -2,6 +2,7 @@ package com.gallery.galleryui.viewmodel;
 
 import java.util.List;
 
+import com.gallery.gallerymodel.Tag;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -27,25 +28,25 @@ public class SearchVm {
     String description;
     @Getter
     @Setter
+    String keyword;
+    @Getter
+    @Setter
     private byte[] thumbnail;
     @Getter
     @Setter
     private List<Image> images;
-    @Getter
-    @Setter
-    String keyword;
-
-    // @NotifyChange({"images"})
-    // @Command
-    // public void doFindImage() {
-    //     String name = this.search;
-    //     images = imageService.findByName(name);
-    // }
 
     @NotifyChange({"images"})
     @Command
     public void doSearchByKeyword() {
         String keyword = this.keyword;
+
+        // Image image = new Image();
+        // Tag tag = new Tag();
+        // image.setName(getName());
+        // image.setDescription(description);
+        // image.setThumbnail(thumbnail);
+        //
         images = imageService.searchByKeyword(keyword);
     }
 
@@ -66,4 +67,3 @@ public class SearchVm {
         });
     }
 }
-

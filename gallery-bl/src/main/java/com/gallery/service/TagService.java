@@ -1,12 +1,11 @@
 package com.gallery.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
 import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.TagRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TagService {
@@ -55,5 +54,6 @@ public class TagService {
         }
     }
 }
+
 
 

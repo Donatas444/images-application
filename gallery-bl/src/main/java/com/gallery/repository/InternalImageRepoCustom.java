@@ -1,15 +1,12 @@
 package com.gallery.repository;
 
-import java.util.List;
-
+import com.gallery.gallerymodel.Image;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import com.gallery.gallerymodel.Image;
+import java.util.List;
 
 @NoRepositoryBean
-public interface InternalImageRepoCustom extends JpaRepository<Image, Long>{
-    List<Image> search(String keyword);
- //   List<Image> findByName(String name);
-
+public interface InternalImageRepoCustom extends JpaRepository<Image, Long> {
+    List<Image> searchByKeyword(String keyword);
 }

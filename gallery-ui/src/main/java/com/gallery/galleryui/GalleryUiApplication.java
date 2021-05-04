@@ -6,7 +6,10 @@ import java.util.Map;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -18,15 +21,16 @@ import org.zkoss.zk.ui.http.HttpSessionListener;
 
 
 @EntityScan(basePackages = {"com.gallery.gallerymodel"})
-@ComponentScan(basePackages={"com.gallery.service"})
-@EnableJpaRepositories(basePackages={"com.gallery.repository"})
-@EnableAutoConfiguration
-@SpringBootApplication
+@ComponentScan(basePackages = {"com.gallery"})
+@EnableJpaRepositories(basePackages = {"com.gallery.repository"})
+@EnableAutoConfiguration(exclude = {JpaRepositoriesAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = {"com.gallery"})
 public class GalleryUiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GalleryUiApplication.class, args);
     }
+
 
     // ZK servlets
     @Bean
@@ -38,6 +42,7 @@ public class GalleryUiApplication {
         reg.setInitParameters(params);
         return reg;
     }
+
     @Bean
     public ServletRegistrationBean dHtmlUpdateServlet() {
         Map<String, String> params = new HashMap<>();
