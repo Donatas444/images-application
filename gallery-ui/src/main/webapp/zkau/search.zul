@@ -2,29 +2,52 @@
 <?page complete="true"?>
 
 <zk apply="org.zkoss.bind.BindComposer">
-  <div sclass="box" align="center" self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
-    <separator />
-    <window width="30%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+    <div sclass="box" align="center" self="@{define(pageContent)}"
+         viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
+        <separator/>
+        <window width="30%" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
 
-      <image content="@bind(vm.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')" />
+            <div>
+                <div>
+                    <label>
+                        Search for something:
+                    </label>
+                    <div>
+                        <textbox value="@bind(svm.keyword)"/>
+                        <button onClick="@command('doSearchByKeyword')" label="Go!"/>
+                    </div>
 
-      <div>
-        <div>
-          <div>
-            <label>
-              Search for something...
-            </label>
-          </div>
-          <div>
-            <textbox value="" onChange="" />
-          </div>
-        </div>
-      </div>
-      <separator />
-      <div>
-        <button onClick="@command()" label="Go!" />
-      </div>
-    </window>
-  </div>
+                    <grid width="100%" model="@bind(svm.images)">
+                        <template name="model" var="image">
+                            <row>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm">
+
+                                        </div>
+                                        <div class="col-sm">
+                                            <box>
+                                                <image onClick="@command('doSelectImage', id=image.id)"
+                                                       content="@load(image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                                                <label value="@load(image.name)" style="font-weight:bold"/>
+                                                <label value="@load(image.description)"/>
+                                                <button label="Delete" width="150px"
+                                                        onClick="@command('doDeleteImage', image=image))"/>
+                                            </box>
+                                        </div>
+                                    </div>
+                                </div>
+                            </row>
+                        </template>
+                    </grid>
+                </div>
+            </div>
+            <separator/>
+            <hbox>
+                <separator/>
+            </hbox>
+        </window>
+
+    </div>
 </zk>
 

@@ -1,12 +1,11 @@
 package com.gallery.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
-import com.gallery.repository.ImageRepository;
+import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.TagRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TagService {
@@ -14,7 +13,7 @@ public class TagService {
     @Autowired
     TagRepository tagRepository;
     @Autowired
-    ImageRepository imageRepository;
+    InternalImageRepo imageRepository;
 
     public void addTag(Tag tag) {
         tagRepository.save(tag);
@@ -42,8 +41,9 @@ public class TagService {
     public void ifTagExists(Image image, String name) {
         if (tagRepository.findByNameTag(name) != null && name.equalsIgnoreCase(getExistingName(name))) {
             Tag existingTag = tagRepository.findByNameTag(name);
-            existingTag.getName();
             image.addTag(existingTag);
+            imageRepository.save(image);
+        } else if (name == null) {
             imageRepository.save(image);
         } else {
             Tag tag = new Tag();
@@ -54,5 +54,6 @@ public class TagService {
         }
     }
 }
+
 
 

@@ -3,17 +3,17 @@ package com.gallery.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.gallery.repository.InternalImageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
-import com.gallery.repository.ImageRepository;
 
 @Service
 public class ImageService {
 
     @Autowired
-    ImageRepository imageRepository;
+    InternalImageRepo imageRepository;
 
     public void addImage(Image image) {
         imageRepository.save(image);
@@ -43,4 +43,7 @@ public class ImageService {
         imageRepository.delete(image);
     }
 
+    public List<Image> searchByKeyword(String keyword) {
+        return imageRepository.searchByKeyword(keyword);
+    }
 }

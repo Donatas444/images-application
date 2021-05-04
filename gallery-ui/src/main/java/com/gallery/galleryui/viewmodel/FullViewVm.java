@@ -3,8 +3,10 @@ package com.gallery.galleryui.viewmodel;
 import java.io.Serializable;
 import java.util.Set;
 
+import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.bind.annotation.QueryParam;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
@@ -12,6 +14,7 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
 import com.gallery.service.ImageService;
+import com.gallery.service.TagService;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +25,7 @@ public class FullViewVm implements Serializable {
     @WireVariable
     ImageService imageService;
     @WireVariable
-    Tag tag;
+    TagService tagService;
     @Getter
     @Setter
     private Long id;
@@ -45,7 +48,6 @@ public class FullViewVm implements Serializable {
     @Setter
     private Image fullView;
 
-
     @Init
     public void init(@QueryParam("id") Long id) {
 
@@ -61,8 +63,17 @@ public class FullViewVm implements Serializable {
         Image image = this.fullView;
         image.setName(name);
         image.setDescription(description);
-        imageService.updateImage(image);
+        tagService.ifTagExists(image, tagName);
         Executions.sendRedirect("gallery.zul");
+    }
+
+    @NotifyChange({"tagNames"})
+    @Command
+    public void doRemoveTag(@BindingParam("tag") Tag tag) {
+
+        Image image = this.fullView;
+        image.getTags().remove(tag);
+        imageService.updateImage(image);
     }
 }
 
