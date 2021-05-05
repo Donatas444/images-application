@@ -17,15 +17,17 @@
                         <separator/>
                         <grid width="150%" model="@bind(fvm.tagNames)">
                             <template name="model" var="tag">
-                                <row>
-                                    <div class="container">
-                                        <div class="row">
-                                            <box>
+                                <row >
+                                    <div class="container" >
+                                        <div class="row"  >
+                                            <div class="col-4">
+                                            <box >
                                                 #
-                                                <label value="@bind(tag.name)"/>
+                                                <label value="@bind(tag.name)" />
                                                 <button label="${labels.remove}" width="150px"
                                                         onClick="@command('doRemoveTag', tag=tag)"/>
                                             </box>
+                                            </div>
                                         </div>
                                     </div>
                                 </row>
