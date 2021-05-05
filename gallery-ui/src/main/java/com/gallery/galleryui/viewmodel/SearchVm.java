@@ -53,8 +53,9 @@ public class SearchVm {
 // image.getName();
 // image.getDescription();
 // image.getThumbnail();
-            this.name = image.getName();
+            imageService.getImageById(image.getId());
             this.description = image.getDescription();
+            this.name = image.getName();
             this.thumbnail = image.getThumbnail();
         }
         return images;

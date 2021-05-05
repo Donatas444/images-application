@@ -31,15 +31,11 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         CriteriaQuery<Image> criteriaQuery = builder.createQuery(Image.class);
         Root<Image> root = criteriaQuery.from(Image.class);
 
-
         Join<Image, Tag> tagJoin = root.join(Image_.tags);
-        Path<Long> idPath = root.get(Image_.id);
-        criteriaQuery.multiselect(idPath);
 
         ArrayList<Predicate> conditions = new ArrayList<>();
 
         conditions.add(builder.equal(root.get(Image_.name), keyword.toLowerCase(Locale.ROOT)));
-
         conditions.add(builder.like(builder.lower(root.get(Image_.description)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
         conditions.add(builder.like(builder.lower(tagJoin.get(Tag_.name)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
 
