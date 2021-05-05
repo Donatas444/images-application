@@ -12,16 +12,12 @@
             <div>
                 <div>
                     <div>
-                        <label>
-                            Write some description here:
-                        </label>
+                        <label value="${labels.writesomedescriptionhere}"/>
                     </div>
                     <div>
                         <textbox value="@bind(vm.description)"/>
                     </div>
-                    <label>
-                        Add hashtag below:
-                    </label>
+                    <label value="${labels.addhashtagbelow}"/>
                     <div>
                         <textbox value="@bind(vm.tagName)"/>
                     </div>
@@ -35,9 +31,9 @@
                 <button id="uploadButton"
                         upload="true"
                         onUpload="@command('onFileUpload',upload=event)"
-                        autodisable="self" label="Upload"/>
+                        autodisable="self" label="${labels.upload}"/>
                 <separator/>
-                <button onClick="@command('doAddImage')" label="Save"/>
+                <button onClick="@command('doAddImage')" label="${labels.savebtn}"/>
             </hbox>
         </window>
     </div>

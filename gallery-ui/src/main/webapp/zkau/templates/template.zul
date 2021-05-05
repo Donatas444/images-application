@@ -11,18 +11,26 @@
   </head>
 
   <xh:body>
+    <xh:navbar  class="navbar navbar-expand-lg sticky-top" style="background-color: black;">
 
-    <xh:nav class="navbar navbar-expand-md sticky-top" style="background-color: black;">
+    <xh:nav class="nav">
 
-      <a style="color: white;" href="/zkau/index.zul">Home</a>
-      <space bar="true" />
-      <a style="color: white;" href="/zkau/gallery.zul">Gallery</a>
-      <space bar="true" />
-      <a style="color: white;" href="/zkau/search.zul">Search</a>
-      <space bar="true" />
-      <a style="color: white;" href="/zkau/upload.zul">Upload image</a>
+      <zul:a style="color: white;" href="/zkau/index.zul" label="${labels.home}"/>
     </xh:nav>
+      <zul:space bar="true"/>
 
+      <xh:nav class="nav">
+      <zul:a style="color: white;" href="/zkau/gallery.zul" label="${labels.gallerylink}"/>
+      </xh:nav>
+      <zul:space bar="true"/>
+      <xh:nav class="nav">
+      <zul:a  style="color: white;" href="/zkau/search.zul" label="${labels.search}"/>
+      </xh:nav>
+      <zul:space bar="true"/>
+      <xh:nav class="nav">
+      <zul:a  style="color: white;" href="/zkau/upload.zul" label="${labels.uploadimage}"/>
+    </xh:nav>
+    </xh:navbar>
     <xh:div self="@{insert(pageContent)}" />
 
   </xh:body>

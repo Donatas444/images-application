@@ -9,12 +9,10 @@
 
             <div>
                 <div>
-                    <label>
-                        Search for something:
-                    </label>
+                    <label value="${labels.searchforsomething}"/>
                     <div>
                         <textbox value="@bind(svm.keyword)"/>
-                        <button onClick="@command('doSearchByKeyword')" label="Go!"/>
+                        <button onClick="@command('doSearchByKeyword')" label="${labels.go}"/>
                     </div>
 
                     <grid width="100%" model="@bind(svm.images)">
@@ -26,15 +24,19 @@
 
                                         </div>
                                         <div class="col-sm">
+                                            <hlayout>
                                             <box>
                                                 <image onClick="@command('doSelectImage', id=image.id)"
                                                        content="@load(image.thumbnail)
                                                        @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                                            </box>
+                                                <box>
                                                 <label value="@load(image.name)" style="font-weight:bold"/>
                                                 <label value="@load(image.description)"/>
-                                                <button label="Delete" width="150px"
+                                                <button label="${labels.delete}" width="150px"
                                                         onClick="@command('doDeleteImage', image=image))"/>
                                             </box>
+                                            </hlayout>
                                         </div>
                                     </div>
                                 </div>
