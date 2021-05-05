@@ -1,5 +1,6 @@
 package com.gallery.galleryui.viewmodel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.gallery.gallerymodel.Tag;
@@ -38,16 +39,26 @@ public class SearchVm {
 
     @NotifyChange({"images"})
     @Command
-    public void doSearchByKeyword() {
+    public List<Image> doSearchByKeyword() {
         String keyword = this.keyword;
-
+        images = imageService.searchByKeyword(keyword);
         // Image image = new Image();
         // Tag tag = new Tag();
         // image.setName(getName());
         // image.setDescription(description);
         // image.setThumbnail(thumbnail);
-        //
-        images = imageService.searchByKeyword(keyword);
+        //  List<Image> searchResult = new ArrayList<>();
+        for (Image image : images) {
+
+// image.getName();
+// image.getDescription();
+// image.getThumbnail();
+            this.name = image.getName();
+            this.description = image.getDescription();
+            this.thumbnail = image.getThumbnail();
+        }
+        return images;
+
     }
 
     @Command

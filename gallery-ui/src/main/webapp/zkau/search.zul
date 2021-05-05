@@ -28,7 +28,8 @@
                                         <div class="col-sm">
                                             <box>
                                                 <image onClick="@command('doSelectImage', id=image.id)"
-                                                       content="@load(image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                                                       content="@load(image.thumbnail)
+                                                       @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
                                                 <label value="@load(image.name)" style="font-weight:bold"/>
                                                 <label value="@load(image.description)"/>
                                                 <button label="Delete" width="150px"

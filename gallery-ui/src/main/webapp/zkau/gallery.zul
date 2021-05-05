@@ -6,12 +6,12 @@
 
         <grid width="100%" model="@bind(vm.images)">
             <template name="model" var="image">
-                <row>
+                <row onClick="@command('doSelectImage', id=image.id)">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
                                 <box>
-                                    <a href="exactimage.zul">
+                                    <a onClick="@command('doSelectImage', id=image.id)">
                                         <image content="@load(image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
                                     </a>
                                 </box>

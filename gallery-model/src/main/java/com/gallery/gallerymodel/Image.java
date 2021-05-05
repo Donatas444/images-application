@@ -3,7 +3,6 @@ package com.gallery.gallerymodel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,7 +21,7 @@ public class Image implements Serializable {
 
     private String name;
 
-    @Length(max = 30)
+   // @Length(max = 30)
     private String description;
     @Lob
     private byte[] thumbnail;
