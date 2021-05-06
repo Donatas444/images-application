@@ -5,6 +5,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -89,6 +90,8 @@ public class ImageVm implements Serializable {
         }
     }
 
+
+
     @Command
     public void doAddImage() {
 
@@ -107,6 +110,27 @@ public class ImageVm implements Serializable {
             Clients.showNotification("Upload image before saving!");
         }
     }
+
+    // @Command
+    // public void doAddImage() {
+    //
+    //     Image image = new Image();
+    //     Tag tag = new Tag();
+    //     image.setName(name);
+    //     image.setDescription(description);
+    //     image.setData(data);
+    //     image.setThumbnail(thumbnail);
+    //     tag.setName(tagName);
+    //
+    //     if (data != null) {
+    //         tagService.ifTagExists(image, tagName);
+    //         Executions.sendRedirect("gallery.zul");
+    //     } else {
+    //         Clients.showNotification("Upload image before saving!");
+    //     }
+    // }
+
+
 
     @Command
     public void doSelectImage(@BindingParam("id") Long id) {

@@ -7,6 +7,10 @@ import com.gallery.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Service
 public class TagService {
 
@@ -39,20 +43,26 @@ public class TagService {
     }
 
     public void ifTagExists(Image image, String name) {
-        if (tagRepository.findByNameTag(name) != null && name.equalsIgnoreCase(getExistingName(name))) {
-            Tag existingTag = tagRepository.findByNameTag(name);
-            image.addTag(existingTag);
-            imageRepository.save(image);
-        } else if (name == null) {
-            imageRepository.save(image);
+        if (name != null) {
+            String[] splittedTags = name.split("\\s+");
+            for (String tagNotNull : splittedTags) {
+                if (tagRepository.findByNameTag(tagNotNull) != null && tagNotNull.equalsIgnoreCase(getExistingName(tagNotNull))) {
+                    Tag existingTag = tagRepository.findByNameTag(tagNotNull);
+                    image.addTag(existingTag);
+                } else {
+                    Tag newTag = new Tag();
+                    newTag.setName(tagNotNull);
+                    tagRepository.save(newTag);
+                    image.addTag(newTag);
+                }
+            }
         } else {
-            Tag tag = new Tag();
-            tag.setName(name);
-            tagRepository.save(tag);
-            image.addTag(tag);
             imageRepository.save(image);
         }
+        imageRepository.save(image);
     }
+
+
 }
 
 

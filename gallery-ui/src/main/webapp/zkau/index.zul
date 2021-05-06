@@ -12,22 +12,22 @@
                 <div id="crop" class="carousel-item active" >
                     <image  src="../man.jpg" class="d-block w-100" />
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h5>Create</h5>
+                        <p>Make photoshop art.</p>
                     </div>
                 </div>
                 <div id="crop" class="carousel-item">
                     <image src="../meal.jpg" class="d-block w-100" />
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h5>Share</h5>
+                        <p>Store your Instagram content.</p>
                     </div>
                 </div>
                 <div id="crop" class="carousel-item">
                     <image src="../castle.jpg" class="d-block w-100" />
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h5>Travel</h5>
+                        <p>Store your impressive travel photos to remember.</p>
                     </div>
                 </div>
             </div>

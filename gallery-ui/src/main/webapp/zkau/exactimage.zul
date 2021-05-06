@@ -9,6 +9,7 @@
                 <div class="row">
                     <div class="col-4">
                         <box>
+                            <label value="@load(fvm.id)"/>
                             <image width="150%" height="auto"
                                    content="@load(fvm.data) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
                             <textbox value="@bind(fvm.name)" style="font-weight:bold" width="150%"/>
@@ -37,6 +38,8 @@
                         <textbox value="@bind(fvm.tagName)"/>
                         <separator/>
                         <button label="${labels.savechanges}" width="150px" onClick="@command('doSaveChanges')"/>
+                        <button label="${labels.delete}" width="150px"
+                                onClick="@command('doDeleteImage', image=fvm.id))"/>
                     </div>
                 </div>
             </div>

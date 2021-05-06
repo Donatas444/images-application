@@ -46,4 +46,7 @@ public class ImageService {
     public List<Image> searchByKeyword(String keyword) {
         return imageRepository.searchByKeyword(keyword);
     }
+    public void deleteImageById(Long id){
+        imageRepository.deleteById(id);
+    }
 }

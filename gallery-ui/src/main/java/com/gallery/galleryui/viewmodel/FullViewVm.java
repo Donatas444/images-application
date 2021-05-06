@@ -8,6 +8,7 @@ import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.bind.annotation.QueryParam;
+import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
@@ -56,6 +57,7 @@ public class FullViewVm implements Serializable {
         this.description = fullView.getDescription();
         this.data = fullView.getData();
         this.tagNames = fullView.getTags();
+        this.id = fullView.getId();
     }
 
     @Command
@@ -74,6 +76,18 @@ public class FullViewVm implements Serializable {
         Image image = this.fullView;
         image.getTags().remove(tag);
         imageService.updateImage(image);
+    }
+    @NotifyChange({"images"})
+    @Command
+    public void doDeleteImage(@BindingParam("image") Long id) {
+
+        Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
+            if (event.getName().equals("onYes")) {
+                imageService.deleteImageById(id);
+                //   showGalleryList();
+                Executions.sendRedirect("gallery.zul");
+            }
+        });
     }
 }
 
