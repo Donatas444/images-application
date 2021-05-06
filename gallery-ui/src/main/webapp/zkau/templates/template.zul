@@ -3,49 +3,50 @@
 
 <!DOCTYPE html>
 <xh:html xmlns="native" xmlns:zul="http://www.zkoss.org/2005/zul" xmlns:xh="xhtml" xmlns:sh="shadow">
-  <head>
-    <meta charset="utf-8" />
-    <xh:zkhead stubonly="false" />
+    <head>
+        <meta charset="utf-8"/>
+        <xh:zkhead stubonly="false"/>
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href="../mystyle.css"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"/>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"/>
+        <script src="../javascripts.js"/>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="../mystyle.css"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"/>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"/>
+    </head>
 
-  </head>
+    <body>
+        <xh:navbar class="navbar navbar-expand-lg sticky-top" style="background-color: black;">
 
-  <body>
-    <xh:navbar  class="navbar navbar-expand-lg sticky-top" style="background-color: black;">
+            <xh:nav class="nav">
 
-    <xh:nav class="nav">
+                <zul:a style="color: white;" href="/zkau/index.zul" label="${labels.home}"/>
+            </xh:nav>
+            <zul:space bar="true"/>
 
-      <zul:a style="color: white;" href="/zkau/index.zul" label="${labels.home}"/>
-    </xh:nav>
-      <zul:space bar="true"/>
+            <xh:nav class="nav">
+                <zul:a style="color: white;" href="/zkau/gallery.zul" label="${labels.gallerylink}"/>
+            </xh:nav>
+            <zul:space bar="true"/>
+            <xh:nav class="nav">
+                <zul:a style="color: white;" href="/zkau/search.zul" label="${labels.search}"/>
+            </xh:nav>
+            <zul:space bar="true"/>
+            <xh:nav class="nav">
+                <zul:a style="color: white;" href="/zkau/upload.zul" label="${labels.uploadimage}"/>
+            </xh:nav>
+        </xh:navbar>
+        <xh:div self="@{insert(pageContent)}"/>
 
-      <xh:nav class="nav">
-      <zul:a style="color: white;" href="/zkau/gallery.zul" label="${labels.gallerylink}"/>
-      </xh:nav>
-      <zul:space bar="true"/>
-      <xh:nav class="nav">
-      <zul:a  style="color: white;" href="/zkau/search.zul" label="${labels.search}"/>
-      </xh:nav>
-      <zul:space bar="true"/>
-      <xh:nav class="nav">
-      <zul:a  style="color: white;" href="/zkau/upload.zul" label="${labels.uploadimage}"/>
-    </xh:nav>
-    </xh:navbar>
-    <xh:div self="@{insert(pageContent)}" />
-
-  </body>
+    </body>
 </xh:html>
 

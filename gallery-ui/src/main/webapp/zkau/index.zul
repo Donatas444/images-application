@@ -8,23 +8,23 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"/>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"/>
             </ol>
-            <div class="carousel-inner" >
-                <div id="crop" class="carousel-item active" >
-                    <image  src="../man.jpg" class="d-block w-100" />
+            <div class="carousel-inner">
+                <div id="crop" class="carousel-item active">
+                    <image src="../man.jpg" class="d-block w-100"/>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Create</h5>
                         <p>Make photoshop art.</p>
                     </div>
                 </div>
                 <div id="crop" class="carousel-item">
-                    <image src="../meal.jpg" class="d-block w-100" />
+                    <image src="../meal.jpg" class="d-block w-100"/>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Share</h5>
                         <p>Store your Instagram content.</p>
                     </div>
                 </div>
                 <div id="crop" class="carousel-item">
-                    <image src="../castle.jpg" class="d-block w-100" />
+                    <image src="../castle.jpg" class="d-block w-100"/>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Travel</h5>
                         <p>Store your impressive travel photos to remember.</p>

@@ -1,13 +1,22 @@
 package com.gallery.service;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 import com.gallery.repository.InternalImageRepo;
+import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
+import org.zkoss.zhtml.Messagebox;
+import org.zkoss.zk.ui.Executions;
+
+import javax.imageio.ImageIO;
 
 @Service
 public class ImageService {
@@ -48,5 +57,35 @@ public class ImageService {
     }
     public void deleteImageById(Long id){
         imageRepository.deleteById(id);
+    }
+
+    public void deleteMessageBox(Long id) {
+        Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
+            if (event.getName().equals("onYes")) {
+               deleteImageById(id);
+                Executions.sendRedirect("gallery.zul");
+            }
+        });
+    }
+    public BufferedImage createThumbnail(byte[] input) {
+
+        BufferedImage scaledImage = Scalr.resize(createImageFromBytes(input), 150);
+        return scaledImage;
+    }
+
+    public BufferedImage createImageFromBytes(byte[] input) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(input);
+        try {
+            return ImageIO.read(byteArrayInputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public byte[] bufferedImageToByteArray(BufferedImage bufferedImage) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+        return bytes;
     }
 }

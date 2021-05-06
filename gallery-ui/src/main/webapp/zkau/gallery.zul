@@ -27,7 +27,8 @@
                                     <button label="${labels.edit}" width="150px"
                                             onClick="@command('doSelectImage', id=image.id)"/>
                                     <button label="${labels.delete}" width="150px"
-                                            onClick="@command('doDeleteImage', image=image))"/>
+                                            onClick="@command('doDeleteImage', image=image.id))"/>
+
                                 </box>
                             </div>
                         </div>

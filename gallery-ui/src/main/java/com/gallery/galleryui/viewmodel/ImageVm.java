@@ -67,10 +67,13 @@ public class ImageVm implements Serializable {
     @Setter
     private List<Image> images;
 
-    @AfterCompose
-    public void afterCompose(@ContextParam(ContextType.VIEW) Component view) {
-        Selectors.wireComponents(view, this, false);
+
+    @Init
+    public void init() {
+        showGalleryList();
+
     }
+
 
     @NotifyChange({"thumbnail"})
     @Command
@@ -85,12 +88,10 @@ public class ImageVm implements Serializable {
 
             name = media.getName();
             data = media.getByteData();
-            BufferedImage newThumbnail = createThumbnail(data);
-            thumbnail = bufferedImageToByteArray(newThumbnail);
+            BufferedImage newThumbnail = imageService.createThumbnail(data);
+            thumbnail = imageService.bufferedImageToByteArray(newThumbnail);
         }
     }
-
-
 
     @Command
     public void doAddImage() {
@@ -111,43 +112,15 @@ public class ImageVm implements Serializable {
         }
     }
 
-    // @Command
-    // public void doAddImage() {
-    //
-    //     Image image = new Image();
-    //     Tag tag = new Tag();
-    //     image.setName(name);
-    //     image.setDescription(description);
-    //     image.setData(data);
-    //     image.setThumbnail(thumbnail);
-    //     tag.setName(tagName);
-    //
-    //     if (data != null) {
-    //         tagService.ifTagExists(image, tagName);
-    //         Executions.sendRedirect("gallery.zul");
-    //     } else {
-    //         Clients.showNotification("Upload image before saving!");
-    //     }
-    // }
-
-
-
     @Command
     public void doSelectImage(@BindingParam("id") Long id) {
-        Executions.sendRedirect("exactimage.zul?id=" + id);
+        Executions.sendRedirect("editimage.zul?id=" + id);
     }
 
     @NotifyChange({"images"})
     @Command
-    public void doDeleteImage(@BindingParam("image") Image image) {
-
-        Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
-            if (event.getName().equals("onYes")) {
-                imageService.deleteImage(image);
-                //   showGalleryList();
-                Executions.sendRedirect("gallery.zul");
-            }
-        });
+    public void doDeleteImage(@BindingParam("image") Long id) {
+        imageService.deleteMessageBox(id);
     }
 
     @NotifyChange({"images"})
@@ -155,31 +128,5 @@ public class ImageVm implements Serializable {
         images = imageService.getAllImages();
     }
 
-    @Init
-    public void init() {
-        showGalleryList();
 
-    }
-
-    public BufferedImage createThumbnail(byte[] input) {
-
-        BufferedImage scaledImage = Scalr.resize(createImageFromBytes(input), 150);
-        return scaledImage;
-    }
-
-    public BufferedImage createImageFromBytes(byte[] input) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(input);
-        try {
-            return ImageIO.read(byteArrayInputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public byte[] bufferedImageToByteArray(BufferedImage bufferedImage) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
-        byte[] bytes = byteArrayOutputStream.toByteArray();
-        return bytes;
-    }
 }

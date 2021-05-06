@@ -9,25 +9,26 @@
                 <div class="row">
                     <div class="col-4">
                         <box>
-                            <label value="@load(fvm.id)"/>
+                            <label hidden="@load(fvm.id)"/>
                             <image width="150%" height="auto"
                                    content="@load(fvm.data) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+
                             <textbox value="@bind(fvm.name)" style="font-weight:bold" width="150%"/>
                             <textbox value="@bind(fvm.description)" width="150%"/>
                         </box>
                         <separator/>
                         <grid width="150%" model="@bind(fvm.tagNames)">
                             <template name="model" var="tag">
-                                <row >
-                                    <div class="container" >
-                                        <div class="row"  >
+                                <row>
+                                    <div class="container">
+                                        <div class="row">
                                             <div class="col-4">
-                                            <box >
-                                                #
-                                                <label value="@bind(tag.name)" />
-                                                <button label="${labels.remove}" width="150px"
-                                                        onClick="@command('doRemoveTag', tag=tag)"/>
-                                            </box>
+                                                <box>
+                                                    #
+                                                    <label value="@bind(tag.name)"/>
+                                                    <button label="${labels.remove}" width="150px"
+                                                            onClick="@command('doRemoveTag', tag=tag)"/>
+                                                </box>
                                             </div>
                                         </div>
                                     </div>
@@ -40,6 +41,13 @@
                         <button label="${labels.savechanges}" width="150px" onClick="@command('doSaveChanges')"/>
                         <button label="${labels.delete}" width="150px"
                                 onClick="@command('doDeleteImage', image=fvm.id))"/>
+
+                        <div>
+
+
+                        </div>
+
+
                     </div>
                 </div>
             </div>

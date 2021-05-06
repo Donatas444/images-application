@@ -25,17 +25,17 @@
                                         </div>
                                         <div class="col-sm">
                                             <hlayout>
-                                            <box>
-                                                <image onClick="@command('doSelectImage', id=image.id)"
-                                                       content="@load(image.thumbnail)
-                                                       @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
-                                            </box>
                                                 <box>
-                                                <label value="@load(image.name)" style="font-weight:bold"/>
-                                                <label value="@load(image.description)"/>
-                                                <button label="${labels.delete}" width="150px"
-                                                        onClick="@command('doDeleteImage', image=image))"/>
-                                            </box>
+                                                    <image onClick="@command('doSelectImage', id=image.id)"
+                                                           content="@load(image.thumbnail)
+                                                       @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                                                </box>
+                                                <box>
+                                                    <label value="@load(image.name)" style="font-weight:bold"/>
+                                                    <label value="@load(image.description)"/>
+                                                    <button label="${labels.delete}" width="150px"
+                                                            onClick="@command('doDeleteImage', image=image.id))"/>
+                                                </box>
                                             </hlayout>
                                         </div>
                                     </div>

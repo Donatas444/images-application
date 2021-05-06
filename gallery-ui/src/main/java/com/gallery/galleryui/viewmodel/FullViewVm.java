@@ -77,17 +77,12 @@ public class FullViewVm implements Serializable {
         image.getTags().remove(tag);
         imageService.updateImage(image);
     }
+
     @NotifyChange({"images"})
     @Command
     public void doDeleteImage(@BindingParam("image") Long id) {
 
-        Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
-            if (event.getName().equals("onYes")) {
-                imageService.deleteImageById(id);
-                //   showGalleryList();
-                Executions.sendRedirect("gallery.zul");
-            }
-        });
+        imageService.deleteMessageBox(id);
     }
 }
 
