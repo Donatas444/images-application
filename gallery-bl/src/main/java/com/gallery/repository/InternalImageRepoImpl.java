@@ -31,7 +31,8 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         CriteriaQuery<Image> criteriaQuery = builder.createQuery(Image.class);
         Root<Image> root = criteriaQuery.from(Image.class);
 
-        Join<Image, Tag> tagJoin = root.join(Image_.tags);
+
+        Join<Image, Tag> tagJoin = root.join(Image_.tags, JoinType.LEFT);
 
         ArrayList<Predicate> conditions = new ArrayList<>();
 
@@ -40,7 +41,7 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         conditions.add(builder.like(builder.lower(tagJoin.get(Tag_.name)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
 
         criteriaQuery.where(builder.or(conditions.toArray(new Predicate[conditions.size()])));
-
+        criteriaQuery.distinct(true);
         Query query = entityManager.createQuery(criteriaQuery);
         List<Image> eventList = query.getResultList();
         return eventList;

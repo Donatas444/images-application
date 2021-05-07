@@ -15,7 +15,7 @@
                         <label value="${labels.writesomedescriptionhere}"/>
                     </div>
                     <div>
-                        <textbox value="@bind(vm.description)"/>
+                        <textbox value="@bind(vm.description)" maxlength="25"/>
                     </div>
                     <label value="${labels.addhashtagbelow}"/>
                     <div>

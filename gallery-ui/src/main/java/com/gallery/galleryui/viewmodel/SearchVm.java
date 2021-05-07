@@ -32,7 +32,7 @@ public class SearchVm {
     @Setter
     private List<Image> images;
 
-    //TODO
+
     @NotifyChange({"images"})
     @Command
     public List<Image> doSearchByKeyword() {

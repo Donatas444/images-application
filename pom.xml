@@ -24,6 +24,7 @@
         <bootstrap.version>4.2.1</bootstrap.version>
         <webjars.locator.version>0.36</webjars.locator.version>
         <hibernate.core.version>5.4.30.Final</hibernate.core.version>
+        <imgscalr-lib.version>4.2</imgscalr-lib.version>
     </properties>
 
     <modules>
@@ -107,9 +108,17 @@
                 <artifactId>hibernate-jpamodelgen</artifactId>
                 <version>${hibernate.core.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.imgscalr</groupId>
+                <artifactId>imgscalr-lib</artifactId>
+                <version>${imgscalr-lib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate.core.version}</version>
+            </dependency>
         </dependencies>
-
-
     </dependencyManagement>
 
     <dependencies>

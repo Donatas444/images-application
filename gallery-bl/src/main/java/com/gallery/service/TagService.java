@@ -40,8 +40,8 @@ public class TagService {
 
     public void ifTagExists(Image image, String name) {
         if (name != null) {
-            String[] splittedTags = name.split("\\s+");
-            for (String tagNotNull : splittedTags) {
+            String[] splitTags = name.split("\\s+");
+            for (String tagNotNull : splitTags) {
                 if (tagRepository.findByNameTag(tagNotNull) != null && tagNotNull.equalsIgnoreCase(getExistingName(tagNotNull))) {
                     Tag existingTag = tagRepository.findByNameTag(tagNotNull);
                     image.addTag(existingTag);

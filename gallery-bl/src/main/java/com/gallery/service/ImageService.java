@@ -55,18 +55,20 @@ public class ImageService {
     public List<Image> searchByKeyword(String keyword) {
         return imageRepository.searchByKeyword(keyword);
     }
-    public void deleteImageById(Long id){
+
+    public void deleteImageById(Long id) {
         imageRepository.deleteById(id);
     }
 
     public void deleteMessageBox(Long id) {
         Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
             if (event.getName().equals("onYes")) {
-               deleteImageById(id);
+                deleteImageById(id);
                 Executions.sendRedirect("gallery.zul");
             }
         });
     }
+
     public BufferedImage createThumbnail(byte[] input) {
 
         BufferedImage scaledImage = Scalr.resize(createImageFromBytes(input), 150);

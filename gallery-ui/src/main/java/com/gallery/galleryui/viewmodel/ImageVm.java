@@ -50,8 +50,6 @@ public class ImageVm implements Serializable {
     @Setter
     private String tagName;
     @Getter
-    private Long id;
-    @Getter
     @Setter
     private String name;
     @Getter
