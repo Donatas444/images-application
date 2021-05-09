@@ -1,44 +1,44 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
-<zk xmlns="native" xmlns:xh="xhtml" xmlns:sh="shadow" xmlns:zul="http://www.zkoss.org/2005/zul">
+<zk xmlns:h="native">
     <div self="@{define(pageContent)}" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"/>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"/>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"/>
-            </ol>
-            <div class="carousel-inner">
-                <div id="crop" class="carousel-item active">
-                    <image src="../man.jpg" class="d-block w-100"/>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Create</h5>
-                        <p>Make photoshop art.</p>
-                    </div>
-                </div>
-                <div id="crop" class="carousel-item">
-                    <image src="../meal.jpg" class="d-block w-100"/>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Share</h5>
-                        <p>Store your Instagram content.</p>
-                    </div>
-                </div>
-                <div id="crop" class="carousel-item">
-                    <image src="../castle.jpg" class="d-block w-100"/>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Travel</h5>
-                        <p>Store your impressive travel photos to remember.</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"/>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"/>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+        <h:div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <h:ol class="carousel-indicators">
+                <h:li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"/>
+                <h:li data-target="#carouselExampleIndicators" data-slide-to="1"/>
+                <h:li data-target="#carouselExampleIndicators" data-slide-to="2"/>
+            </h:ol>
+            <h:div class="carousel-inner">
+                <h:div id="crop" class="carousel-item active">
+                    <h:img src="../man.jpg" class="d-block w-100"/>
+                    <h:div class="carousel-caption d-none d-md-block">
+                        <h:h5>Create</h:h5>
+                        <h:p>Make photoshop art.</h:p>
+                    </h:div>
+                </h:div>
+                <h:div id="crop" class="carousel-item">
+                    <h:img src="../meal.jpg" class="d-block w-100"/>
+                    <h:div class="carousel-caption d-none d-md-block">
+                        <h:h5>Share</h:h5>
+                        <h:p>Store your Instagram content.</h:p>
+                    </h:div>
+                </h:div>
+                <h:div id="crop" class="carousel-item">
+                    <h:img src="../castle.jpg" class="d-block w-100"/>
+                    <h:iv class="carousel-caption d-none d-md-block">
+                        <h:h5>Travel</h:h5>
+                        <h:p>Store your impressive travel photos to remember.</h:p>
+                    </h:iv>
+                </h:div>
+            </h:div>
+            <h:a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <h:span class="carousel-control-prev-icon" aria-hidden="true"/>
+                <h:span class="sr-only">Previous</h:span>
+            </h:a>
+            <h:a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <h:span class="carousel-control-next-icon" aria-hidden="true"/>
+                <h:span class="sr-only">Next</h:span>
+            </h:a>
+        </h:div>
     </div>
 </zk>

@@ -1,56 +1,39 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
 
-<zk apply="org.zkoss.bind.BindComposer">
+<zk apply="org.zkoss.bind.BindComposer" xmlns:h="native">
     <div sclass="box" align="center" self="@{define(pageContent)}"
          viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
-        <separator/>
-        <window width="30%" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
+        <h:br/>
+        <h:div class="col-md-3" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
 
-            <div>
-                <div>
-                    <label value="${labels.searchforsomething}"/>
-                    <div>
-                        <textbox value="@bind(svm.keyword)"/>
-                        <button onClick="@command('doSearchByKeyword')" label="${labels.go}"/>
-                    </div>
-
-                    <grid width="100%" model="@bind(svm.images)">
-                        <template name="model" var="image">
-                            <row>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm">
-
-                                        </div>
-                                        <div class="col-sm">
-                                            <hlayout>
-                                                <box>
-                                                    <image onClick="@command('doSelectImage', id=image.id)"
-                                                           content="@load(image.thumbnail)
+            <label value="${labels.searchforsomething}"/>
+            <h:div>
+                <textbox value="@bind(svm.keyword)"/>
+                <button onClick="@command('doSearchByKeyword')" label="${labels.go}"/>
+            </h:div>
+            <grid style="border:none;" width="100%" model="@bind(svm.images)">
+                <template name="model" var="image">
+                    <row>
+                        <h:div class="container">
+                            <h:div class="row">
+                                <h:div class="col-md-6">
+                                    <image onClick="@command('doSelectImage', id=image.id)"
+                                           content="@load(image.thumbnail)
                                                        @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
-                                                </box>
-                                                <box>
-                                                    <label value="@load(image.name)" style="font-weight:bold"/>
-                                                    <label value="@load(image.description)"/>
-                                                    <button label="${labels.delete}" width="150px"
-                                                            onClick="@command('doDeleteImage', image=image.id))"/>
-                                                </box>
-                                            </hlayout>
-                                        </div>
-                                    </div>
-                                </div>
-                            </row>
-                        </template>
-                    </grid>
-                </div>
-            </div>
-            <separator/>
-            <hbox>
-                <separator/>
-            </hbox>
-        </window>
-
+                                </h:div>
+                                <h:div class="col-md-6">
+                                    <label value="@load(image.name)" style="font-weight:bold"/>
+                                    <label value="@load(image.description)"/>
+                                    <button label="${labels.delete}" width="150px"
+                                            onClick="@command('doDeleteImage', image=image.id))"/>
+                                </h:div>
+                            </h:div>
+                        </h:div>
+                    </row>
+                </template>
+            </grid>
+        </h:div>
     </div>
 </zk>
 
