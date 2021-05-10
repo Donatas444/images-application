@@ -2,8 +2,8 @@ package com.gallery.service;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
-import com.gallery.repository.InternalImageRepo;
-import com.gallery.repository.TagRepository;
+import com.gallery.repository.imagerepository.InternalImageRepo;
+import com.gallery.repository.tagrepository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,13 +28,13 @@ public class TagService {
     }
 
     public void getTagByName(String name) {
-        tagRepository.findByNameTag(name);
+        tagRepository.findByName(name);
     }
 
     public String getExistingName(String name) {
 
-        tagRepository.findByNameTag(name);
-        Tag existingTag = tagRepository.findByNameTag(name);
+        tagRepository.findByName(name);
+        Tag existingTag = tagRepository.findByName(name);
         return existingTag.getName();
     }
 
@@ -42,8 +42,8 @@ public class TagService {
         if (name != null) {
             String[] splitTags = name.split("\\s+");
             for (String tagNotNull : splitTags) {
-                if (tagRepository.findByNameTag(tagNotNull) != null && tagNotNull.equalsIgnoreCase(getExistingName(tagNotNull))) {
-                    Tag existingTag = tagRepository.findByNameTag(tagNotNull);
+                if (tagRepository.findByName(tagNotNull) != null && tagNotNull.equalsIgnoreCase(getExistingName(tagNotNull))) {
+                    Tag existingTag = tagRepository.findByName(tagNotNull);
                     image.addTag(existingTag);
                 } else {
                     Tag newTag = new Tag();

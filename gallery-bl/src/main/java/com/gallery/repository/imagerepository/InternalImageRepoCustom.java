@@ -1,4 +1,4 @@
-package com.gallery.repository;
+package com.gallery.repository.imagerepository;
 
 import com.gallery.gallerymodel.Image;
 import org.springframework.data.jpa.repository.JpaRepository;

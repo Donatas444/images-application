@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import com.gallery.repository.InternalImageRepo;
+import com.gallery.repository.imagerepository.InternalImageRepo;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,15 +58,6 @@ public class ImageService {
 
     public void deleteImageById(Long id) {
         imageRepository.deleteById(id);
-    }
-
-    public void deleteMessageBox(Long id) {
-        Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
-            if (event.getName().equals("onYes")) {
-                deleteImageById(id);
-                Executions.sendRedirect("gallery.zul");
-            }
-        });
     }
 
     public BufferedImage createThumbnail(byte[] input) {

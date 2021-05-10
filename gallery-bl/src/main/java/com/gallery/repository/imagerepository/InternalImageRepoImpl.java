@@ -1,9 +1,10 @@
-package com.gallery.repository;
+package com.gallery.repository.imagerepository;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Image_;
 import com.gallery.gallerymodel.Tag;
 import com.gallery.gallerymodel.Tag_;
+import com.gallery.repository.imagerepository.InternalImageRepoCustom;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Component;
 
@@ -36,7 +37,7 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
 
         ArrayList<Predicate> conditions = new ArrayList<>();
 
-        conditions.add(builder.equal(root.get(Image_.name), keyword.toLowerCase(Locale.ROOT)));
+        conditions.add(builder.like(builder.lower(root.get(Image_.name)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
         conditions.add(builder.like(builder.lower(root.get(Image_.description)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
         conditions.add(builder.like(builder.lower(tagJoin.get(Tag_.name)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
 

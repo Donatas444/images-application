@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
+import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
@@ -55,6 +56,11 @@ public class SearchVm {
     @NotifyChange({"images"})
     @Command
     public void doDeleteImage(@BindingParam("image") Long id) {
-        imageService.deleteMessageBox(id);
+        Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
+            if (event.getName().equals("onYes")) {
+                imageService.deleteImageById(id);
+                Executions.sendRedirect("gallery.zul");
+            }
+        });
     }
 }
