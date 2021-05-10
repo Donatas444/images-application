@@ -2,8 +2,8 @@ package com.gallery.service;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
-import com.gallery.repository.imagerepository.InternalImageRepo;
-import com.gallery.repository.tagrepository.TagRepository;
+import com.gallery.repository.InternalImageRepo;
+import com.gallery.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

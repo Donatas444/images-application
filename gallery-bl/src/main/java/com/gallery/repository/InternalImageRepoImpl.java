@@ -1,10 +1,10 @@
-package com.gallery.repository.imagerepository;
+package com.gallery.repository;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Image_;
 import com.gallery.gallerymodel.Tag;
 import com.gallery.gallerymodel.Tag_;
-import com.gallery.repository.imagerepository.InternalImageRepoCustom;
+import com.gallery.repository.InternalImageRepoCustom;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Component;
 

@@ -7,14 +7,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import com.gallery.repository.imagerepository.InternalImageRepo;
+import com.gallery.repository.InternalImageRepo;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gallery.gallerymodel.Image;
-import org.zkoss.zhtml.Messagebox;
-import org.zkoss.zk.ui.Executions;
 
 import javax.imageio.ImageIO;
 

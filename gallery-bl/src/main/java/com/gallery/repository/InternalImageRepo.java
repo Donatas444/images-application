@@ -1,4 +1,4 @@
-package com.gallery.repository.imagerepository;
+package com.gallery.repository;
 
 
 import com.gallery.gallerymodel.Image;
