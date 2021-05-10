@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.gallery.repository.InternalImageRepo;
+import com.gallery.repository.imageview.ImageView;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,8 @@ public class ImageService {
 
     }
 
-    public List<Image> getAllImages() {
-        return imageRepository.findAll();
+    public List<ImageView> getAllImages() {
+        return imageRepository.getAllImages();
     }
 
     public Image getImageById(Long id) {

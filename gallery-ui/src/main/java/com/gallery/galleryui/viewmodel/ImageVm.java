@@ -2,6 +2,7 @@ package com.gallery.galleryui.viewmodel;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
+import com.gallery.repository.imageview.ImageView;
 import com.gallery.service.ImageService;
 import com.gallery.service.TagService;
 import lombok.Getter;
@@ -47,7 +48,7 @@ public class ImageVm implements Serializable {
     private byte[] thumbnail;
     @Getter
     @Setter
-    private List<Image> images;
+    private List<ImageView> images;
 
 
     @Init
