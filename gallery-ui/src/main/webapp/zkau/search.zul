@@ -5,7 +5,7 @@
     <div sclass="box" align="center" self="@{define(pageContent)}"
          viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
         <h:br/>
-        <h:div class="col-md-3" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
+        <h:div class="col-md-4" viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
 
             <label value="${labels.searchforsomething}"/>
             <h:div>

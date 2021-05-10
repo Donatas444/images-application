@@ -1,7 +1,7 @@
 package com.gallery.galleryui.viewmodel;
 
 import com.gallery.gallerymodel.Image;
-import com.gallery.service.ImageService;
+import com.gallery.galleryui.service.ImageService;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
@@ -17,18 +17,11 @@ public class SearchVm {
 
     @WireVariable
     ImageService imageService;
-    @Getter
-    @Setter
-    String name;
-    @Getter
-    @Setter
-    String description;
+
     @Getter
     @Setter
     String keyword;
-    @Getter
-    @Setter
-    private byte[] thumbnail;
+
     @Getter
     @Setter
     private List<Image> images;
@@ -39,13 +32,13 @@ public class SearchVm {
     public List<Image> doSearchByKeyword() {
         String keyword = this.keyword;
         images = imageService.searchByKeyword(keyword);
-        for (Image image : images) {
-            imageService.getImageById(image.getId());
-            this.description = image.getDescription();
-            this.name = image.getName();
-            this.thumbnail = image.getThumbnail();
-        }
-        return images;
+        // for (ImageView image : images) {
+        //     imageService.getImageById(image.getId());
+        //     this.description = image.getDescription();
+        //     this.name = image.getName();
+        //     this.thumbnail = image.getThumbnail();
+        // }
+         return images;
     }
 
     @Command

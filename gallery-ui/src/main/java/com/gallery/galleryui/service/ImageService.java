@@ -1,5 +1,14 @@
-package com.gallery.service;
+package com.gallery.galleryui.service;
 
+import com.gallery.gallerymodel.Image;
+import com.gallery.galleryui.viewmodel.views.ImageView;
+import com.gallery.repository.InternalImageRepo;
+import com.gallery.repository.imageview.ImageViewShow;
+import org.imgscalr.Scalr;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -7,28 +16,35 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import com.gallery.repository.InternalImageRepo;
-import com.gallery.repository.imageview.ImageView;
-import org.imgscalr.Scalr;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.gallery.gallerymodel.Image;
-
-import javax.imageio.ImageIO;
-
 @Service
 public class ImageService {
 
     @Autowired
     InternalImageRepo imageRepository;
+    @Autowired
+    TagService tagService;
 
-    public void addImage(Image image) {
+
+    public void addImage(ImageView imageView) {
+        Image image = new Image();
+        image.setName(imageView.getName());
+        image.setDescription(imageView.getDescription());
+        image.setData(imageView.getData());
+        image.setThumbnail(imageView.getThumbnail());
         imageRepository.save(image);
+        String tagName = imageView.getTags();
+
+
+
+
 
     }
 
-    public List<ImageView> getAllImages() {
+        public void addTags(Image image, String tagName){
+            tagService.addTags(image, tagName);
+        }
+
+    public List<ImageViewShow> getAllImages() {
         return imageRepository.getAllImages();
     }
 

@@ -4,26 +4,26 @@
 <zk apply="org.zkoss.bind.BindComposer" xmlns:h="native">
 
     <div align="center" self="@{define(pageContent)}"
-         viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+         viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.UploadVm')">
         <h:div style="background-image: url('../castle.jpg');" class="col-md-4">
-        <h:br/>
-        <h:div width="30%" viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.ImageVm')">
+            <h:br/>
+
             <h:div>
-                <image content="@bind(vm.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                <image content="@bind(vm.image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
             </h:div>
             <h:div>
                 <h:div>
                     <label value="${labels.writesomedescriptionhere}"/>
                 </h:div>
                 <h:div>
-                    <textbox value="@bind(vm.description)" maxlength="25"/>
+                    <textbox value="@bind(vm.image.description)" maxlength="25"/>
                 </h:div>
                 <label value="${labels.addhashtagbelow}"/>
                 <h:div>
-                    <textbox value="@bind(vm.tagName)"/>
+                    <textbox value="@bind(vm.image.tags)"/>
                 </h:div>
                 <h:div>
-                    <label value="@bind(vm.name)"/>
+                    <label value="@bind(vm.image.name)"/>
                 </h:div>
             </h:div>
             <h:br/>
@@ -43,7 +43,7 @@
                     </h:div>
                 </h:div>
             </h:div>
-        </h:div>
+
         </h:div>
     </div>
 

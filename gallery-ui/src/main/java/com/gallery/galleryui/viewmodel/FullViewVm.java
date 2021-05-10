@@ -14,8 +14,8 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
-import com.gallery.service.ImageService;
-import com.gallery.service.TagService;
+import com.gallery.galleryui.service.ImageService;
+import com.gallery.galleryui.service.TagService;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -65,7 +65,7 @@ public class FullViewVm implements Serializable {
         Image image = this.fullView;
         image.setName(name);
         image.setDescription(description);
-        tagService.ifTagExists(image, tagName);
+        tagService.addTags(image, tagName);
         Executions.sendRedirect("gallery.zul");
     }
 

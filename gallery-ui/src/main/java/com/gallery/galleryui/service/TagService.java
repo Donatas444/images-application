@@ -1,4 +1,4 @@
-package com.gallery.service;
+package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
@@ -38,7 +38,7 @@ public class TagService {
         return existingTag.getName();
     }
 
-    public void ifTagExists(Image image, String name) {
+    public void addTags(Image image, String name) {
         if (name != null) {
             String[] splitTags = name.split("\\s+");
             for (String tagNotNull : splitTags) {
