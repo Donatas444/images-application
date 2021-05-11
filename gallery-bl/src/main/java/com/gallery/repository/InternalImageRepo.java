@@ -2,10 +2,11 @@ package com.gallery.repository;
 
 
 import com.gallery.gallerymodel.Image;
+import com.gallery.repository.imageview.ImageViewShow;
 
 import java.util.Optional;
 
 public interface InternalImageRepo extends InternalImageRepoCustom {
-   Optional<Image> findById(Long id);
+   Image getById(Long id);
    void deleteById(Long id);
 }

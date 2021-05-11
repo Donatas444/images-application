@@ -9,6 +9,6 @@ import java.util.List;
 
 @NoRepositoryBean
 public interface InternalImageRepoCustom extends JpaRepository<Image, Long> {
-    List<Image> searchByKeyword(String keyword);
+    List<Long> searchByKeyword(String keyword);
     List<ImageViewShow> getAllImages();
 }

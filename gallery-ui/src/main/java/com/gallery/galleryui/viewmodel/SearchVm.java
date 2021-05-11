@@ -2,15 +2,19 @@ package com.gallery.galleryui.viewmodel;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.galleryui.service.ImageService;
+import com.gallery.galleryui.viewmodel.views.ImageView;
+import com.gallery.repository.imageview.ImageViewShow;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchVm {
@@ -24,21 +28,24 @@ public class SearchVm {
 
     @Getter
     @Setter
-    private List<Image> images;
+    private List<Long> imagesId;
+    @Getter
+    @Setter
+    private List<ImageViewShow> images;
+
+
+    // @Init
+    // public void init() {
+    //     images = new ArrayList<>();
+    // }
 
 
     @NotifyChange({"images"})
     @Command
-    public List<Image> doSearchByKeyword() {
-        String keyword = this.keyword;
-        images = imageService.searchByKeyword(keyword);
-        // for (ImageView image : images) {
-        //     imageService.getImageById(image.getId());
-        //     this.description = image.getDescription();
-        //     this.name = image.getName();
-        //     this.thumbnail = image.getThumbnail();
-        // }
-         return images;
+    public void doSearchByKeyword() {
+        imagesId = imageService.searchByKeyword(keyword);
+        images = imageService.convertIdListToImageViewList(imagesId);
+
     }
 
     @Command

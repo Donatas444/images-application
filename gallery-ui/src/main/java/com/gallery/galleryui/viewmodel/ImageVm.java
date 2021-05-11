@@ -1,11 +1,13 @@
 package com.gallery.galleryui.viewmodel;
 
-import com.gallery.repository.imageview.ImageViewShow;
 import com.gallery.galleryui.service.ImageService;
-import com.gallery.galleryui.service.TagService;
+import com.gallery.repository.imageview.ImageViewShow;
 import lombok.Getter;
 import lombok.Setter;
-import org.zkoss.bind.annotation.*;
+import org.zkoss.bind.annotation.BindingParam;
+import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.Init;
+import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.VariableResolver;
@@ -21,23 +23,7 @@ public class ImageVm implements Serializable {
 
     @WireVariable
     ImageService imageService;
-    @WireVariable
-    TagService tagService;
-    @Getter
-    @Setter
-    private String tagName;
-    @Getter
-    @Setter
-    private String name;
-    @Getter
-    @Setter
-    private String description;
-    @Getter
-    @Setter
-    private byte[] data;
-    @Getter
-    @Setter
-    private byte[] thumbnail;
+
     @Getter
     @Setter
     private List<ImageViewShow> images;
@@ -51,10 +37,6 @@ public class ImageVm implements Serializable {
         showGalleryList();
 
     }
-
-
-
-
     @Command
     public void doSelectImage(@BindingParam("id") Long id) {
         Executions.sendRedirect("editimage.zul?id=" + id);
@@ -75,6 +57,4 @@ public class ImageVm implements Serializable {
     public void showGalleryList() {
         images = imageService.getAllImages();
     }
-
-
 }

@@ -28,13 +28,17 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
     }
 
     @Override
-    public List<Image> searchByKeyword(String keyword) {
+    public List<Long> searchByKeyword(String keyword) {
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Image> criteriaQuery = builder.createQuery(Image.class);
+        CriteriaQuery<Tuple> criteriaQuery = builder.createTupleQuery();
         Root<Image> root = criteriaQuery.from(Image.class);
 
 
         Join<Image, Tag> tagJoin = root.join(Image_.tags, JoinType.LEFT);
+        Path<Long> idPath = root.get(Image_.id);
+        criteriaQuery.multiselect(idPath);
+
+
 
         ArrayList<Predicate> conditions = new ArrayList<>();
 
@@ -44,9 +48,16 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
 
         criteriaQuery.where(builder.or(conditions.toArray(new Predicate[conditions.size()])));
         criteriaQuery.distinct(true);
-        Query query = entityManager.createQuery(criteriaQuery);
-        List<Image> eventList = query.getResultList();
-        return eventList;
+       // Query query = entityManager.createQuery(criteriaQuery);
+        List<Long> idList = new ArrayList<>();
+
+        List<Tuple> tuples = entityManager.createQuery(criteriaQuery).getResultList();
+
+        for (Tuple tuple : tuples) {
+            idList.add(tuple.get(0, Long.class));
+        }
+
+        return idList;
     }
 
     @Override

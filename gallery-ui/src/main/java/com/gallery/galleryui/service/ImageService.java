@@ -1,6 +1,7 @@
 package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
+import com.gallery.gallerymodel.Tag;
 import com.gallery.galleryui.viewmodel.views.ImageView;
 import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.imageview.ImageViewShow;
@@ -13,8 +14,10 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ImageService {
@@ -32,7 +35,7 @@ public class ImageService {
         image.setData(imageView.getData());
         image.setThumbnail(imageView.getThumbnail());
         imageRepository.save(image);
-        String tagName = imageView.getTags();
+        Set<Tag> tagName = imageView.getTags();
 
 
 
@@ -48,13 +51,9 @@ public class ImageService {
         return imageRepository.getAllImages();
     }
 
-    public Image getImageById(Long id) {
-        Optional<Image> image = imageRepository.findById(id);
-        if (image.isPresent()) {
-            return image.get();
-        } else {
-            throw new RuntimeException("Image not found: " + id);
-        }
+    public ImageView getImageById(Long id) {
+        return new ImageView(imageRepository.getById(id));
+
     }
 
     public void updateImage(Image image) {
@@ -67,8 +66,16 @@ public class ImageService {
         imageRepository.delete(image);
     }
 
-    public List<Image> searchByKeyword(String keyword) {
+    public List<Long> searchByKeyword(String keyword) {
         return imageRepository.searchByKeyword(keyword);
+    }
+    public List<ImageViewShow> convertIdListToImageViewList(List<Long> imageIdList){
+
+        List<ImageViewShow> imagesList = new ArrayList<>();
+        for (Long id : imageIdList){
+            Image image = imageRepository.getById(id);
+            imagesList.add(new ImageViewShow(image.getId(), image.getName(), image.getDescription(), image.getThumbnail()));
+        }return imagesList;
     }
 
     public void deleteImageById(Long id) {
