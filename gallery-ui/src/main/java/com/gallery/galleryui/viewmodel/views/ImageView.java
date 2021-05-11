@@ -17,14 +17,13 @@ public class ImageView {
     private String description;
     private byte[] data;
     private byte[] thumbnail;
-    private Set<Tag> tags;
+    private String tags;
 
     public ImageView(Image image) {
         this.id = image.getId();
         this.name = image.getName();
         this.description = image.getDescription();
         this.data = image.getData();
-        this.tags = image.getTags();
     }
 
 

@@ -14,7 +14,7 @@ public class ImageViewShow {
     private String description;
     private byte[] thumbnail;
     private byte[] data;
-    private Set<Tag> tags;
+    private String tags;
 
     public ImageViewShow(Long id, String name, String description, byte[] thumbnail) {
         this.id = id;

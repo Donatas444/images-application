@@ -1,60 +1,51 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
-<zk xmlns:h="native" xmlns:sh="shadow" xmlns:zul="http://www.zkoss.org/2005/zul"
-    xmlns:xh="xhtml">
-    <xh:div self="@{define(pageContent)}" apply="org.zkoss.bind.BindComposer"
-            viewModel="@id('fvm') @init('com.gallery.galleryui.viewmodel.FullViewVm')">
+<zk xmlns:h="native">
+    <div self="@{define(pageContent)}" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('fvm') @init('com.gallery.galleryui.viewmodel.FullViewVm')">
+        <h:div border="none">
+            <h:div class="container">
+                <h:div class="row">
+                    <h:div class="col-4">
+                        <h:div>
+                            <label hidden="@load(fvm.id)"/>
+                            <image width="150%" height="auto"
+                                   content="@load(fvm.data) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                            <textbox value="@bind(fvm.name)" style="font-weight:bold" width="150%" maxlength="25"/>
+                            <textbox value="@bind(fvm.description)" width="150%" maxlength="25"/>
+                        </h:div>
+                        <h:br/>
+                        <grid width="150%" model="@bind(fvm.tagNames)">
+                            <template name="model" var="tag">
+                                <row>
+                                    <h:div class="container">
+                                        <h:div class="row">
+                                            <h:div class="col-4">
+                                                #
+                                                <label value="@bind(tag.name)"/>
+                                                <button label="${labels.remove}" width="150px"
+                                                        onClick="@command('doRemoveTag', tag=tag)"/>
+                                            </h:div>
+                                        </h:div>
+                                    </h:div>
+                                </row>
+                            </template>
+                        </grid>
+                        <h:br/>
+                        <h:div>
+                            <label value="${labels.enternewhashtag}"/>
+                            <textbox value="@bind(fvm.tagName)"/>
+                        </h:div>
+                        <h:br/>
+                        <button label="${labels.savechanges}" width="150px" onClick="@command('doSaveChanges')"/>
+                        <button label="${labels.delete}" width="150px"
+                                onClick="@command('doDeleteImage', image=fvm.id))"/>
+                    </h:div>
+                </h:div>
+            </h:div>
+        </h:div>
         <h:div>
             <h:br/>
         </h:div>
-        <xh:div class="container">
-
-
-
-
-                <h:div class="row">
-                    <h:div class="col-sm">
-                        <image onClick="@command('doSelectImage', id=each.id)"
-                               content="@load(fvm.fullview.data) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
-                    </h:div>
-                    <h:div class="col-sm">
-
-                        <h:div>
-                            <label value="@load(fvm.fullview.name)" style="font-weight:bold" maxlength="25"/>
-                        </h:div>
-                        <h:div>
-                            <label value="@load(fvm.fullview.description)" />
-                        </h:div>
-
-                    </h:div>
-                    <h:div class="col-sm">
-                    </h:div>
-                    <h:div class="col-sm">
-                        <h:div class="btn">
-                            <button label="${labels.edit}" width="150px"
-                                    onClick="@command('doSelectImage', id=each.id)"/>
-                        </h:div>
-                        <h:div class="btn">
-                            <button label="${labels.delete}" width="150px"
-                                    onClick="@command('doDeleteImage', image=each.id))"/>
-
-                        </h:div>
-
-                    </h:div>
-                </h:div>
-                <h:div>
-                    <h:br/>
-                </h:div>
-
-
-
-        </xh:div>
-
-
-    </xh:div>
+    </div>
 </zk>
-
-
-
-
-

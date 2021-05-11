@@ -1,10 +1,10 @@
 package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
-import com.gallery.gallerymodel.Tag;
 import com.gallery.galleryui.viewmodel.views.ImageView;
 import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.imageview.ImageViewShow;
+import com.gallery.repository.imageview.TagView;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class ImageService {
@@ -35,17 +34,19 @@ public class ImageService {
         image.setData(imageView.getData());
         image.setThumbnail(imageView.getThumbnail());
         imageRepository.save(image);
-        Set<Tag> tagName = imageView.getTags();
-
-
-
+        addTags(image, imageView.getTags());
 
 
     }
 
-        public void addTags(Image image, String tagName){
-            tagService.addTags(image, tagName);
-        }
+    public List<TagView> getTImageTags(Long id) {
+        return imageRepository.getImageTags(id);
+    }
+
+
+    public void addTags(Image image, String tagName) {
+        tagService.addTags(image, tagName);
+    }
 
     public List<ImageViewShow> getAllImages() {
         return imageRepository.getAllImages();
@@ -69,13 +70,15 @@ public class ImageService {
     public List<Long> searchByKeyword(String keyword) {
         return imageRepository.searchByKeyword(keyword);
     }
-    public List<ImageViewShow> convertIdListToImageViewList(List<Long> imageIdList){
+
+    public List<ImageViewShow> convertIdListToImageViewList(List<Long> imageIdList) {
 
         List<ImageViewShow> imagesList = new ArrayList<>();
-        for (Long id : imageIdList){
+        for (Long id : imageIdList) {
             Image image = imageRepository.getById(id);
             imagesList.add(new ImageViewShow(image.getId(), image.getName(), image.getDescription(), image.getThumbnail()));
-        }return imagesList;
+        }
+        return imagesList;
     }
 
     public void deleteImageById(Long id) {

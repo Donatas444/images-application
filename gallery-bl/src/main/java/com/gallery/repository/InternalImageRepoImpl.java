@@ -5,6 +5,7 @@ import com.gallery.gallerymodel.Image_;
 import com.gallery.gallerymodel.Tag;
 import com.gallery.gallerymodel.Tag_;
 import com.gallery.repository.imageview.ImageViewShow;
+import com.gallery.repository.imageview.TagView;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,7 @@ import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 
 @Component
@@ -48,7 +50,6 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
 
         criteriaQuery.where(builder.or(conditions.toArray(new Predicate[conditions.size()])));
         criteriaQuery.distinct(true);
-       // Query query = entityManager.createQuery(criteriaQuery);
         List<Long> idList = new ArrayList<>();
 
         List<Tuple> tuples = entityManager.createQuery(criteriaQuery).getResultList();
@@ -81,6 +82,19 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
 
         return imageList;
     }
+
+    @Override
+    public List<TagView> getImageTags(Long id) {
+        List<TagView> tagViews = new ArrayList<>();
+        Image image = entityManager.find(Image.class, id);
+        Set<Tag> tags = image.getTags();
+
+        for (Tag tag : tags) {
+            tagViews.add(new TagView(tag.getName()));
+        }
+        return tagViews;
+    }
+
 
 }
 
