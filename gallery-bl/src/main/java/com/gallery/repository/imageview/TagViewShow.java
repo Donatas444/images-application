@@ -3,14 +3,14 @@ package com.gallery.repository.imageview;
 import lombok.Getter;
 
 @Getter
-public class TagView {
+public class TagViewShow {
 
     private Long id;
     private String name;
 
 
 
-    public TagView(String name) {
+    public TagViewShow(String name) {
         this.name = name;
     }
 }

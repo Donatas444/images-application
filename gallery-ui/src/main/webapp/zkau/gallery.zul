@@ -36,7 +36,7 @@
                         </h:div>
                         <h:div class="btn">
                             <button label="${labels.delete}" width="150px"
-                                    onClick="@command('doDeleteImage', image=each.id))"/>
+                                    onClick="@command('doDeleteImage', id=each.id))"/>
 
                         </h:div>
 

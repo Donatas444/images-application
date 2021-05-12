@@ -27,9 +27,9 @@ public class ImageVm implements Serializable {
     @Getter
     @Setter
     private List<ImageViewShow> images;
-    @Getter
-    @Setter
-    private ImageViewShow image;
+    // @Getter
+    // @Setter
+    // private ImageViewShow image;
 
 
     @Init
@@ -44,7 +44,7 @@ public class ImageVm implements Serializable {
 
     @NotifyChange({"images"})
     @Command
-    public void doDeleteImage(@BindingParam("image") Long id) {
+    public void doDeleteImage(@BindingParam("id") Long id) {
         Messagebox.show("Sure want to delete?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
             if (event.getName().equals("onYes")) {
                 imageService.deleteImageById(id);

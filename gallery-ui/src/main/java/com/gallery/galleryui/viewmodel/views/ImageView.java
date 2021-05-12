@@ -17,7 +17,9 @@ public class ImageView {
     private String description;
     private byte[] data;
     private byte[] thumbnail;
-    private String tags;
+      private String tags;
+    //  private Set<TagView> tags;
+      private Set<ImageView> pictures;
 
     public ImageView(Image image) {
         this.id = image.getId();
@@ -25,6 +27,15 @@ public class ImageView {
         this.description = image.getDescription();
         this.data = image.getData();
     }
+    // public void addTag(TagView tag) {
+    //     tags.add(tag);
+    //     tag.getPictures().add(this);
+    // }
+    //
+    // public void removeTag(TagView tag) {
+    //     tags.remove(tag);
+    //     pictures.remove(this);
+    // }
 
 
 }

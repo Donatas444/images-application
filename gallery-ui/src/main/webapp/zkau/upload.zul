@@ -20,7 +20,7 @@
                 </h:div>
                 <label value="${labels.addhashtagbelow}"/>
                 <h:div>
-                    <textbox value="@bind(vm.image.tags)"/>
+                    <textbox value="@bind(vm.tagName)"/>
                 </h:div>
                 <h:div>
                     <label value="@bind(vm.image.name)"/>

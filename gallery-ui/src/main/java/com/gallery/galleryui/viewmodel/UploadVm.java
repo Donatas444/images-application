@@ -32,6 +32,9 @@ public class UploadVm {
 
     ImageView image;
     List<ImageViewShow> images;
+    @Getter
+    @Setter
+    private String tagName;
 
     @Init
     public void init() {
@@ -41,7 +44,7 @@ public class UploadVm {
     @Command
     public void doAddImage() {
         if(image.getData() != null) {
-            imageService.addImage(image);
+            imageService.addImage(image, tagName);
             Executions.sendRedirect("gallery.zul");
         }else{
             Clients.showNotification("Upload image before saving!");

@@ -33,13 +33,6 @@ public class SearchVm {
     @Setter
     private List<ImageViewShow> images;
 
-
-    // @Init
-    // public void init() {
-    //     images = new ArrayList<>();
-    // }
-
-
     @NotifyChange({"images"})
     @Command
     public void doSearchByKeyword() {

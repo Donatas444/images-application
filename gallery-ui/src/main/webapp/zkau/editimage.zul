@@ -22,8 +22,7 @@
 
                     </h:div>
                     <xh:div>
-                        <zul:textbox value="@bind(vm.fullView.name)" style="font-weight:bold" width="100%"
-                                     maxlength="25"/>
+                        <zul:textbox value="@bind(vm.fullView.name)" style="font-weight:bold" width="100%" maxlength="25"/>
                     </xh:div>
                     <xh:div>
                         <zul:textbox value="@bind(vm.fullView.description)" width="100%" maxlength="25"/>
@@ -39,28 +38,29 @@
                                 <xh:div class="col">
                                     #
                                     <label value="@bind(each.name)" width="50px"/>
+                                    <label value="@bind(each.id)" width="50px" />
 
 
                                 </xh:div>
                                 <xh:div class="btn" >
-                                    <button  label="${labels.remove}" width="100px"
-                                             onClick="@command('doRemoveTag')"/>
+                                    <zul:button  label="${labels.remove}" width="100px"
+                                             onClick="@command('doRemoveTag', tagName=each.name)"/>
                                 </xh:div>
                             </xh:div>
                         </sh:forEach>
                     </xh:div>
                     <xh:div>
                         <label value="${labels.enternewhashtag}"/>
-                        <textbox value="@bind(fullView.tagName)"/>
+                        <textbox value="@bind(vm.tagName)"/>
                     </xh:div>
                     <h:br/>
 
                     <xh:div class="btn">
-                        <button label="${labels.savechanges}" width="150px" onClick="@command('doSaveChanges')"/>
+                        <button label="${labels.savechanges}" width="150px" onClick="@command('doSaveChanges', imageId=vm.fullView.id)"/>
                     </xh:div>
                     <xh:div class="btn">
                         <button label="${labels.delete}" width="150px"
-                                onClick="@command('doDeleteImage', image=fvm.id))"/>
+                                onClick="@command('doDeleteImage', image=vm.fullView.id))"/>
                     </xh:div>
 
                 </xh:div>

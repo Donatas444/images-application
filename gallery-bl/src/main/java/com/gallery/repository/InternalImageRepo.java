@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface InternalImageRepo extends InternalImageRepoCustom {
    Image getById(Long id);
    void deleteById(Long id);
+   Image save(Image image);
 }

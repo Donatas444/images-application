@@ -1,10 +1,13 @@
 package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
+import com.gallery.gallerymodel.Tag;
 import com.gallery.galleryui.viewmodel.views.ImageView;
+import com.gallery.galleryui.viewmodel.views.TagView;
 import com.gallery.repository.InternalImageRepo;
+import com.gallery.repository.TagRepository;
 import com.gallery.repository.imageview.ImageViewShow;
-import com.gallery.repository.imageview.TagView;
+import com.gallery.repository.imageview.TagViewShow;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ImageService {
@@ -24,28 +28,25 @@ public class ImageService {
     @Autowired
     InternalImageRepo imageRepository;
     @Autowired
+    TagRepository tagRepository;
+    @Autowired
     TagService tagService;
 
 
-    public void addImage(ImageView imageView) {
+    public void addImage(ImageView imageView, String tagName) {
         Image image = new Image();
         image.setName(imageView.getName());
         image.setDescription(imageView.getDescription());
         image.setData(imageView.getData());
         image.setThumbnail(imageView.getThumbnail());
         imageRepository.save(image);
-        addTags(image, imageView.getTags());
-
-
-    }
-
-    public List<TagView> getTImageTags(Long id) {
-        return imageRepository.getImageTags(id);
-    }
-
-
-    public void addTags(Image image, String tagName) {
         tagService.addTags(image, tagName);
+
+
+    }
+
+    public List<TagViewShow> getTImageTags(Long id) {
+        return imageRepository.getImageTags(id);
     }
 
     public List<ImageViewShow> getAllImages() {
@@ -57,15 +58,27 @@ public class ImageService {
 
     }
 
-    public void updateImage(Image image) {
-        image.setDescription(image.getDescription());
-        image.setName(image.getName());
+    public Set<Tag> removeTag(Long id, String name) {
+        Image image = imageRepository.getById(id);
+        Tag tag = tagRepository.getByName(name);
+        image.removeTag(tag);
         imageRepository.save(image);
+
+        return image.getTags();
     }
 
-    public void deleteImage(Image image) {
-        imageRepository.delete(image);
+    public void updateImage(Long id, ImageView imageView, String tagName) {
+       Image image = imageRepository.getById(id);
+
+        image.setDescription(imageView.getDescription());
+        image.setName(imageView.getName());
+        tagService.addTags(image, tagName);
+       // imageRepository.save(image);
     }
+    //
+    // public void deleteImage(Image image) {
+    //     imageRepository.delete(image);
+    // }
 
     public List<Long> searchByKeyword(String keyword) {
         return imageRepository.searchByKeyword(keyword);

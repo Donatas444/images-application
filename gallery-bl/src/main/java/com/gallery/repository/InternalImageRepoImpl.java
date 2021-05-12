@@ -5,12 +5,11 @@ import com.gallery.gallerymodel.Image_;
 import com.gallery.gallerymodel.Tag;
 import com.gallery.gallerymodel.Tag_;
 import com.gallery.repository.imageview.ImageViewShow;
-import com.gallery.repository.imageview.TagView;
+import com.gallery.repository.imageview.TagViewShow;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.Tuple;
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
@@ -84,13 +83,13 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
     }
 
     @Override
-    public List<TagView> getImageTags(Long id) {
-        List<TagView> tagViews = new ArrayList<>();
+    public List<TagViewShow> getImageTags(Long id) {
+        List<TagViewShow> tagViews = new ArrayList<>();
         Image image = entityManager.find(Image.class, id);
         Set<Tag> tags = image.getTags();
 
         for (Tag tag : tags) {
-            tagViews.add(new TagView(tag.getName()));
+            tagViews.add(new TagViewShow(tag.getName()));
         }
         return tagViews;
     }
