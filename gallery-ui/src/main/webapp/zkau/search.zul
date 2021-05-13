@@ -35,7 +35,7 @@
                     </xh:div>
                     <xh:div class="col-sm">
                         <button label="${labels.delete}" width="150px"
-                                onClick="@command('doDeleteImage', image=image.id))"/>
+                                onClick="@command('doDeleteImage', image=each.id))"/>
                     </xh:div>
                 </xh:div>
                 <h:div>

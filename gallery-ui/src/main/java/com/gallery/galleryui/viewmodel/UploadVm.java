@@ -24,7 +24,7 @@ import java.util.List;
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class UploadVm {
 
-    @WireVariable(rewireOnActivate = true)
+     @WireVariable // (rewireOnActivate = true)
     ImageService imageService;
 
     @WireVariable
@@ -32,8 +32,8 @@ public class UploadVm {
 
     ImageView image;
     List<ImageViewShow> images;
-    @Getter
-    @Setter
+   // @Getter
+   // @Setter
     private String tagName;
 
     @Init

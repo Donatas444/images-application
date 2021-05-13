@@ -3,7 +3,6 @@ package com.gallery.galleryui.service;
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
 import com.gallery.galleryui.viewmodel.views.ImageView;
-import com.gallery.galleryui.viewmodel.views.TagView;
 import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.TagRepository;
 import com.gallery.repository.imageview.ImageViewShow;
@@ -19,7 +18,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -41,11 +39,9 @@ public class ImageService {
         image.setThumbnail(imageView.getThumbnail());
         imageRepository.save(image);
         tagService.addTags(image, tagName);
-
-
     }
 
-    public List<TagViewShow> getTImageTags(Long id) {
+    public Set<TagViewShow> getImageTags(Long id) {
         return imageRepository.getImageTags(id);
     }
 
@@ -58,14 +54,7 @@ public class ImageService {
 
     }
 
-    public Set<Tag> removeTag(Long id, String name) {
-        Image image = imageRepository.getById(id);
-        Tag tag = tagRepository.getByName(name);
-        image.removeTag(tag);
-        imageRepository.save(image);
 
-        return image.getTags();
-    }
 
     public void updateImage(Long id, ImageView imageView, String tagName) {
        Image image = imageRepository.getById(id);
@@ -73,12 +62,7 @@ public class ImageService {
         image.setDescription(imageView.getDescription());
         image.setName(imageView.getName());
         tagService.addTags(image, tagName);
-       // imageRepository.save(image);
     }
-    //
-    // public void deleteImage(Image image) {
-    //     imageRepository.delete(image);
-    // }
 
     public List<Long> searchByKeyword(String keyword) {
         return imageRepository.searchByKeyword(keyword);

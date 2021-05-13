@@ -2,11 +2,12 @@ package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
-import com.gallery.galleryui.viewmodel.views.ImageView;
 import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 @Service
 public class TagService {
@@ -16,26 +17,17 @@ public class TagService {
     @Autowired
     ImageService imageService;
     @Autowired
+    TagService tagService;
+    @Autowired
     InternalImageRepo imageRepository;
-
-    // public void addTag(Tag tag) {
-    //     tagRepository.save(tag);
-    // }
-    //
-    // public void deleteTag(Tag tag) {
-    //     tagRepository.delete(tag);
-    // }
 
     public void getTagById(Long id) {
         tagRepository.findById(id);
     }
 
-    public void getTagByName(String name) {
-        tagRepository.findByName(name);
+    public Tag getTagByName(String name) {
+        return  tagRepository.findByName(name);
     }
-    // public void deleteTagById(Long id){
-    //     tagRepository.deleteById(id);
-    // }
 
     public String getExistingName(String name) {
         tagRepository.findByName(name);
@@ -62,29 +54,18 @@ public class TagService {
         }
         imageRepository.save(image);
     }
-    // public void addTags(ImageView imageView, String name) {
-    //
-    //    // Image image = imageRepository.getById(imageView.getId());
-    //     Image image = new Image();
-    //
-    //     if (name != null) {
-    //         String[] splitTags = name.split("\\s+");
-    //         for (String tagNotNull : splitTags) {
-    //             if (tagRepository.findByName(tagNotNull) != null && tagNotNull.equalsIgnoreCase(getExistingName(tagNotNull))) {
-    //                 Tag existingTag = tagRepository.findByName(tagNotNull);
-    //                 image.addTag(existingTag);
-    //             } else {
-    //                 Tag newTag = new Tag();
-    //                 newTag.setName(tagNotNull);
-    //                 tagRepository.save(newTag);
-    //                 image.addTag(newTag);
-    //             }
-    //         }
-    //     } else {
-    //         imageRepository.save(image);
-    //     }
-    //     imageRepository.save(image);
-    // }
+    public void removeTag(Long id, String name) {
+        Image image = imageRepository.getById(id);
+        Tag tag = tagService.getTagByName(name);
+        Set<Tag> tags = image.getTags();
+        for (Tag tagInSet : tags) {
+            if (tagInSet.getName().equals(tag.getName())) {
+                tagInSet.getPictures().remove(image);
+                tags.remove(tagInSet);
+                imageRepository.save(image);
+            }
+        }
+    }
 }
 
 

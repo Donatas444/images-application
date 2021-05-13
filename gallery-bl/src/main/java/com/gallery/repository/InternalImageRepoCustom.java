@@ -7,10 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.List;
+import java.util.Set;
 
 @NoRepositoryBean
 public interface InternalImageRepoCustom extends JpaRepository<Image, Long> {
     List<Long> searchByKeyword(String keyword);
     List<ImageViewShow> getAllImages();
-    List<TagViewShow> getImageTags(Long id);
+    Set<TagViewShow> getImageTags(Long id);
 }

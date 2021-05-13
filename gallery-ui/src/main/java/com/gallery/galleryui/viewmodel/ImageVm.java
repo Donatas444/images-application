@@ -24,13 +24,9 @@ public class ImageVm implements Serializable {
     @WireVariable
     ImageService imageService;
 
-    @Getter
-    @Setter
+   @Getter
+   // @Setter
     private List<ImageViewShow> images;
-    // @Getter
-    // @Setter
-    // private ImageViewShow image;
-
 
     @Init
     public void init() {

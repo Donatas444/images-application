@@ -1,6 +1,5 @@
 package com.gallery.galleryui.viewmodel.views;
 
-import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,12 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 public class TagView {
-    private Long id;
+    private Long tagId;
     private String name;
+    private Set<ImageView> pictures;
 
+    public TagView(Tag tag) {
+        this.tagId = tag.getTagId();
+        this.name = tag.getName();
+    }
 }

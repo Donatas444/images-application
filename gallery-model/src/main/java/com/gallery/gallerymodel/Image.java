@@ -38,9 +38,4 @@ public class Image implements Serializable {
         tags.add(tag);
         tag.getPictures().add(this);
     }
-
-    public void removeTag(Tag tag) {
-        tags.remove(tag);
-        tag.getPictures().remove(this);
-    }
 }

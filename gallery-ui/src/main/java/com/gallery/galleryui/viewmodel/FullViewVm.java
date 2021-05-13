@@ -37,20 +37,26 @@ public class FullViewVm implements Serializable {
     @WireVariable
     TagService tagService;
     @Getter
-    @Setter
+   // @Setter
     ImageView fullView;
     @Getter
     @Setter
     String tagName;
     @Getter
-    @Setter
-    List<TagViewShow> tags;
+    // @Setter
+    Set<TagViewShow> tags;
+    // @Getter
+    // @Setter
+    TagView tagView;
+    // @Getter
+    // @Setter
+    Set<TagView> tagsSet;
 
 
     @Init
     public void init(@QueryParam("id") Long id) {
         fullView = imageService.getImageById(id);
-        tags = imageService.getTImageTags(id);
+        tags = imageService.getImageTags(id);
     }
 
     @Command
@@ -61,16 +67,9 @@ public class FullViewVm implements Serializable {
 
     @NotifyChange({"tags"})
     @Command
-    public void doRemoveTag(@BindingParam("imageId") Long id, @BindingParam("tagName") String name) {
-        imageService.removeTag(id, name);
-        // Executions.sendRedirect("gallery.zul");
-        // tagService.deleteTagById(id);
-        //  fullView.getTags();
-        // imageService.updateImage(image);
+    public void doRemoveTag(@BindingParam("imageId") Long id, @BindingParam("tagName") String tagName) {
+        tagService.removeTag(id, tagName);
 
-
-        // fullView.removeTag(tagView);
-        // imageService.updateImage(image);
     }
 
     @NotifyChange({"images"})

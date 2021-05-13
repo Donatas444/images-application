@@ -12,10 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 
 
 @Component
@@ -38,7 +35,6 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         Join<Image, Tag> tagJoin = root.join(Image_.tags, JoinType.LEFT);
         Path<Long> idPath = root.get(Image_.id);
         criteriaQuery.multiselect(idPath);
-
 
 
         ArrayList<Predicate> conditions = new ArrayList<>();
@@ -65,16 +61,16 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         List<ImageViewShow> imageList = new ArrayList<>();
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 
-        CriteriaQuery<Tuple> criteria = builder.createTupleQuery();
-        Root root = criteria.from(Image.class);
+        CriteriaQuery<Tuple> criteriaQuery = builder.createTupleQuery();
+        Root root = criteriaQuery.from(Image.class);
         Path<Long> idPath = root.get(Image_.id);
         Path<Long> namePath = root.get(Image_.name);
         Path<Long> descriptionPath = root.get(Image_.description);
         Path<Long> thumbnailPath = root.get(Image_.thumbnail);
-        criteria.multiselect(idPath, namePath, descriptionPath, thumbnailPath);
-        criteria.orderBy(builder.desc(root.get(Image_.id)));
-        List<Tuple> tuples = entityManager.createQuery(criteria).getResultList();
 
+        criteriaQuery.multiselect(idPath, namePath, descriptionPath, thumbnailPath);
+        criteriaQuery.orderBy(builder.desc(root.get(Image_.id)));
+        List<Tuple> tuples = entityManager.createQuery(criteriaQuery).getResultList();
         for (Tuple tuple : tuples) {
             imageList.add(new ImageViewShow(tuple.get(0, Long.class), tuple.get(1, String.class), tuple.get(2, String.class), tuple.get(3, byte[].class)));
         }
@@ -83,15 +79,14 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
     }
 
     @Override
-    public List<TagViewShow> getImageTags(Long id) {
-        List<TagViewShow> tagViews = new ArrayList<>();
+    public Set<TagViewShow> getImageTags(Long id) {
         Image image = entityManager.find(Image.class, id);
         Set<Tag> tags = image.getTags();
-
+        Set<TagViewShow> tagSet = new HashSet<>();
         for (Tag tag : tags) {
-            tagViews.add(new TagViewShow(tag.getName()));
+            tagSet.add(new TagViewShow(tag.getName()));
         }
-        return tagViews;
+        return tagSet;
     }
 
 

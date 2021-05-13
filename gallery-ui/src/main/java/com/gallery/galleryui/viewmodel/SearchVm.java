@@ -1,22 +1,20 @@
 package com.gallery.galleryui.viewmodel;
 
-import com.gallery.gallerymodel.Image;
 import com.gallery.galleryui.service.ImageService;
-import com.gallery.galleryui.viewmodel.views.ImageView;
 import com.gallery.repository.imageview.ImageViewShow;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
-import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class SearchVm {
 
     @WireVariable
@@ -24,13 +22,11 @@ public class SearchVm {
 
     @Getter
     @Setter
-    String keyword;
+    private String keyword;
+
+    private List<Long> imagesId;
 
     @Getter
-    @Setter
-    private List<Long> imagesId;
-    @Getter
-    @Setter
     private List<ImageViewShow> images;
 
     @NotifyChange({"images"})

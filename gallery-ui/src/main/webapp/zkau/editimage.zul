@@ -36,15 +36,13 @@
                         <sh:forEach items="@load(vm.tags)">
                             <xh:div class="row">
                                 <xh:div class="col">
-                                    #
-                                    <label value="@bind(each.name)" width="50px"/>
-                                    <label value="@bind(each.id)" width="50px" />
 
+                                    <label value="@bind('#'.concat(each.name))" width="50px"/>
 
                                 </xh:div>
                                 <xh:div class="btn" >
-                                    <zul:button  label="${labels.remove}" width="100px"
-                                             onClick="@command('doRemoveTag', tagName=each.name)"/>
+                                    <button  label="${labels.remove}" width="100px"
+                                             onClick="@command('doRemoveTag', tagName=each.name, imageId=vm.fullView.id)"/>
                                 </xh:div>
                             </xh:div>
                         </sh:forEach>
