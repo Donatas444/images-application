@@ -53,14 +53,11 @@ public class ImageService {
         return new ImageView(imageRepository.getById(id));
 
     }
-
-
-
     public void updateImage(Long id, ImageView imageView, String tagName) {
-       Image image = imageRepository.getById(id);
-
+        Image image = imageRepository.getById(id);
         image.setDescription(imageView.getDescription());
         image.setName(imageView.getName());
+
         tagService.addTags(image, tagName);
     }
 

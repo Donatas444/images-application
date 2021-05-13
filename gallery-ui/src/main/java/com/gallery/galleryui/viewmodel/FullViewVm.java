@@ -27,6 +27,7 @@ import com.gallery.galleryui.service.TagService;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.zkoss.zk.ui.util.Clients;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class FullViewVm implements Serializable {
@@ -37,7 +38,7 @@ public class FullViewVm implements Serializable {
     @WireVariable
     TagService tagService;
     @Getter
-   // @Setter
+    // @Setter
     ImageView fullView;
     @Getter
     @Setter
@@ -55,20 +56,23 @@ public class FullViewVm implements Serializable {
 
     @Init
     public void init(@QueryParam("id") Long id) {
-        fullView = imageService.getImageById(id);
-        tags = imageService.getImageTags(id);
+        getImagePageContent(id);
     }
 
+    @NotifyChange({"tags"})
     @Command
     public void doSaveChanges(@BindingParam("imageId") Long id) {
         imageService.updateImage(id, fullView, tagName);
-        Executions.sendRedirect("gallery.zul");
+        getImagePageContent(id);
+        Clients.showNotification("Saved!");
     }
 
     @NotifyChange({"tags"})
     @Command
     public void doRemoveTag(@BindingParam("imageId") Long id, @BindingParam("tagName") String tagName) {
         tagService.removeTag(id, tagName);
+        tags = imageService.getImageTags(id);
+
 
     }
 
@@ -82,6 +86,11 @@ public class FullViewVm implements Serializable {
                 Executions.sendRedirect("gallery.zul");
             }
         });
+    }
+
+    public void getImagePageContent(Long id) {
+        fullView = imageService.getImageById(id);
+        tags = imageService.getImageTags(id);
     }
 }
 

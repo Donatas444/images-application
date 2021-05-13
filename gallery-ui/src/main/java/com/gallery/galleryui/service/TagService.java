@@ -7,6 +7,7 @@ import com.gallery.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ConcurrentModificationException;
 import java.util.Set;
 
 @Service
@@ -26,7 +27,7 @@ public class TagService {
     }
 
     public Tag getTagByName(String name) {
-        return  tagRepository.findByName(name);
+        return tagRepository.findByName(name);
     }
 
     public String getExistingName(String name) {
@@ -54,19 +55,28 @@ public class TagService {
         }
         imageRepository.save(image);
     }
+
     public void removeTag(Long id, String name) {
+
+
         Image image = imageRepository.getById(id);
+
         Tag tag = tagService.getTagByName(name);
         Set<Tag> tags = image.getTags();
-        for (Tag tagInSet : tags) {
-            if (tagInSet.getName().equals(tag.getName())) {
-                tagInSet.getPictures().remove(image);
-                tags.remove(tagInSet);
-                imageRepository.save(image);
+        try {
+            for (Tag tagInSet : tags) {
+                if (tagInSet.getName().equals(tag.getName())) {
+                    tags.remove(tagInSet);
+                    tagInSet.getPictures().remove(image);
+                    imageRepository.save(image);
+                }
             }
+        } catch (ConcurrentModificationException e) {
+
         }
     }
 }
+
 
 
 
