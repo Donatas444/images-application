@@ -3,7 +3,6 @@ package com.gallery.galleryui.viewmodel;
 import com.gallery.galleryui.service.ImageService;
 import com.gallery.repository.imageview.ImageViewShow;
 import lombok.Getter;
-import lombok.Setter;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
@@ -24,15 +23,14 @@ public class ImageVm implements Serializable {
     @WireVariable
     ImageService imageService;
 
-   @Getter
-   // @Setter
+    @Getter
     private List<ImageViewShow> images;
 
     @Init
     public void init() {
         showGalleryList();
-
     }
+
     @Command
     public void doSelectImage(@BindingParam("id") Long id) {
         Executions.sendRedirect("editimage.zul?id=" + id);

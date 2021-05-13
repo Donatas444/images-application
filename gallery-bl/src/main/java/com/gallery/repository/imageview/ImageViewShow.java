@@ -17,6 +17,4 @@ public class ImageViewShow {
         this.description = description;
         this.thumbnail = thumbnail;
     }
-
-
 }

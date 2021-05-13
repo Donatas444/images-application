@@ -1,51 +1,49 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
 
-<zk apply="org.zkoss.bind.BindComposer" xmlns:h="native">
-
+<zk apply="org.zkoss.bind.BindComposer" xmlns:h="native" xmlns:xh="xhtml">
     <div align="center" self="@{define(pageContent)}"
          viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.UploadVm')">
-        <h:div style="background-image: url('../castle.jpg');" class="col-md-4">
+        <h:br/>
+        <h:div>
+            <image content="@bind(vm.image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+        </h:div>
+        <h:div>
             <h:br/>
-
+        </h:div>
+        <h:div class="col-4">
             <h:div>
-                <image content="@bind(vm.image.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                <xh:input class="form-control" value="@bind(vm.image.description)" type="text"
+                          placeholder="${labels.writesomedescriptionhere}" width="100%" maxlength="25"/>
             </h:div>
             <h:div>
-                <h:div>
-                    <label value="${labels.writesomedescriptionhere}"/>
-                </h:div>
-                <h:div>
-                    <textbox value="@bind(vm.image.description)" maxlength="25"/>
-                </h:div>
-                <label value="${labels.addhashtagbelow}"/>
-                <h:div>
-                    <textbox value="@bind(vm.tagName)"/>
-                </h:div>
-                <h:div>
-                    <label value="@bind(vm.image.name)"/>
-                </h:div>
+                <h:br/>
             </h:div>
-            <h:br/>
-            <h:div class="container-fluid">
-                <h:div class="d-flex justify-content-center">
-                    <h:div class="row">
-                        <h:div class="col-md-6">
-                            <button id="uploadButton"
-                                    upload="true"
-                                    onUpload="@command('onFileUpload',upload=event)"
-                                    autodisable="self" label="${labels.upload}"/>
-                        </h:div>
-
-                        <h:div class="col-md-6">
-                            <button onClick="@command('doAddImage')" label="${labels.savebtn}"/>
-                        </h:div>
+            <h:div>
+                <xh:input class="form-control" value="@bind(vm.tagName)" type="text"
+                          placeholder="${labels.addhashtagbelow}" width="100%"/>
+            </h:div>
+            <h:div>
+                <xh:label value="@bind(vm.image.name)"/>
+            </h:div>
+        </h:div>
+        <h:br/>
+        <h:div class="container-fluid">
+            <h:div class="d-flex justify-content-center">
+                <h:div class="row">
+                    <h:div class="col-md-6">
+                        <button class="btn btn-outline-primary" id="uploadButton"
+                                upload="true"
+                                onUpload="@command('onFileUpload',upload=event)"
+                                autodisable="self" label="${labels.upload}"/>
+                    </h:div>
+                    <h:div class="col-md-6">
+                        <button class="btn btn-outline-primary" onClick="@command('doAddImage')"
+                                label="${labels.savebtn}"/>
                     </h:div>
                 </h:div>
             </h:div>
-
         </h:div>
     </div>
-
 </zk>
 

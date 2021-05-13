@@ -5,47 +5,55 @@
     xmlns:xh="xhtml">
     <xh:div sclass="box" align="center" self="@{define(pageContent)}"
             viewModel="@id('svm') @init('com.gallery.galleryui.viewmodel.SearchVm')">
-
-        <label value="${labels.searchforsomething}"/>
         <h:div>
-            <textbox value="@bind(svm.keyword)"/>
-            <button onClick="@command('doSearchByKeyword')" label="${labels.go}"/>
+            <h:br/>
         </h:div>
+        <xh:div class="col-3">
+            <xh:div class="row">
+                <xh:div class="input-group mb-3">
+                    <xh:input class="form-control" type="text" value="@bind(svm.keyword)"
+                              placeholder="${labels.searchforsomething}" width="72%"/>
+                    <xh:div class="input-group-append">
+                        <button label="${labels.go}" class="btn btn-outline-primary" type="button"
+                                onClick="@command('doSearchByKeyword')"/>
+                    </xh:div>
+                </xh:div>
+            </xh:div>
+        </xh:div>
         <h:div>
             <h:br/>
         </h:div>
         <xh:div class="container">
-
-
             <sh:forEach items="@load(svm.images)">
-
                 <xh:div class="row">
                     <xh:div class="col-sm">
-                        <image onClick="@command('doSelectImage', id=each.id)" content="@load(each.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
+                        <image onClick="@command('doSelectImage', id=each.id)"
+                               content="@load(each.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
                     </xh:div>
                     <xh:div class="col-sm">
-
                         <h:div>
                             <label value="@load(each.name)" style="font-weight:bold" maxlength="10"/>
                         </h:div>
                         <h:div>
                             <label value="@load(each.description)" maxlength="10"/>
                         </h:div>
-
                     </xh:div>
                     <xh:div class="col-sm">
-                        <button label="${labels.delete}" width="150px"
-                                onClick="@command('doDeleteImage', image=each.id))"/>
+                        <h:div class="btn">
+                            <button class="btn btn-outline-primary" label="${labels.edit}" width="150px"
+                                    onClick="@command('doSelectImage', id=each.id)"/>
+                        </h:div>
+                        <h:div class="btn">
+                            <button class="btn btn-outline-danger" label="${labels.delete}" width="150px"
+                                    onClick="@command('doDeleteImage', image=each.id))"/>
+                        </h:div>
                     </xh:div>
                 </xh:div>
                 <h:div>
                     <h:br/>
                 </h:div>
             </sh:forEach>
-
-
         </xh:div>
-
     </xh:div>
 </zk>
 

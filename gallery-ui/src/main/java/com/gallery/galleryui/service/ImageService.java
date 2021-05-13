@@ -1,7 +1,6 @@
 package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
-import com.gallery.gallerymodel.Tag;
 import com.gallery.galleryui.viewmodel.views.ImageView;
 import com.gallery.repository.InternalImageRepo;
 import com.gallery.repository.TagRepository;
@@ -26,10 +25,7 @@ public class ImageService {
     @Autowired
     InternalImageRepo imageRepository;
     @Autowired
-    TagRepository tagRepository;
-    @Autowired
     TagService tagService;
-
 
     public void addImage(ImageView imageView, String tagName) {
         Image image = new Image();
@@ -53,11 +49,16 @@ public class ImageService {
         return new ImageView(imageRepository.getById(id));
 
     }
+
     public void updateImage(Long id, ImageView imageView, String tagName) {
         Image image = imageRepository.getById(id);
         image.setDescription(imageView.getDescription());
         image.setName(imageView.getName());
+        tagService.addTags(image, tagName);
+    }
 
+    public void updateImage(Long id, String tagName) {
+        Image image = imageRepository.getById(id);
         tagService.addTags(image, tagName);
     }
 

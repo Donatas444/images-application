@@ -16,15 +16,9 @@ public class TagService {
     @Autowired
     TagRepository tagRepository;
     @Autowired
-    ImageService imageService;
-    @Autowired
     TagService tagService;
     @Autowired
     InternalImageRepo imageRepository;
-
-    public void getTagById(Long id) {
-        tagRepository.findById(id);
-    }
 
     public Tag getTagByName(String name) {
         return tagRepository.findByName(name);
@@ -57,10 +51,7 @@ public class TagService {
     }
 
     public void removeTag(Long id, String name) {
-
-
         Image image = imageRepository.getById(id);
-
         Tag tag = tagService.getTagByName(name);
         Set<Tag> tags = image.getTags();
         try {

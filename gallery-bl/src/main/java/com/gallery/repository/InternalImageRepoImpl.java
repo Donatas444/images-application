@@ -14,7 +14,6 @@ import javax.persistence.Tuple;
 import javax.persistence.criteria.*;
 import java.util.*;
 
-
 @Component
 public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> implements InternalImageRepoCustom {
 
@@ -30,13 +29,9 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Tuple> criteriaQuery = builder.createTupleQuery();
         Root<Image> root = criteriaQuery.from(Image.class);
-
-
         Join<Image, Tag> tagJoin = root.join(Image_.tags, JoinType.LEFT);
         Path<Long> idPath = root.get(Image_.id);
         criteriaQuery.multiselect(idPath);
-
-
         ArrayList<Predicate> conditions = new ArrayList<>();
 
         conditions.add(builder.like(builder.lower(root.get(Image_.name)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
@@ -46,13 +41,10 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         criteriaQuery.where(builder.or(conditions.toArray(new Predicate[conditions.size()])));
         criteriaQuery.distinct(true);
         List<Long> idList = new ArrayList<>();
-
         List<Tuple> tuples = entityManager.createQuery(criteriaQuery).getResultList();
-
         for (Tuple tuple : tuples) {
             idList.add(tuple.get(0, Long.class));
         }
-
         return idList;
     }
 
@@ -74,7 +66,6 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         for (Tuple tuple : tuples) {
             imageList.add(new ImageViewShow(tuple.get(0, Long.class), tuple.get(1, String.class), tuple.get(2, String.class), tuple.get(3, byte[].class)));
         }
-
         return imageList;
     }
 
@@ -88,7 +79,5 @@ public class InternalImageRepoImpl extends SimpleJpaRepository<Image, Long> impl
         }
         return tagSet;
     }
-
-
 }
 

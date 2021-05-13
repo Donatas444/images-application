@@ -1,9 +1,8 @@
 package com.gallery.galleryui.viewmodel;
 
+import com.gallery.galleryui.service.ImageService;
 import com.gallery.galleryui.service.TagService;
 import com.gallery.galleryui.viewmodel.views.ImageView;
-import com.gallery.repository.imageview.ImageViewShow;
-import com.gallery.galleryui.service.ImageService;
 import lombok.Getter;
 import lombok.Setter;
 import org.zkoss.bind.BindContext;
@@ -17,23 +16,19 @@ import org.zkoss.zk.ui.util.Clients;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.List;
 
 @Getter
 @Setter
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class UploadVm {
 
-     @WireVariable // (rewireOnActivate = true)
+    @WireVariable
     ImageService imageService;
 
     @WireVariable
     TagService tagService;
 
-    ImageView image;
-    List<ImageViewShow> images;
-   // @Getter
-   // @Setter
+    private ImageView image;
     private String tagName;
 
     @Init
@@ -43,10 +38,10 @@ public class UploadVm {
 
     @Command
     public void doAddImage() {
-        if(image.getData() != null) {
+        if (image.getData() != null) {
             imageService.addImage(image, tagName);
             Executions.sendRedirect("gallery.zul");
-        }else{
+        } else {
             Clients.showNotification("Upload image before saving!");
         }
     }
@@ -56,16 +51,13 @@ public class UploadVm {
     public void onFileUpload(@ContextParam(ContextType.BIND_CONTEXT) BindContext picture) throws IOException {
         UploadEvent uploadEvent = null;
         Object objUploadEvent = picture.getTriggerEvent();
-
         if (objUploadEvent != null && (objUploadEvent instanceof UploadEvent)) {
             uploadEvent = (UploadEvent) objUploadEvent;
-
             Media media = uploadEvent.getMedia();
             String mediaName = media.getName();
             byte[] data = media.getByteData();
             BufferedImage newThumbnail = imageService.createThumbnail(data);
             byte[] thumbnail = imageService.bufferedImageToByteArray(newThumbnail);
-
 
             image.setName(mediaName);
             image.setData(data);

@@ -34,7 +34,6 @@ public class SearchVm {
     public void doSearchByKeyword() {
         imagesId = imageService.searchByKeyword(keyword);
         images = imageService.convertIdListToImageViewList(imagesId);
-
     }
 
     @Command

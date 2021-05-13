@@ -8,49 +8,38 @@
             <h:br/>
         </h:div>
         <xh:div class="container">
-
-
             <sh:forEach items="@load(vm.images)">
-
                 <h:div class="row">
                     <h:div class="col-sm">
                         <image onClick="@command('doSelectImage', id=each.id)"
                                content="@load(each.thumbnail) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
                     </h:div>
                     <h:div class="col-sm">
-
                         <h:div>
                             <label value="@load(each.name)" style="font-weight:bold" maxlength="25"/>
                         </h:div>
                         <h:div>
-                            <label value="@load(each.description)" />
+                            <label value="@load(each.description)"/>
                         </h:div>
-
                     </h:div>
                     <h:div class="col-sm">
                     </h:div>
                     <h:div class="col-sm">
                         <h:div class="btn">
-                            <button label="${labels.edit}" width="150px"
+                            <button class="btn btn-outline-primary" label="${labels.edit}" width="150px"
                                     onClick="@command('doSelectImage', id=each.id)"/>
                         </h:div>
                         <h:div class="btn">
-                            <button label="${labels.delete}" width="150px"
+                            <button class="btn btn-outline-danger" label="${labels.delete}" width="150px"
                                     onClick="@command('doDeleteImage', id=each.id))"/>
-
                         </h:div>
-
                     </h:div>
                 </h:div>
                 <h:div>
                     <h:br/>
                 </h:div>
             </sh:forEach>
-
-
         </xh:div>
-
-
     </xh:div>
 </zk>
 

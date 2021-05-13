@@ -1,77 +1,71 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="/zkau/templates/template.zul" ?>
 <?page complete="true"?>
-<zk xmlns:h="native" xmlns:sh="shadow" xmlns:zul="http://www.zkoss.org/2005/zul"
-    xmlns:xh="xhtml">
+<zk xmlns:h="native" xmlns:sh="shadow" xmlns:xh="xhtml">
     <xh:div self="@{define(pageContent)}" apply="org.zkoss.bind.BindComposer"
             viewModel="@id('vm') @init('com.gallery.galleryui.viewmodel.FullViewVm')">
         <h:div>
             <h:br/>
         </h:div>
         <xh:div class="container">
-
-
             <xh:div class="row">
                 <xh:div class="col-9">
                     <image width="100%" height="auto"
                            content="@load(vm.fullView.data) @converter('com.gallery.galleryui.viewmodel.converter.ImageToZkImageConverter')"/>
                 </xh:div>
-
-
                 <xh:div class="col">
                     <h:div>
-
                     </h:div>
                     <xh:div>
-                        <zul:textbox value="@bind(vm.fullView.name)" style="font-weight:bold" width="100%" maxlength="25"/>
+                        <xh:input class="form-control" value="@bind(vm.fullView.name)" type="text"
+                                  style="font-weight:bold" width="100%" maxlength="25"/>
                     </xh:div>
                     <xh:div>
-                        <zul:textbox value="@bind(vm.fullView.description)" width="100%" maxlength="25"/>
+                        <xh:input class="form-control" value="@bind(vm.fullView.description)" type="text" width="100%"
+                                  maxlength="25"/>
                     </xh:div>
                     <h:div>
                         <h:br/>
                     </h:div>
-
-
                     <xh:div class="container">
                         <sh:forEach items="@load(vm.tags)">
                             <xh:div class="row">
-                                <xh:div class="col">
-
-                                    <label value="@bind('#'.concat(each.name))" width="50px"/>
-
+                                <xh:div class="col-8">
+                                    <label value="@bind('#'.concat(each.name))"/>
                                 </xh:div>
-                                <xh:div class="btn" >
-                                    <button  label="${labels.remove}" width="100px"
-                                             onClick="@command('doRemoveTag', tagName=each.name, imageId=vm.fullView.id)"/>
+                                <xh:div class="btn">
+                                    <button type="button" class="btn btn-white" label="X" width="45px"
+                                            onClick="@command('doRemoveTag', tagName=each.name, imageId=vm.fullView.id)"/>
                                 </xh:div>
                             </xh:div>
                         </sh:forEach>
-                    </xh:div>
-                    <xh:div>
-                        <label value="${labels.enternewhashtag}"/>
-                        <textbox value="@bind(vm.tagName)"/>
+                        <xh:div>
+                            <xh:div class="row">
+                                <xh:div class="input-group mb-3">
+                                    <xh:input class="form-control" value="@bind(vm.tagName)" type="text"
+                                              placeholder="${labels.addtags}" width="72%"/>
+                                    <xh:div class="input-group-append">
+                                        <button label="${labels.add}" class="btn-secondary" type="button"
+                                                onClick="@command('doAddTags', tagName=each.name, imageId=vm.fullView.id)"/>
+                                    </xh:div>
+                                </xh:div>
+                            </xh:div>
+                        </xh:div>
                     </xh:div>
                     <h:br/>
-
                     <xh:div class="btn">
-                        <button label="${labels.savechanges}" width="150px" onClick="@command('doSaveChanges', imageId=vm.fullView.id)"/>
+                        <button class="btn btn-outline-success" label="${labels.savechanges}" width="150px"
+                                onClick="@command('doSaveChanges', imageId=vm.fullView.id)"/>
                     </xh:div>
                     <xh:div class="btn">
-                        <button label="${labels.delete}" width="150px"
+                        <button class="btn btn-outline-danger" label="${labels.delete}" width="150px"
                                 onClick="@command('doDeleteImage', image=vm.fullView.id))"/>
                     </xh:div>
-
                 </xh:div>
             </xh:div>
-
             <h:div>
                 <h:br/>
             </h:div>
-
-
         </xh:div>
-
-
     </xh:div>
 </zk>
 
