@@ -2,8 +2,7 @@ package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.galleryui.viewmodel.views.ImageView;
-import com.gallery.repository.InternalImageRepo;
-import com.gallery.repository.TagRepository;
+import com.gallery.repository.ImageRepo;
 import com.gallery.repository.imageview.ImageViewShow;
 import com.gallery.repository.imageview.TagViewShow;
 import org.imgscalr.Scalr;
@@ -23,7 +22,7 @@ import java.util.Set;
 public class ImageService {
 
     @Autowired
-    InternalImageRepo imageRepository;
+    ImageRepo imageRepository;
     @Autowired
     TagService tagService;
 
@@ -67,7 +66,6 @@ public class ImageService {
     }
 
     public List<ImageViewShow> convertIdListToImageViewList(List<Long> imageIdList) {
-
         List<ImageViewShow> imagesList = new ArrayList<>();
         for (Long id : imageIdList) {
             Image image = imageRepository.getById(id);

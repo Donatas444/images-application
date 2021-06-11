@@ -2,7 +2,7 @@ package com.gallery.galleryui.service;
 
 import com.gallery.gallerymodel.Image;
 import com.gallery.gallerymodel.Tag;
-import com.gallery.repository.InternalImageRepo;
+import com.gallery.repository.ImageRepo;
 import com.gallery.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class TagService {
     @Autowired
     TagService tagService;
     @Autowired
-    InternalImageRepo imageRepository;
+    ImageRepo imageRepository;
 
     public Tag getTagByName(String name) {
         return tagRepository.findByName(name);
@@ -32,24 +32,28 @@ public class TagService {
 
     public void addTags(Image image, String name) {
         if (name != null) {
-            String[] splitTags = name.split("\\s+");
-            for (String tagNotNull : splitTags) {
-                if (tagRepository.findByName(tagNotNull) != null && tagNotNull.equalsIgnoreCase(getExistingName(tagNotNull))) {
-                    Tag existingTag = tagRepository.findByName(tagNotNull);
-                    image.addTag(existingTag);
-                } else {
-                    Tag newTag = new Tag();
-                    newTag.setName(tagNotNull);
-                    tagRepository.save(newTag);
-                    image.addTag(newTag);
-                }
-            }
+            saveTagsAndAddToImage(image, name);
         } else {
             imageRepository.save(image);
         }
-        imageRepository.save(image);
     }
 
+    public void saveTagsAndAddToImage(Image image, String name) {
+        String[] splitTags = name.split("\\s+");
+        for (String tagNotNull : splitTags) {
+            if (tagRepository.findByName(tagNotNull) != null && tagNotNull.equalsIgnoreCase(getExistingName(tagNotNull))) {
+                Tag existingTag = tagRepository.findByName(tagNotNull);
+                image.addTag(existingTag);
+            } else {
+                Tag newTag = new Tag();
+                newTag.setName(tagNotNull);
+                tagRepository.save(newTag);
+                image.addTag(newTag);
+            }
+        }
+        imageRepository.save(image);
+    }
+    
     public void removeTag(Long id, String name) {
         Image image = imageRepository.getById(id);
         Tag tag = tagService.getTagByName(name);

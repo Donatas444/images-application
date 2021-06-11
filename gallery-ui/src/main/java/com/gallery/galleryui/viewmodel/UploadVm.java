@@ -24,7 +24,6 @@ public class UploadVm {
 
     @WireVariable
     ImageService imageService;
-
     @WireVariable
     TagService tagService;
 
@@ -58,7 +57,6 @@ public class UploadVm {
             byte[] data = media.getByteData();
             BufferedImage newThumbnail = imageService.createThumbnail(data);
             byte[] thumbnail = imageService.bufferedImageToByteArray(newThumbnail);
-
             image.setName(mediaName);
             image.setData(data);
             image.setThumbnail(thumbnail);

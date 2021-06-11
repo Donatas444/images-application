@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @NoRepositoryBean
-public interface InternalImageRepoCustom extends JpaRepository<Image, Long> {
+public interface ImageRepoCustom extends JpaRepository<Image, Long> {
     List<Long> searchByKeyword(String keyword);
     List<ImageViewShow> getAllImages();
     Set<TagViewShow> getImageTags(Long id);

@@ -19,20 +19,16 @@ public class SearchVm {
 
     @WireVariable
     ImageService imageService;
-
     @Getter
     @Setter
     private String keyword;
-
-    private List<Long> imagesId;
-
     @Getter
     private List<ImageViewShow> images;
 
     @NotifyChange({"images"})
     @Command
     public void doSearchByKeyword() {
-        imagesId = imageService.searchByKeyword(keyword);
+        List<Long> imagesId = imageService.searchByKeyword(keyword);
         images = imageService.convertIdListToImageViewList(imagesId);
     }
 

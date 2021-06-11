@@ -17,12 +17,10 @@ import java.util.List;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class ImageVm implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @WireVariable
     ImageService imageService;
-
     @Getter
     private List<ImageViewShow> images;
 
