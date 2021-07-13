@@ -14,13 +14,13 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 @Service
-public class ImageService {
-
+public class ImageService implements Serializable {
     @Autowired
     ImageRepo imageRepository;
     @Autowired
@@ -46,7 +46,6 @@ public class ImageService {
 
     public ImageView getImageById(Long id) {
         return new ImageView(imageRepository.getById(id));
-
     }
 
     public void updateImage(Long id, ImageView imageView, String tagName) {
@@ -79,9 +78,7 @@ public class ImageService {
     }
 
     public BufferedImage createThumbnail(byte[] input) {
-
-        BufferedImage scaledImage = Scalr.resize(createImageFromBytes(input), 150);
-        return scaledImage;
+        return Scalr.resize(createImageFromBytes(input), 150);
     }
 
     public BufferedImage createImageFromBytes(byte[] input) {
@@ -96,7 +93,6 @@ public class ImageService {
     public byte[] bufferedImageToByteArray(BufferedImage bufferedImage) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
-        byte[] bytes = byteArrayOutputStream.toByteArray();
-        return bytes;
+        return byteArrayOutputStream.toByteArray();
     }
 }

@@ -16,7 +16,6 @@ import java.util.List;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class SearchVm {
-
     @WireVariable
     ImageService imageService;
     @Getter

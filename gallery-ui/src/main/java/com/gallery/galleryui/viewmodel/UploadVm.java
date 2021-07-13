@@ -21,12 +21,10 @@ import java.io.IOException;
 @Setter
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class UploadVm {
-
     @WireVariable
     ImageService imageService;
     @WireVariable
     TagService tagService;
-
     private ImageView image;
     private String tagName;
 
@@ -50,7 +48,7 @@ public class UploadVm {
     public void onFileUpload(@ContextParam(ContextType.BIND_CONTEXT) BindContext picture) throws IOException {
         UploadEvent uploadEvent = null;
         Object objUploadEvent = picture.getTriggerEvent();
-        if (objUploadEvent != null && (objUploadEvent instanceof UploadEvent)) {
+        if (objUploadEvent instanceof UploadEvent) {
             uploadEvent = (UploadEvent) objUploadEvent;
             Media media = uploadEvent.getMedia();
             String mediaName = media.getName();

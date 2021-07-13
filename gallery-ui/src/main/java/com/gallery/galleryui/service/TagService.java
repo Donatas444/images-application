@@ -7,16 +7,14 @@ import com.gallery.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ConcurrentModificationException;
+import java.io.Serializable;
 import java.util.Set;
 
 @Service
-public class TagService {
+public class TagService  implements Serializable {
 
     @Autowired
     TagRepository tagRepository;
-    @Autowired
-    TagService tagService;
     @Autowired
     ImageRepo imageRepository;
 
@@ -56,7 +54,7 @@ public class TagService {
     
     public void removeTag(Long id, String name) {
         Image image = imageRepository.getById(id);
-        Tag tag = tagService.getTagByName(name);
+        Tag tag = getTagByName(name);
         Set<Tag> tags = image.getTags();
         try {
             for (Tag tagInSet : tags) {
@@ -66,8 +64,8 @@ public class TagService {
                     imageRepository.save(image);
                 }
             }
-        } catch (ConcurrentModificationException e) {
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

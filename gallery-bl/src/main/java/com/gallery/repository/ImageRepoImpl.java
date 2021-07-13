@@ -16,7 +16,6 @@ import java.util.*;
 
 @Component
 public class ImageRepoImpl extends SimpleJpaRepository<Image, Long> implements ImageRepoCustom {
-
     EntityManager entityManager;
 
     ImageRepoImpl(EntityManager em) {
@@ -33,11 +32,9 @@ public class ImageRepoImpl extends SimpleJpaRepository<Image, Long> implements I
         Path<Long> idPath = root.get(Image_.id);
         criteriaQuery.multiselect(idPath);
         ArrayList<Predicate> conditions = new ArrayList<>();
-
         conditions.add(builder.like(builder.lower(root.get(Image_.name)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
         conditions.add(builder.like(builder.lower(root.get(Image_.description)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
         conditions.add(builder.like(builder.lower(tagJoin.get(Tag_.name)), "%" + keyword.toLowerCase(Locale.ROOT) + "%"));
-
         criteriaQuery.where(builder.or(conditions.toArray(new Predicate[conditions.size()])));
         criteriaQuery.distinct(true);
         List<Long> idList = new ArrayList<>();

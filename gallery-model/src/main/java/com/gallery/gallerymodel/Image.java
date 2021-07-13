@@ -14,19 +14,15 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 public class Image implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
-
     private String description;
     @Lob
     private byte[] thumbnail;
     @Lob
     private byte[] data;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "picture_tag", joinColumns = @JoinColumn(name = "picture_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private Set<Tag> tags = new HashSet<>();

@@ -4,7 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class TagViewShow {
-
     private String name;
 
     public TagViewShow(String name) {

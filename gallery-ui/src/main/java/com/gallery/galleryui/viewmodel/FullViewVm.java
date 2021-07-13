@@ -13,16 +13,17 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zk.ui.util.Clients;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Set;
 
 @VariableResolver(org.zkoss.zkplus.spring.DelegatingVariableResolver.class)
 public class FullViewVm implements Serializable {
     private static final long serialVersionUID = -3440818130908355085L;
-
     @WireVariable
     ImageService imageService;
     @WireVariable
+    @Transient
     TagService tagService;
     @Getter
     ImageView fullView;
@@ -63,7 +64,6 @@ public class FullViewVm implements Serializable {
     @NotifyChange({"images"})
     @Command
     public void doDeleteImage(@BindingParam("image") Long id) {
-
         Messagebox.show("Sure want to delete image?", "Warning!", Messagebox.YES | Messagebox.NO, Messagebox.QUESTION, event -> {
             if (event.getName().equals("onYes")) {
                 imageService.deleteImageById(id);

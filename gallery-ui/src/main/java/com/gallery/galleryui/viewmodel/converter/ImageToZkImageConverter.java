@@ -11,7 +11,6 @@ import org.zkoss.image.AImage;
 import org.zkoss.zul.Image;
 
 public class ImageToZkImageConverter implements Converter<AImage, byte[], Image> {
-
     private Log logger = LogFactory.getLog(ImageToZkImageConverter.class);
 
     @Override
